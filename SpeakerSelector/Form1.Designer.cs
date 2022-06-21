@@ -28,21 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpeakerSelector));
             this.btnSetUp = new System.Windows.Forms.Button();
             this.lbLogo = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_ch1deg = new System.Windows.Forms.Label();
-            this.pb_ch3 = new System.Windows.Forms.PictureBox();
-            this.pb_ch6 = new System.Windows.Forms.PictureBox();
-            this.pb_ch4 = new System.Windows.Forms.PictureBox();
-            this.pb_ch8 = new System.Windows.Forms.PictureBox();
-            this.pb_ch2 = new System.Windows.Forms.PictureBox();
-            this.pb_ch1 = new System.Windows.Forms.PictureBox();
-            this.pb_ch7 = new System.Windows.Forms.PictureBox();
-            this.pb_ch5 = new System.Windows.Forms.PictureBox();
             this.lb_ch1 = new System.Windows.Forms.Label();
             this.lb_ch2 = new System.Windows.Forms.Label();
             this.lb_ch3 = new System.Windows.Forms.Label();
@@ -58,16 +49,27 @@
             this.lb_ch3deg = new System.Windows.Forms.Label();
             this.lb_ch2deg = new System.Windows.Forms.Label();
             this.lb_ch8deg = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch7)).BeginInit();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.pb_ch5 = new System.Windows.Forms.PictureBox();
+            this.pb_ch7 = new System.Windows.Forms.PictureBox();
+            this.pb_ch1 = new System.Windows.Forms.PictureBox();
+            this.pb_ch2 = new System.Windows.Forms.PictureBox();
+            this.pb_ch8 = new System.Windows.Forms.PictureBox();
+            this.pb_ch4 = new System.Windows.Forms.PictureBox();
+            this.pb_ch6 = new System.Windows.Forms.PictureBox();
+            this.pb_ch3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pb_ChairCircle = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ch5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ChairCircle)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSetUp
@@ -93,27 +95,6 @@
             this.lbLogo.TabIndex = 3;
             this.lbLogo.Text = "Sound\r\nSelector";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::SpeakerSelector.Properties.Resources.logo;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(702, 784);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(70, 80);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::SpeakerSelector.Properties.Resources.circlewithhead;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(800, 800);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -133,94 +114,6 @@
             this.lb_ch1deg.Size = new System.Drawing.Size(32, 12);
             this.lb_ch1deg.TabIndex = 9;
             this.lb_ch1deg.Text = "0 °";
-            // 
-            // pb_ch3
-            // 
-            this.pb_ch3.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
-            this.pb_ch3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_ch3.Location = new System.Drawing.Point(772, 377);
-            this.pb_ch3.Name = "pb_ch3";
-            this.pb_ch3.Size = new System.Drawing.Size(100, 100);
-            this.pb_ch3.TabIndex = 11;
-            this.pb_ch3.TabStop = false;
-            this.pb_ch3.Click += new System.EventHandler(this.pb_ch3_Click);
-            // 
-            // pb_ch6
-            // 
-            this.pb_ch6.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
-            this.pb_ch6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_ch6.Location = new System.Drawing.Point(106, 662);
-            this.pb_ch6.Name = "pb_ch6";
-            this.pb_ch6.Size = new System.Drawing.Size(100, 100);
-            this.pb_ch6.TabIndex = 12;
-            this.pb_ch6.TabStop = false;
-            this.pb_ch6.Click += new System.EventHandler(this.pb_ch6_Click);
-            // 
-            // pb_ch4
-            // 
-            this.pb_ch4.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
-            this.pb_ch4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_ch4.Location = new System.Drawing.Point(677, 662);
-            this.pb_ch4.Name = "pb_ch4";
-            this.pb_ch4.Size = new System.Drawing.Size(100, 100);
-            this.pb_ch4.TabIndex = 13;
-            this.pb_ch4.TabStop = false;
-            this.pb_ch4.Click += new System.EventHandler(this.pb_ch4_Click);
-            // 
-            // pb_ch8
-            // 
-            this.pb_ch8.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
-            this.pb_ch8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_ch8.Location = new System.Drawing.Point(106, 91);
-            this.pb_ch8.Name = "pb_ch8";
-            this.pb_ch8.Size = new System.Drawing.Size(100, 100);
-            this.pb_ch8.TabIndex = 14;
-            this.pb_ch8.TabStop = false;
-            this.pb_ch8.Click += new System.EventHandler(this.pb_ch8_Click);
-            // 
-            // pb_ch2
-            // 
-            this.pb_ch2.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
-            this.pb_ch2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_ch2.Location = new System.Drawing.Point(678, 91);
-            this.pb_ch2.Name = "pb_ch2";
-            this.pb_ch2.Size = new System.Drawing.Size(100, 100);
-            this.pb_ch2.TabIndex = 15;
-            this.pb_ch2.TabStop = false;
-            this.pb_ch2.Click += new System.EventHandler(this.pb_ch2_Click);
-            // 
-            // pb_ch1
-            // 
-            this.pb_ch1.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
-            this.pb_ch1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_ch1.Location = new System.Drawing.Point(391, 12);
-            this.pb_ch1.Name = "pb_ch1";
-            this.pb_ch1.Size = new System.Drawing.Size(100, 100);
-            this.pb_ch1.TabIndex = 16;
-            this.pb_ch1.TabStop = false;
-            this.pb_ch1.Click += new System.EventHandler(this.pb_ch1_Click);
-            // 
-            // pb_ch7
-            // 
-            this.pb_ch7.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
-            this.pb_ch7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_ch7.Location = new System.Drawing.Point(12, 377);
-            this.pb_ch7.Name = "pb_ch7";
-            this.pb_ch7.Size = new System.Drawing.Size(100, 100);
-            this.pb_ch7.TabIndex = 17;
-            this.pb_ch7.TabStop = false;
-            this.pb_ch7.Click += new System.EventHandler(this.pb_ch7_Click);
-            // 
-            // pb_ch5
-            // 
-            this.pb_ch5.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
-            this.pb_ch5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_ch5.Location = new System.Drawing.Point(391, 745);
-            this.pb_ch5.Name = "pb_ch5";
-            this.pb_ch5.Size = new System.Drawing.Size(100, 100);
-            this.pb_ch5.TabIndex = 18;
-            this.pb_ch5.TabStop = false;
-            this.pb_ch5.Click += new System.EventHandler(this.pb_ch5_Click);
             // 
             // lb_ch1
             // 
@@ -372,6 +265,115 @@
             this.lb_ch8deg.TabIndex = 33;
             this.lb_ch8deg.Text = "315 °";
             // 
+            // pb_ch5
+            // 
+            this.pb_ch5.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
+            this.pb_ch5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_ch5.Location = new System.Drawing.Point(391, 745);
+            this.pb_ch5.Name = "pb_ch5";
+            this.pb_ch5.Size = new System.Drawing.Size(100, 100);
+            this.pb_ch5.TabIndex = 18;
+            this.pb_ch5.TabStop = false;
+            this.pb_ch5.Click += new System.EventHandler(this.pb_ch5_Click);
+            // 
+            // pb_ch7
+            // 
+            this.pb_ch7.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
+            this.pb_ch7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_ch7.Location = new System.Drawing.Point(12, 377);
+            this.pb_ch7.Name = "pb_ch7";
+            this.pb_ch7.Size = new System.Drawing.Size(100, 100);
+            this.pb_ch7.TabIndex = 17;
+            this.pb_ch7.TabStop = false;
+            this.pb_ch7.Click += new System.EventHandler(this.pb_ch7_Click);
+            // 
+            // pb_ch1
+            // 
+            this.pb_ch1.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
+            this.pb_ch1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_ch1.Location = new System.Drawing.Point(391, 12);
+            this.pb_ch1.Name = "pb_ch1";
+            this.pb_ch1.Size = new System.Drawing.Size(100, 100);
+            this.pb_ch1.TabIndex = 16;
+            this.pb_ch1.TabStop = false;
+            this.pb_ch1.Click += new System.EventHandler(this.pb_ch1_Click);
+            // 
+            // pb_ch2
+            // 
+            this.pb_ch2.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
+            this.pb_ch2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_ch2.Location = new System.Drawing.Point(678, 91);
+            this.pb_ch2.Name = "pb_ch2";
+            this.pb_ch2.Size = new System.Drawing.Size(100, 100);
+            this.pb_ch2.TabIndex = 15;
+            this.pb_ch2.TabStop = false;
+            this.pb_ch2.Click += new System.EventHandler(this.pb_ch2_Click);
+            // 
+            // pb_ch8
+            // 
+            this.pb_ch8.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
+            this.pb_ch8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_ch8.Location = new System.Drawing.Point(106, 91);
+            this.pb_ch8.Name = "pb_ch8";
+            this.pb_ch8.Size = new System.Drawing.Size(100, 100);
+            this.pb_ch8.TabIndex = 14;
+            this.pb_ch8.TabStop = false;
+            this.pb_ch8.Click += new System.EventHandler(this.pb_ch8_Click);
+            // 
+            // pb_ch4
+            // 
+            this.pb_ch4.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
+            this.pb_ch4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_ch4.Location = new System.Drawing.Point(677, 662);
+            this.pb_ch4.Name = "pb_ch4";
+            this.pb_ch4.Size = new System.Drawing.Size(100, 100);
+            this.pb_ch4.TabIndex = 13;
+            this.pb_ch4.TabStop = false;
+            this.pb_ch4.Click += new System.EventHandler(this.pb_ch4_Click);
+            // 
+            // pb_ch6
+            // 
+            this.pb_ch6.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
+            this.pb_ch6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_ch6.Location = new System.Drawing.Point(106, 662);
+            this.pb_ch6.Name = "pb_ch6";
+            this.pb_ch6.Size = new System.Drawing.Size(100, 100);
+            this.pb_ch6.TabIndex = 12;
+            this.pb_ch6.TabStop = false;
+            this.pb_ch6.Click += new System.EventHandler(this.pb_ch6_Click);
+            // 
+            // pb_ch3
+            // 
+            this.pb_ch3.BackgroundImage = global::SpeakerSelector.Properties.Resources.spk_off;
+            this.pb_ch3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_ch3.Location = new System.Drawing.Point(772, 377);
+            this.pb_ch3.Name = "pb_ch3";
+            this.pb_ch3.Size = new System.Drawing.Size(100, 100);
+            this.pb_ch3.TabIndex = 11;
+            this.pb_ch3.TabStop = false;
+            this.pb_ch3.Click += new System.EventHandler(this.pb_ch3_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::SpeakerSelector.Properties.Resources.logo;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(702, 784);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(70, 80);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pb_ChairCircle
+            // 
+            this.pb_ChairCircle.BackgroundImage = global::SpeakerSelector.Properties.Resources.CircleChair0deg;
+            this.pb_ChairCircle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_ChairCircle.InitialImage = null;
+            this.pb_ChairCircle.Location = new System.Drawing.Point(39, 27);
+            this.pb_ChairCircle.Name = "pb_ChairCircle";
+            this.pb_ChairCircle.Size = new System.Drawing.Size(800, 800);
+            this.pb_ChairCircle.TabIndex = 0;
+            this.pb_ChairCircle.TabStop = false;
+            // 
             // SpeakerSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -406,21 +408,21 @@
             this.Controls.Add(this.lbLogo);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnSetUp);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pb_ChairCircle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SpeakerSelector";
             this.Text = "SoundCareTech.";
             this.Load += new System.EventHandler(this.SpeakerSelector_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ch7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ch5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ch3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ChairCircle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,22 +434,11 @@
         private System.Windows.Forms.Label lbLogo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pb_ch3;
-        private System.Windows.Forms.PictureBox pb_ch6;
-        private System.Windows.Forms.PictureBox pb_ch4;
-        private System.Windows.Forms.PictureBox pb_ch8;
-        private System.Windows.Forms.PictureBox pb_ch2;
         private System.Windows.Forms.PictureBox pb_ch1;
         private System.Windows.Forms.PictureBox pb_ch7;
         private System.Windows.Forms.PictureBox pb_ch5;
         private System.Windows.Forms.Label lb_ch1;
-        private System.Windows.Forms.Label lb_ch2;
-        private System.Windows.Forms.Label lb_ch3;
-        private System.Windows.Forms.Label lb_ch4;
-        private System.Windows.Forms.Label lb_ch5;
-        private System.Windows.Forms.Label lb_ch6;
-        private System.Windows.Forms.Label lb_ch7;
-        private System.Windows.Forms.Label lb_ch8;
-        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox pb_ChairCircle;
         public System.Windows.Forms.Label lb_ch1deg;
         public System.Windows.Forms.Label lb_ch7deg;
         public System.Windows.Forms.Label lb_ch6deg;
@@ -456,6 +447,18 @@
         public System.Windows.Forms.Label lb_ch3deg;
         public System.Windows.Forms.Label lb_ch2deg;
         public System.Windows.Forms.Label lb_ch8deg;
+        public System.IO.Ports.SerialPort serialPort1;
+        public System.Windows.Forms.PictureBox pb_ch6;
+        public System.Windows.Forms.PictureBox pb_ch4;
+        public System.Windows.Forms.PictureBox pb_ch8;
+        public System.Windows.Forms.PictureBox pb_ch2;
+        public System.Windows.Forms.Label lb_ch2;
+        public System.Windows.Forms.Label lb_ch3;
+        public System.Windows.Forms.Label lb_ch4;
+        public System.Windows.Forms.Label lb_ch5;
+        public System.Windows.Forms.Label lb_ch6;
+        public System.Windows.Forms.Label lb_ch7;
+        public System.Windows.Forms.Label lb_ch8;
     }
 }
 

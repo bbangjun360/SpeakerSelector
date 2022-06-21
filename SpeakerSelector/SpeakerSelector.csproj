@@ -91,6 +91,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\CircleChair315deg.png" />
+    <None Include="Resources\CircleChair270deg.png" />
+    <None Include="Resources\CircleChair225deg.png" />
+    <None Include="Resources\CircleChair180deg.png" />
+    <None Include="Resources\CircleChair135deg.png" />
+    <None Include="Resources\CircleChair90deg.png" />
+    <None Include="Resources\CircleChair45deg.png" />
+    <None Include="Resources\CircleChair0deg.png" />
     <None Include="Resources\circlewithhead.png" />
     <None Include="Resources\spk_on.png" />
     <None Include="Resources\spk_off.png" />
