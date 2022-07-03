@@ -382,7 +382,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(323, 313);
-            this.ControlBox = false;
             this.Controls.Add(this.gb_chairlocation);
             this.Controls.Add(this.gb_Serial);
             this.Controls.Add(this.gb_8ch);
