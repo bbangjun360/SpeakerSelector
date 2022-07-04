@@ -34,13 +34,26 @@ namespace SpeakerSelector
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            cb_chairdeg.SelectedIndex = Properties.Settings.Default.save_cb_chairdeg;
+            rb_4chsel.Checked = !(Properties.Settings.Default.save_rb_8chsel);
+            rb_8chsel.Checked = Properties.Settings.Default.save_rb_8chsel;
+            tb_ch1ang.Text = Properties.Settings.Default.save_ch1ang;
+            tb_ch2ang.Text = Properties.Settings.Default.save_ch2ang;
+            tb_ch3ang.Text = Properties.Settings.Default.save_ch3ang;
+            tb_ch4ang.Text = Properties.Settings.Default.save_ch4ang;
+            tb_ch5ang.Text = Properties.Settings.Default.save_ch5ang;
+            tb_ch6ang.Text = Properties.Settings.Default.save_ch6ang;
+            tb_ch7ang.Text = Properties.Settings.Default.save_ch7ang;
+            tb_ch8ang.Text = Properties.Settings.Default.save_ch8ang;
+
+
             if (form1.serialPort1.IsOpen)
             {
                 cb_SerialPort.Text = "연결됨";
             }
             else
             {
-                cb_SerialPort.Text = "해제됨";
+                cb_SerialPort.Text = Properties.Settings.Default.save_cb_SerialPort;
             }
         }
         private void cb_SerialPort_Click(object sender, EventArgs e)
@@ -50,6 +63,7 @@ namespace SpeakerSelector
         
         private void btn_SerialOpen_Click(object sender, EventArgs e)
         {
+            form1.serialPort1.Close();
             if (!form1.serialPort1.IsOpen)                                                             //시리얼포트가 열려 있지 않으면
             {
                 form1.serialPort1.PortName = cb_SerialPort.Text;                                   //콤보박스의 선택된 COM포트명을 시리얼포트명으로 지정
@@ -136,16 +150,31 @@ namespace SpeakerSelector
 
             switch (cb_chairdeg.SelectedIndex)
             {
-                case 0: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.CircleChair0deg;    break;
-                case 1: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.CircleChair45deg;   break;
-                case 2: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.CircleChair90deg;   break;
-                case 3: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.CircleChair135deg;  break;
-                case 4: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.CircleChair180deg;  break;
-                case 5: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.CircleChair225deg;  break;
-                case 6: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.CircleChair270deg;  break;
-                case 7: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.CircleChair315deg;  break;
+                case 0: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair0d;    break;
+                case 1: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair45d;   break;
+                case 2: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair90d;   break;
+                case 3: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair135d;  break;
+                case 4: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair180d;  break;
+                case 5: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair225d;  break;
+                case 6: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair270d;  break;
+                case 7: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair315d;  break;
             }
-           
+
+            Properties.Settings.Default.save_ch1ang = tb_ch1ang.Text;
+            Properties.Settings.Default.save_ch2ang = tb_ch2ang.Text;
+            Properties.Settings.Default.save_ch3ang = tb_ch3ang.Text;
+            Properties.Settings.Default.save_ch4ang = tb_ch4ang.Text;
+            Properties.Settings.Default.save_ch5ang = tb_ch5ang.Text;
+            Properties.Settings.Default.save_ch6ang = tb_ch6ang.Text;
+            Properties.Settings.Default.save_ch7ang = tb_ch7ang.Text;
+            Properties.Settings.Default.save_ch8ang = tb_ch8ang.Text;
+            Properties.Settings.Default.save_rb_8chsel = rb_8chsel.Checked;
+            Properties.Settings.Default.save_cb_chairdeg = cb_chairdeg.SelectedIndex;
+            Properties.Settings.Default.save_cb_SerialPort = cb_SerialPort.Text;
+            Properties.Settings.Default.Save();
+
+
+
         }
 
         private void btn_close_Click(object sender, EventArgs e)

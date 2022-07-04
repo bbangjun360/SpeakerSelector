@@ -365,7 +365,7 @@
             // 
             // pb_ChairCircle
             // 
-            this.pb_ChairCircle.BackgroundImage = global::SpeakerSelector.Properties.Resources.CircleChair0deg;
+            this.pb_ChairCircle.BackgroundImage = global::SpeakerSelector.Properties.Resources.circlechair315d;
             this.pb_ChairCircle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pb_ChairCircle.InitialImage = null;
             this.pb_ChairCircle.Location = new System.Drawing.Point(39, 27);
@@ -378,6 +378,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(884, 861);
             this.Controls.Add(this.lb_ch8deg);

@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -91,6 +94,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\circlechair315d.png" />
+    <None Include="Resources\circlechair270d.png" />
+    <None Include="Resources\circlechair225d.png" />
+    <None Include="Resources\circlechair180d.png" />
+    <None Include="Resources\circlechair135d.png" />
+    <None Include="Resources\circlechair90d.png" />
+    <None Include="Resources\circlechair45d.png" />
+    <None Include="Resources\circlechair0d.png" />
     <None Include="Resources\CircleChair315deg.png" />
     <None Include="Resources\CircleChair270deg.png" />
     <None Include="Resources\CircleChair225deg.png" />

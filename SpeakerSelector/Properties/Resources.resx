@@ -118,23 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="spk_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spk_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="circlewithhead" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\circlewithhead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="circlr" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\circlr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spk_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spk_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CircleChair0deg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CircleChair0deg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CircleChair225deg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CircleChair225deg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CircleChair45deg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CircleChair45deg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,19 +127,58 @@
   <data name="CircleChair90deg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CircleChair90deg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CircleChair135deg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CircleChair135deg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CircleChair180deg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CircleChair180deg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CircleChair225deg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CircleChair225deg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CircleChair270deg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CircleChair270deg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CircleChair315deg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CircleChair315deg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spk_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spk_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CircleChair0deg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CircleChair0deg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CircleChair135deg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CircleChair135deg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circlr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circlr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circlewithhead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circlewithhead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spk_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spk_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circlechair0d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circlechair0d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circlechair45d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circlechair45d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circlechair90d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circlechair90d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circlechair135d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circlechair135d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circlechair180d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circlechair180d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circlechair225d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circlechair225d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circlechair270d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circlechair270d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circlechair315d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circlechair315d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

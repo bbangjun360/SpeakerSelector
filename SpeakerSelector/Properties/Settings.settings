@@ -1,7 +1,39 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SpeakerSelector.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="save_ch1ang" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0 °</Value>
+    </Setting>
+    <Setting Name="save_ch2ang" Type="System.String" Scope="User">
+      <Value Profile="(Default)">45 °</Value>
+    </Setting>
+    <Setting Name="save_ch3ang" Type="System.String" Scope="User">
+      <Value Profile="(Default)">90 °</Value>
+    </Setting>
+    <Setting Name="save_ch4ang" Type="System.String" Scope="User">
+      <Value Profile="(Default)">135 °</Value>
+    </Setting>
+    <Setting Name="save_ch5ang" Type="System.String" Scope="User">
+      <Value Profile="(Default)">180 °</Value>
+    </Setting>
+    <Setting Name="save_ch6ang" Type="System.String" Scope="User">
+      <Value Profile="(Default)">225 °</Value>
+    </Setting>
+    <Setting Name="save_ch7ang" Type="System.String" Scope="User">
+      <Value Profile="(Default)">270 °</Value>
+    </Setting>
+    <Setting Name="save_ch8ang" Type="System.String" Scope="User">
+      <Value Profile="(Default)">315 °</Value>
+    </Setting>
+    <Setting Name="save_rb_8chsel" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="save_cb_chairdeg" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="save_cb_SerialPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM20</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
