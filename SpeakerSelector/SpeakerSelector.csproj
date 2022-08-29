@@ -94,6 +94,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\HalfCircle90deg.png" />
+    <Content Include="Resources\programLogo.jpg" />
+    <None Include="Resources\programLogo1.jpg" />
     <None Include="Resources\circlechair315d.png" />
     <None Include="Resources\circlechair270d.png" />
     <None Include="Resources\circlechair225d.png" />

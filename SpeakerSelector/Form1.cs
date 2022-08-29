@@ -13,11 +13,13 @@ namespace SpeakerSelector
 {
     public partial class SpeakerSelector : Form
     {
-        
+        System.Threading.Timer TESTTIME_ThreadTimer;
+        delegate void TimerEventFiredDelegate_TESTTIME();
         public SpeakerSelector()
         {
             InitializeComponent();
-            
+            TESTTIME_ThreadTimer = new System.Threading.Timer(TESTTIME_timerCallBack);
+            TESTTIME_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
         }
 
         public void SpeakerSelector_Load(object sender, EventArgs e)
@@ -25,7 +27,23 @@ namespace SpeakerSelector
             Form2 SpeakerSelectorSetUp = new Form2(this);
             SpeakerSelectorSetUp.ShowDialog();
         }
+        void TESTTIME_timerCallBack(Object state)
+        {
+            BeginInvoke(new TimerEventFiredDelegate_TESTTIME(TESTTIME_timerWork));
+        }
+        long testtime_time = 0;
+        
+        private void TESTTIME_timerWork()
+        {
+            testtime_time += 1;                                                                      //초 마다 타이머 함수 실행되면 -1해 남은시간 줄여줌
+            lb_testtime.Text = (testtime_time / 60).ToString("00") + ":" + (testtime_time % 60).ToString("00");    //남은 시간 uint -> String으로 변환하는 작업
+            testtime_timer_tick(lb_testtime.Text);
 
+        }
+        private void testtime_timer_tick(String clock_data)
+        {
+
+        }
         public void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)      //수신 이벤트가 발생하면 이 부분이 실행된다.
         {
             this.Invoke(new EventHandler(MySerialReceived1));                                    //메인 쓰레드와 수신 쓰레드의 충돌 방지를 위해 Invoke 사용. MySerialReceived로 이동하여 추가 작업 실행.
@@ -189,6 +207,37 @@ namespace SpeakerSelector
         public void setangle(String ang)
         {
             lb_ch1deg.Text = ang;
+        }
+
+        private void rb_preset_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_preset.Checked)
+            {
+                this.Size = new Size(1250, 668);
+            }
+            else
+            {
+                this.Size = new Size(930, 668);
+            }
+        }
+
+        bool teststart = false;
+        private void btn_testStart_Click(object sender, EventArgs e)
+        {
+           if(teststart == false)
+           {
+                teststart = true;
+                btn_testStart.Text = "TEST STOP";
+                lb_testtime.Text = "00:00";
+                testtime_time = -1;
+                TESTTIME_ThreadTimer.Change(0, 1000);
+            }
+           else
+            {
+                teststart = false;
+                btn_testStart.Text = "TEST START";
+                TESTTIME_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+            }
         }
     }
 }
