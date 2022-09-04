@@ -35,5 +35,17 @@
     <Setting Name="save_cb_SerialPort" Type="System.String" Scope="User">
       <Value Profile="(Default)">COM20</Value>
     </Setting>
+    <Setting Name="save_tb_stimulationTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="save_tb_stimulationTimeWait" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="save_tb_routineTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="form2Opened" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

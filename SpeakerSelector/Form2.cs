@@ -28,32 +28,57 @@ namespace SpeakerSelector
             tb_ch6ang.Text = form1.lb_ch6deg.Text;
             tb_ch7ang.Text = form1.lb_ch7deg.Text;
             tb_ch8ang.Text = form1.lb_ch8deg.Text;
-            
-            
+
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            cb_chairdeg.SelectedIndex = Properties.Settings.Default.save_cb_chairdeg;
-            rb_4chsel.Checked = !(Properties.Settings.Default.save_rb_8chsel);
-            rb_8chsel.Checked = Properties.Settings.Default.save_rb_8chsel;
-            tb_ch1ang.Text = Properties.Settings.Default.save_ch1ang;
-            tb_ch2ang.Text = Properties.Settings.Default.save_ch2ang;
-            tb_ch3ang.Text = Properties.Settings.Default.save_ch3ang;
-            tb_ch4ang.Text = Properties.Settings.Default.save_ch4ang;
-            tb_ch5ang.Text = Properties.Settings.Default.save_ch5ang;
-            tb_ch6ang.Text = Properties.Settings.Default.save_ch6ang;
-            tb_ch7ang.Text = Properties.Settings.Default.save_ch7ang;
-            tb_ch8ang.Text = Properties.Settings.Default.save_ch8ang;
-
-
-            if (form1.serialPort1.IsOpen)
+            if (Properties.Settings.Default.save_rb_8chsel == true)
             {
-                cb_SerialPort.Text = "연결됨";
+                rb_8chsel.Checked = true;
+                rb_4chsel.Checked = false;
             }
             else
             {
-                cb_SerialPort.Text = Properties.Settings.Default.save_cb_SerialPort;
+                rb_8chsel.Checked = false;
+                rb_4chsel.Checked = true;
+            }
+            tb_form2StimulationTime.Text = Properties.Settings.Default.save_tb_stimulationTime;
+            tb_form2StimulationTimeWait.Text = Properties.Settings.Default.save_tb_stimulationTimeWait;
+            tb_form2RoutineTime.Text = Properties.Settings.Default.save_tb_routineTime;
+            form1.lb_stimulationTime.Text = tb_form2StimulationTime.Text + "s/" + tb_form2StimulationTimeWait.Text + "s";
+            form1.lb_routineCount.Text = tb_form2RoutineTime.Text;
+
+            btn_apply.PerformClick();
+            if (Properties.Settings.Default.form2Opened == false)
+            {
+                cb_chairdeg.SelectedIndex = Properties.Settings.Default.save_cb_chairdeg;
+                rb_4chsel.Checked = !(Properties.Settings.Default.save_rb_8chsel);
+                rb_8chsel.Checked = Properties.Settings.Default.save_rb_8chsel;
+                tb_ch1ang.Text = Properties.Settings.Default.save_ch1ang;
+                tb_ch2ang.Text = Properties.Settings.Default.save_ch2ang;
+                tb_ch3ang.Text = Properties.Settings.Default.save_ch3ang;
+                tb_ch4ang.Text = Properties.Settings.Default.save_ch4ang;
+                tb_ch5ang.Text = Properties.Settings.Default.save_ch5ang;
+                tb_ch6ang.Text = Properties.Settings.Default.save_ch6ang;
+                tb_ch7ang.Text = Properties.Settings.Default.save_ch7ang;
+                tb_ch8ang.Text = Properties.Settings.Default.save_ch8ang;
+                Properties.Settings.Default.form2Opened = true;
+                Properties.Settings.Default.Save();
+                
+
+                if (form1.serialPort1.IsOpen)
+                {
+                    cb_SerialPort.Text = "연결됨";
+                }
+                else
+                {
+                    cb_SerialPort.Text = Properties.Settings.Default.save_cb_SerialPort;
+                }
+            }
+            else
+            {
+                this.Close();
             }
         }
         private void cb_SerialPort_Click(object sender, EventArgs e)
@@ -82,6 +107,8 @@ namespace SpeakerSelector
             {
                 lb_SerialPort.Text = "포트가 열려 있습니다.";
             }
+            form1.btnConnect.BackColor = System.Drawing.Color.Green;
+            form1.btnConnect.Text = "connected";
         }
 
         private void rb_4chsel_CheckedChanged(object sender, EventArgs e)
@@ -121,10 +148,6 @@ namespace SpeakerSelector
                 form1.lb_ch3.Location = new Point(464, 105);
                 form1.lb_ch4.Location = new Point(563, 394);
 
-                tb_ch2ang.Text = "90 °";
-                tb_ch3ang.Text = "180 °";
-                tb_ch4ang.Text = "270 °";
-
                 form1.lb_ch1deg.Text = tb_ch1ang.Text;
                 form1.lb_ch2deg.Text = tb_ch2ang.Text;
                 form1.lb_ch3deg.Text = tb_ch3ang.Text;
@@ -134,12 +157,28 @@ namespace SpeakerSelector
                 form1.lb_ch7deg.Text = "";
                 form1.lb_ch8deg.Text = "";
 
+                Properties.Settings.Default.save_ch1ang = tb_ch1ang.Text;
+                Properties.Settings.Default.save_ch2ang = tb_ch2ang.Text;
+                Properties.Settings.Default.save_ch3ang = tb_ch3ang.Text;
+                Properties.Settings.Default.save_ch4ang = tb_ch4ang.Text;
+
                 form1.lb_ch1deg.Location = new Point(98, 415);
                 form1.lb_ch2deg.Location = new Point(218, 240);
                 form1.lb_ch3deg.Location = new Point(420, 259);
                 form1.lb_ch4deg.Location = new Point(501, 436);
 
                 form1.pb_ChairCircle.BackgroundImage = Properties.Resources.HalfCircle90deg;
+
+                form1.cb_listCh1.Location = new Point(6, 31);
+                form1.cb_listCh2.Location = new Point(82, 31);
+                form1.cb_listCh3.Location = new Point(158, 31);
+                form1.cb_listCh4.Location = new Point(234, 31);
+                form1.cb_listCh5.Visible = false;
+                form1.cb_listCh6.Visible = false;
+                form1.cb_listCh7.Visible = false;
+                form1.cb_listCh8.Visible = false;
+                
+
             }
             else if (rb_4chsel.Checked == false)
             {
@@ -186,8 +225,19 @@ namespace SpeakerSelector
                     case 5: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair225d; break;
                     case 6: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair270d; break;
                     case 7: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair315d; break;
+                    default: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair0d; break;
                 }
+                form1.cb_listCh1.Location = new Point(6, 20);
+                form1.cb_listCh2.Location = new Point(82, 20);
+                form1.cb_listCh3.Location = new Point(158, 20);
+                form1.cb_listCh4.Location = new Point(234, 20);
+                form1.cb_listCh5.Visible = true;
+                form1.cb_listCh6.Visible = true;
+                form1.cb_listCh7.Visible = true;
+                form1.cb_listCh8.Visible = true;
             }
+            form1.lb_stimulationTime.Text = tb_form2StimulationTime.Text +"s/" + tb_form2StimulationTimeWait.Text +"s";
+            form1.lb_routineCount.Text = tb_form2RoutineTime.Text;
 
             Properties.Settings.Default.save_ch1ang = tb_ch1ang.Text;
             Properties.Settings.Default.save_ch2ang = tb_ch2ang.Text;
@@ -203,6 +253,11 @@ namespace SpeakerSelector
             Properties.Settings.Default.save_rb_8chsel = rb_8chsel.Checked;
             Properties.Settings.Default.save_cb_chairdeg = cb_chairdeg.SelectedIndex;
             Properties.Settings.Default.save_cb_SerialPort = cb_SerialPort.Text;
+
+            Properties.Settings.Default.save_tb_stimulationTime = tb_form2StimulationTime.Text;
+            Properties.Settings.Default.save_tb_stimulationTimeWait = tb_form2StimulationTimeWait.Text;
+            Properties.Settings.Default.save_tb_routineTime = tb_form2RoutineTime.Text;
+
             Properties.Settings.Default.Save();
 
 
