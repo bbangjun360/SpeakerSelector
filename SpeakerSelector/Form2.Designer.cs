@@ -57,25 +57,21 @@
             this.cb_SerialPort = new System.Windows.Forms.ComboBox();
             this.gb_chairlocation = new System.Windows.Forms.GroupBox();
             this.cb_chairdeg = new System.Windows.Forms.ComboBox();
-            this.tb_form2StimulationTime = new System.Windows.Forms.TextBox();
-            this.gb_form2StimulationTime = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_form2StimulationTimeWait = new System.Windows.Forms.TextBox();
-            this.gb_form2RoutineCount = new System.Windows.Forms.GroupBox();
-            this.tb_form2RoutineTime = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.gb_speakerAngle = new System.Windows.Forms.GroupBox();
+            this.rb_180deg = new System.Windows.Forms.RadioButton();
+            this.rb_360deg = new System.Windows.Forms.RadioButton();
             this.cg_4ch.SuspendLayout();
             this.gb_8ch.SuspendLayout();
             this.gb_Serial.SuspendLayout();
             this.gb_chairlocation.SuspendLayout();
-            this.gb_form2StimulationTime.SuspendLayout();
-            this.gb_form2RoutineCount.SuspendLayout();
+            this.gb_speakerAngle.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_close
             // 
             this.btn_close.BackColor = System.Drawing.Color.White;
-            this.btn_close.Font = new System.Drawing.Font("Headline R", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_close.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_close.Location = new System.Drawing.Point(165, 333);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(146, 35);
@@ -87,7 +83,7 @@
             // btn_apply
             // 
             this.btn_apply.BackColor = System.Drawing.Color.White;
-            this.btn_apply.Font = new System.Drawing.Font("Headline R", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_apply.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_apply.Location = new System.Drawing.Point(12, 333);
             this.btn_apply.Name = "btn_apply";
             this.btn_apply.Size = new System.Drawing.Size(146, 35);
@@ -99,7 +95,7 @@
             // rb_4chsel
             // 
             this.rb_4chsel.AutoSize = true;
-            this.rb_4chsel.Font = new System.Drawing.Font("Headline R", 9.75F);
+            this.rb_4chsel.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F);
             this.rb_4chsel.Location = new System.Drawing.Point(6, 23);
             this.rb_4chsel.Name = "rb_4chsel";
             this.rb_4chsel.Size = new System.Drawing.Size(60, 17);
@@ -112,7 +108,7 @@
             // 
             this.rb_8chsel.AutoSize = true;
             this.rb_8chsel.Checked = true;
-            this.rb_8chsel.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rb_8chsel.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.rb_8chsel.Location = new System.Drawing.Point(72, 23);
             this.rb_8chsel.Name = "rb_8chsel";
             this.rb_8chsel.Size = new System.Drawing.Size(60, 17);
@@ -133,7 +129,7 @@
             this.cg_4ch.Controls.Add(this.lb_ch1);
             this.cg_4ch.Controls.Add(this.rb_4chsel);
             this.cg_4ch.Controls.Add(this.rb_8chsel);
-            this.cg_4ch.Font = new System.Drawing.Font("Headline R", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cg_4ch.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cg_4ch.Location = new System.Drawing.Point(164, 12);
             this.cg_4ch.Name = "cg_4ch";
             this.cg_4ch.Size = new System.Drawing.Size(146, 158);
@@ -143,7 +139,7 @@
             // 
             // tb_ch2ang
             // 
-            this.tb_ch2ang.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_ch2ang.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tb_ch2ang.Location = new System.Drawing.Point(53, 74);
             this.tb_ch2ang.Name = "tb_ch2ang";
             this.tb_ch2ang.Size = new System.Drawing.Size(63, 22);
@@ -153,7 +149,7 @@
             // lb_ch2
             // 
             this.lb_ch2.AutoSize = true;
-            this.lb_ch2.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch2.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch2.Location = new System.Drawing.Point(6, 83);
             this.lb_ch2.Name = "lb_ch2";
             this.lb_ch2.Size = new System.Drawing.Size(41, 13);
@@ -162,7 +158,7 @@
             // 
             // tb_ch3ang
             // 
-            this.tb_ch3ang.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_ch3ang.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tb_ch3ang.Location = new System.Drawing.Point(53, 102);
             this.tb_ch3ang.Name = "tb_ch3ang";
             this.tb_ch3ang.Size = new System.Drawing.Size(63, 22);
@@ -172,7 +168,7 @@
             // lb_ch3
             // 
             this.lb_ch3.AutoSize = true;
-            this.lb_ch3.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch3.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch3.Location = new System.Drawing.Point(6, 111);
             this.lb_ch3.Name = "lb_ch3";
             this.lb_ch3.Size = new System.Drawing.Size(41, 13);
@@ -181,7 +177,7 @@
             // 
             // tb_ch4ang
             // 
-            this.tb_ch4ang.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_ch4ang.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tb_ch4ang.Location = new System.Drawing.Point(53, 130);
             this.tb_ch4ang.Name = "tb_ch4ang";
             this.tb_ch4ang.Size = new System.Drawing.Size(63, 22);
@@ -191,7 +187,7 @@
             // lb_ch4
             // 
             this.lb_ch4.AutoSize = true;
-            this.lb_ch4.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch4.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch4.Location = new System.Drawing.Point(6, 139);
             this.lb_ch4.Name = "lb_ch4";
             this.lb_ch4.Size = new System.Drawing.Size(41, 13);
@@ -201,7 +197,7 @@
             // 
             // tb_ch1ang
             // 
-            this.tb_ch1ang.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_ch1ang.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tb_ch1ang.Location = new System.Drawing.Point(53, 46);
             this.tb_ch1ang.Name = "tb_ch1ang";
             this.tb_ch1ang.Size = new System.Drawing.Size(63, 22);
@@ -211,7 +207,7 @@
             // lb_ch1
             // 
             this.lb_ch1.AutoSize = true;
-            this.lb_ch1.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch1.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch1.Location = new System.Drawing.Point(6, 55);
             this.lb_ch1.Name = "lb_ch1";
             this.lb_ch1.Size = new System.Drawing.Size(41, 13);
@@ -229,8 +225,8 @@
             this.gb_8ch.Controls.Add(this.lb_ch8);
             this.gb_8ch.Controls.Add(this.tb_ch5ang);
             this.gb_8ch.Controls.Add(this.lb_ch5);
-            this.gb_8ch.Font = new System.Drawing.Font("Headline R", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.gb_8ch.Location = new System.Drawing.Point(164, 185);
+            this.gb_8ch.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.gb_8ch.Location = new System.Drawing.Point(164, 176);
             this.gb_8ch.Name = "gb_8ch";
             this.gb_8ch.Size = new System.Drawing.Size(146, 134);
             this.gb_8ch.TabIndex = 19;
@@ -238,7 +234,7 @@
             // 
             // tb_ch6ang
             // 
-            this.tb_ch6ang.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_ch6ang.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tb_ch6ang.Location = new System.Drawing.Point(53, 48);
             this.tb_ch6ang.Name = "tb_ch6ang";
             this.tb_ch6ang.Size = new System.Drawing.Size(63, 22);
@@ -248,7 +244,7 @@
             // lb_ch6
             // 
             this.lb_ch6.AutoSize = true;
-            this.lb_ch6.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch6.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch6.Location = new System.Drawing.Point(6, 57);
             this.lb_ch6.Name = "lb_ch6";
             this.lb_ch6.Size = new System.Drawing.Size(41, 13);
@@ -257,7 +253,7 @@
             // 
             // tb_ch7ang
             // 
-            this.tb_ch7ang.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_ch7ang.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tb_ch7ang.Location = new System.Drawing.Point(53, 76);
             this.tb_ch7ang.Name = "tb_ch7ang";
             this.tb_ch7ang.Size = new System.Drawing.Size(63, 22);
@@ -267,7 +263,7 @@
             // lb_ch7
             // 
             this.lb_ch7.AutoSize = true;
-            this.lb_ch7.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch7.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch7.Location = new System.Drawing.Point(6, 85);
             this.lb_ch7.Name = "lb_ch7";
             this.lb_ch7.Size = new System.Drawing.Size(41, 13);
@@ -276,7 +272,7 @@
             // 
             // tb_ch8ang
             // 
-            this.tb_ch8ang.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_ch8ang.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tb_ch8ang.Location = new System.Drawing.Point(53, 104);
             this.tb_ch8ang.Name = "tb_ch8ang";
             this.tb_ch8ang.Size = new System.Drawing.Size(63, 22);
@@ -286,7 +282,7 @@
             // lb_ch8
             // 
             this.lb_ch8.AutoSize = true;
-            this.lb_ch8.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch8.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch8.Location = new System.Drawing.Point(6, 113);
             this.lb_ch8.Name = "lb_ch8";
             this.lb_ch8.Size = new System.Drawing.Size(41, 13);
@@ -296,7 +292,7 @@
             // 
             // tb_ch5ang
             // 
-            this.tb_ch5ang.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_ch5ang.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tb_ch5ang.Location = new System.Drawing.Point(53, 20);
             this.tb_ch5ang.Name = "tb_ch5ang";
             this.tb_ch5ang.Size = new System.Drawing.Size(63, 22);
@@ -306,7 +302,7 @@
             // lb_ch5
             // 
             this.lb_ch5.AutoSize = true;
-            this.lb_ch5.Font = new System.Drawing.Font("Headline R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch5.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch5.Location = new System.Drawing.Point(6, 29);
             this.lb_ch5.Name = "lb_ch5";
             this.lb_ch5.Size = new System.Drawing.Size(41, 13);
@@ -318,10 +314,10 @@
             this.gb_Serial.Controls.Add(this.lb_SerialPort);
             this.gb_Serial.Controls.Add(this.btn_SerialOpen);
             this.gb_Serial.Controls.Add(this.cb_SerialPort);
-            this.gb_Serial.Font = new System.Drawing.Font("Headline R", 9F);
+            this.gb_Serial.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F);
             this.gb_Serial.Location = new System.Drawing.Point(12, 12);
             this.gb_Serial.Name = "gb_Serial";
-            this.gb_Serial.Size = new System.Drawing.Size(146, 124);
+            this.gb_Serial.Size = new System.Drawing.Size(146, 92);
             this.gb_Serial.TabIndex = 20;
             this.gb_Serial.TabStop = false;
             this.gb_Serial.Text = "Device Connect";
@@ -329,8 +325,8 @@
             // lb_SerialPort
             // 
             this.lb_SerialPort.AutoSize = true;
-            this.lb_SerialPort.Font = new System.Drawing.Font("Headline R", 9F);
-            this.lb_SerialPort.Location = new System.Drawing.Point(24, 68);
+            this.lb_SerialPort.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F);
+            this.lb_SerialPort.Location = new System.Drawing.Point(27, 46);
             this.lb_SerialPort.Name = "lb_SerialPort";
             this.lb_SerialPort.Size = new System.Drawing.Size(119, 12);
             this.lb_SerialPort.TabIndex = 23;
@@ -339,19 +335,19 @@
             // btn_SerialOpen
             // 
             this.btn_SerialOpen.BackColor = System.Drawing.Color.White;
-            this.btn_SerialOpen.Font = new System.Drawing.Font("Headline R", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn_SerialOpen.Location = new System.Drawing.Point(0, 83);
+            this.btn_SerialOpen.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_SerialOpen.Location = new System.Drawing.Point(6, 61);
             this.btn_SerialOpen.Name = "btn_SerialOpen";
-            this.btn_SerialOpen.Size = new System.Drawing.Size(140, 35);
+            this.btn_SerialOpen.Size = new System.Drawing.Size(140, 25);
             this.btn_SerialOpen.TabIndex = 22;
-            this.btn_SerialOpen.Text = "연결";
+            this.btn_SerialOpen.Text = "Connect";
             this.btn_SerialOpen.UseVisualStyleBackColor = false;
             this.btn_SerialOpen.Click += new System.EventHandler(this.btn_SerialOpen_Click);
             // 
             // cb_SerialPort
             // 
             this.cb_SerialPort.FormattingEnabled = true;
-            this.cb_SerialPort.Location = new System.Drawing.Point(6, 23);
+            this.cb_SerialPort.Location = new System.Drawing.Point(6, 20);
             this.cb_SerialPort.Name = "cb_SerialPort";
             this.cb_SerialPort.Size = new System.Drawing.Size(134, 20);
             this.cb_SerialPort.TabIndex = 21;
@@ -360,10 +356,10 @@
             // gb_chairlocation
             // 
             this.gb_chairlocation.Controls.Add(this.cb_chairdeg);
-            this.gb_chairlocation.Font = new System.Drawing.Font("Headline R", 9F);
-            this.gb_chairlocation.Location = new System.Drawing.Point(12, 142);
+            this.gb_chairlocation.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F);
+            this.gb_chairlocation.Location = new System.Drawing.Point(12, 109);
             this.gb_chairlocation.Name = "gb_chairlocation";
-            this.gb_chairlocation.Size = new System.Drawing.Size(146, 55);
+            this.gb_chairlocation.Size = new System.Drawing.Size(146, 61);
             this.gb_chairlocation.TabIndex = 24;
             this.gb_chairlocation.TabStop = false;
             this.gb_chairlocation.Text = "Chair angle";
@@ -385,67 +381,6 @@
             this.cb_chairdeg.Size = new System.Drawing.Size(134, 20);
             this.cb_chairdeg.TabIndex = 21;
             // 
-            // tb_form2StimulationTime
-            // 
-            this.tb_form2StimulationTime.Font = new System.Drawing.Font("Headline R", 11F);
-            this.tb_form2StimulationTime.Location = new System.Drawing.Point(6, 20);
-            this.tb_form2StimulationTime.Name = "tb_form2StimulationTime";
-            this.tb_form2StimulationTime.Size = new System.Drawing.Size(52, 24);
-            this.tb_form2StimulationTime.TabIndex = 25;
-            this.tb_form2StimulationTime.Text = "1";
-            // 
-            // gb_form2StimulationTime
-            // 
-            this.gb_form2StimulationTime.Controls.Add(this.label1);
-            this.gb_form2StimulationTime.Controls.Add(this.tb_form2StimulationTimeWait);
-            this.gb_form2StimulationTime.Controls.Add(this.tb_form2StimulationTime);
-            this.gb_form2StimulationTime.Font = new System.Drawing.Font("Headline R", 9F);
-            this.gb_form2StimulationTime.Location = new System.Drawing.Point(12, 203);
-            this.gb_form2StimulationTime.Name = "gb_form2StimulationTime";
-            this.gb_form2StimulationTime.Size = new System.Drawing.Size(146, 55);
-            this.gb_form2StimulationTime.TabIndex = 25;
-            this.gb_form2StimulationTime.TabStop = false;
-            this.gb_form2StimulationTime.Text = "Stimulation Time";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Headline R", 12F);
-            this.label1.Location = new System.Drawing.Point(65, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 17);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "/";
-            // 
-            // tb_form2StimulationTimeWait
-            // 
-            this.tb_form2StimulationTimeWait.Font = new System.Drawing.Font("Headline R", 11F);
-            this.tb_form2StimulationTimeWait.Location = new System.Drawing.Point(88, 20);
-            this.tb_form2StimulationTimeWait.Name = "tb_form2StimulationTimeWait";
-            this.tb_form2StimulationTimeWait.Size = new System.Drawing.Size(52, 24);
-            this.tb_form2StimulationTimeWait.TabIndex = 26;
-            this.tb_form2StimulationTimeWait.Text = "2";
-            // 
-            // gb_form2RoutineCount
-            // 
-            this.gb_form2RoutineCount.Controls.Add(this.tb_form2RoutineTime);
-            this.gb_form2RoutineCount.Font = new System.Drawing.Font("Headline R", 9F);
-            this.gb_form2RoutineCount.Location = new System.Drawing.Point(12, 264);
-            this.gb_form2RoutineCount.Name = "gb_form2RoutineCount";
-            this.gb_form2RoutineCount.Size = new System.Drawing.Size(146, 55);
-            this.gb_form2RoutineCount.TabIndex = 27;
-            this.gb_form2RoutineCount.TabStop = false;
-            this.gb_form2RoutineCount.Text = "Routine Count";
-            // 
-            // tb_form2RoutineTime
-            // 
-            this.tb_form2RoutineTime.Font = new System.Drawing.Font("Headline R", 11F);
-            this.tb_form2RoutineTime.Location = new System.Drawing.Point(6, 20);
-            this.tb_form2RoutineTime.Name = "tb_form2RoutineTime";
-            this.tb_form2RoutineTime.Size = new System.Drawing.Size(134, 24);
-            this.tb_form2RoutineTime.TabIndex = 25;
-            this.tb_form2RoutineTime.Text = "3";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
@@ -454,14 +389,50 @@
             this.panel1.Size = new System.Drawing.Size(298, 2);
             this.panel1.TabIndex = 28;
             // 
+            // gb_speakerAngle
+            // 
+            this.gb_speakerAngle.Controls.Add(this.rb_180deg);
+            this.gb_speakerAngle.Controls.Add(this.rb_360deg);
+            this.gb_speakerAngle.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F);
+            this.gb_speakerAngle.Location = new System.Drawing.Point(12, 176);
+            this.gb_speakerAngle.Name = "gb_speakerAngle";
+            this.gb_speakerAngle.Size = new System.Drawing.Size(298, 50);
+            this.gb_speakerAngle.TabIndex = 25;
+            this.gb_speakerAngle.TabStop = false;
+            this.gb_speakerAngle.Text = "Speaker angle";
+            this.gb_speakerAngle.Visible = false;
+            // 
+            // rb_180deg
+            // 
+            this.rb_180deg.AutoSize = true;
+            this.rb_180deg.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F);
+            this.rb_180deg.Location = new System.Drawing.Point(6, 20);
+            this.rb_180deg.Name = "rb_180deg";
+            this.rb_180deg.Size = new System.Drawing.Size(86, 17);
+            this.rb_180deg.TabIndex = 19;
+            this.rb_180deg.Text = "180 deg";
+            this.rb_180deg.UseVisualStyleBackColor = true;
+            // 
+            // rb_360deg
+            // 
+            this.rb_360deg.AutoSize = true;
+            this.rb_360deg.Checked = true;
+            this.rb_360deg.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rb_360deg.Location = new System.Drawing.Point(98, 20);
+            this.rb_360deg.Name = "rb_360deg";
+            this.rb_360deg.Size = new System.Drawing.Size(86, 17);
+            this.rb_360deg.TabIndex = 20;
+            this.rb_360deg.TabStop = true;
+            this.rb_360deg.Text = "360 deg";
+            this.rb_360deg.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(323, 376);
+            this.Controls.Add(this.gb_speakerAngle);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.gb_form2RoutineCount);
-            this.Controls.Add(this.gb_form2StimulationTime);
             this.Controls.Add(this.gb_chairlocation);
             this.Controls.Add(this.gb_Serial);
             this.Controls.Add(this.gb_8ch);
@@ -479,10 +450,8 @@
             this.gb_Serial.ResumeLayout(false);
             this.gb_Serial.PerformLayout();
             this.gb_chairlocation.ResumeLayout(false);
-            this.gb_form2StimulationTime.ResumeLayout(false);
-            this.gb_form2StimulationTime.PerformLayout();
-            this.gb_form2RoutineCount.ResumeLayout(false);
-            this.gb_form2RoutineCount.PerformLayout();
+            this.gb_speakerAngle.ResumeLayout(false);
+            this.gb_speakerAngle.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -516,13 +485,10 @@
         private System.Windows.Forms.Button btn_SerialOpen;
         private System.Windows.Forms.GroupBox gb_chairlocation;
         private System.Windows.Forms.ComboBox cb_chairdeg;
-        private System.Windows.Forms.TextBox tb_form2StimulationTime;
-        private System.Windows.Forms.GroupBox gb_form2StimulationTime;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_form2StimulationTimeWait;
-        private System.Windows.Forms.GroupBox gb_form2RoutineCount;
-        private System.Windows.Forms.TextBox tb_form2RoutineTime;
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.ComboBox cb_SerialPort;
+        private System.Windows.Forms.GroupBox gb_speakerAngle;
+        private System.Windows.Forms.RadioButton rb_180deg;
+        private System.Windows.Forms.RadioButton rb_360deg;
     }
 }

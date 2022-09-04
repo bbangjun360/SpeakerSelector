@@ -102,7 +102,11 @@
             this.btn_listModify = new System.Windows.Forms.Button();
             this.btn_listDelete = new System.Windows.Forms.Button();
             this.btn_csvOpen = new System.Windows.Forms.Button();
-            this.btn_csvClose = new System.Windows.Forms.Button();
+            this.btn_csvSave = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tb_form1StimulationTimeWait = new System.Windows.Forms.TextBox();
+            this.tb_form1StimulationTime = new System.Windows.Forms.TextBox();
+            this.tb_form1RoutineCount = new System.Windows.Forms.TextBox();
             this.gb_stimulationTime.SuspendLayout();
             this.gb_routineCount.SuspendLayout();
             this.gb_mode.SuspendLayout();
@@ -124,7 +128,7 @@
             // 
             this.btnSetUp.BackColor = System.Drawing.Color.White;
             this.btnSetUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetUp.Font = new System.Drawing.Font("Headline R", 7F);
+            this.btnSetUp.Font = new System.Drawing.Font("휴먼둥근헤드라인", 7F);
             this.btnSetUp.Location = new System.Drawing.Point(563, 0);
             this.btnSetUp.Name = "btnSetUp";
             this.btnSetUp.Size = new System.Drawing.Size(68, 21);
@@ -136,7 +140,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MoeumT R", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("휴먼모음T", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(765, 845);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 14);
@@ -146,7 +150,7 @@
             // lb_ch1deg
             // 
             this.lb_ch1deg.AutoSize = true;
-            this.lb_ch1deg.Font = new System.Drawing.Font("Headline R", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch1deg.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch1deg.Location = new System.Drawing.Point(321, 124);
             this.lb_ch1deg.Name = "lb_ch1deg";
             this.lb_ch1deg.Size = new System.Drawing.Size(32, 12);
@@ -156,7 +160,7 @@
             // lb_ch1
             // 
             this.lb_ch1.AutoSize = true;
-            this.lb_ch1.Font = new System.Drawing.Font("Headline R", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch1.Font = new System.Drawing.Font("휴먼둥근헤드라인", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch1.Location = new System.Drawing.Point(281, 0);
             this.lb_ch1.Name = "lb_ch1";
             this.lb_ch1.Size = new System.Drawing.Size(26, 8);
@@ -166,7 +170,7 @@
             // lb_ch3
             // 
             this.lb_ch3.AutoSize = true;
-            this.lb_ch3.Font = new System.Drawing.Font("Headline R", 6F);
+            this.lb_ch3.Font = new System.Drawing.Font("휴먼둥근헤드라인", 6F);
             this.lb_ch3.Location = new System.Drawing.Point(554, 272);
             this.lb_ch3.Name = "lb_ch3";
             this.lb_ch3.Size = new System.Drawing.Size(26, 8);
@@ -176,7 +180,7 @@
             // lb_ch4
             // 
             this.lb_ch4.AutoSize = true;
-            this.lb_ch4.Font = new System.Drawing.Font("Headline R", 6F);
+            this.lb_ch4.Font = new System.Drawing.Font("휴먼둥근헤드라인", 6F);
             this.lb_ch4.Location = new System.Drawing.Point(492, 483);
             this.lb_ch4.Name = "lb_ch4";
             this.lb_ch4.Size = new System.Drawing.Size(26, 8);
@@ -186,7 +190,7 @@
             // lb_ch5
             // 
             this.lb_ch5.AutoSize = true;
-            this.lb_ch5.Font = new System.Drawing.Font("Headline R", 6F);
+            this.lb_ch5.Font = new System.Drawing.Font("휴먼둥근헤드라인", 6F);
             this.lb_ch5.Location = new System.Drawing.Point(282, 545);
             this.lb_ch5.Name = "lb_ch5";
             this.lb_ch5.Size = new System.Drawing.Size(26, 8);
@@ -196,7 +200,7 @@
             // lb_ch6
             // 
             this.lb_ch6.AutoSize = true;
-            this.lb_ch6.Font = new System.Drawing.Font("Headline R", 6F);
+            this.lb_ch6.Font = new System.Drawing.Font("휴먼둥근헤드라인", 6F);
             this.lb_ch6.Location = new System.Drawing.Point(70, 483);
             this.lb_ch6.Name = "lb_ch6";
             this.lb_ch6.Size = new System.Drawing.Size(26, 8);
@@ -206,7 +210,7 @@
             // lb_ch7
             // 
             this.lb_ch7.AutoSize = true;
-            this.lb_ch7.Font = new System.Drawing.Font("Headline R", 6F);
+            this.lb_ch7.Font = new System.Drawing.Font("휴먼둥근헤드라인", 6F);
             this.lb_ch7.Location = new System.Drawing.Point(8, 273);
             this.lb_ch7.Name = "lb_ch7";
             this.lb_ch7.Size = new System.Drawing.Size(26, 8);
@@ -216,7 +220,7 @@
             // lb_ch8
             // 
             this.lb_ch8.AutoSize = true;
-            this.lb_ch8.Font = new System.Drawing.Font("Headline R", 6F);
+            this.lb_ch8.Font = new System.Drawing.Font("휴먼둥근헤드라인", 6F);
             this.lb_ch8.Location = new System.Drawing.Point(70, 61);
             this.lb_ch8.Name = "lb_ch8";
             this.lb_ch8.Size = new System.Drawing.Size(26, 8);
@@ -226,7 +230,7 @@
             // lb_ch7deg
             // 
             this.lb_ch7deg.AutoSize = true;
-            this.lb_ch7deg.Font = new System.Drawing.Font("Headline R", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch7deg.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch7deg.Location = new System.Drawing.Point(108, 296);
             this.lb_ch7deg.Name = "lb_ch7deg";
             this.lb_ch7deg.Size = new System.Drawing.Size(50, 12);
@@ -236,7 +240,7 @@
             // lb_ch6deg
             // 
             this.lb_ch6deg.AutoSize = true;
-            this.lb_ch6deg.Font = new System.Drawing.Font("Headline R", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch6deg.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch6deg.Location = new System.Drawing.Point(146, 420);
             this.lb_ch6deg.Name = "lb_ch6deg";
             this.lb_ch6deg.Size = new System.Drawing.Size(50, 12);
@@ -246,7 +250,7 @@
             // lb_ch5deg
             // 
             this.lb_ch5deg.AutoSize = true;
-            this.lb_ch5deg.Font = new System.Drawing.Font("Headline R", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch5deg.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch5deg.Location = new System.Drawing.Point(268, 483);
             this.lb_ch5deg.Name = "lb_ch5deg";
             this.lb_ch5deg.Size = new System.Drawing.Size(50, 12);
@@ -256,7 +260,7 @@
             // lb_ch4deg
             // 
             this.lb_ch4deg.AutoSize = true;
-            this.lb_ch4deg.Font = new System.Drawing.Font("Headline R", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch4deg.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch4deg.Location = new System.Drawing.Point(411, 451);
             this.lb_ch4deg.Name = "lb_ch4deg";
             this.lb_ch4deg.Size = new System.Drawing.Size(50, 12);
@@ -266,7 +270,7 @@
             // lb_ch3deg
             // 
             this.lb_ch3deg.AutoSize = true;
-            this.lb_ch3deg.Font = new System.Drawing.Font("Headline R", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch3deg.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch3deg.Location = new System.Drawing.Point(492, 314);
             this.lb_ch3deg.Name = "lb_ch3deg";
             this.lb_ch3deg.Size = new System.Drawing.Size(41, 12);
@@ -276,7 +280,7 @@
             // lb_ch2deg
             // 
             this.lb_ch2deg.AutoSize = true;
-            this.lb_ch2deg.Font = new System.Drawing.Font("Headline R", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch2deg.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch2deg.Location = new System.Drawing.Point(453, 183);
             this.lb_ch2deg.Name = "lb_ch2deg";
             this.lb_ch2deg.Size = new System.Drawing.Size(41, 12);
@@ -286,7 +290,7 @@
             // lb_ch8deg
             // 
             this.lb_ch8deg.AutoSize = true;
-            this.lb_ch8deg.Font = new System.Drawing.Font("Headline R", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_ch8deg.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_ch8deg.Location = new System.Drawing.Point(180, 153);
             this.lb_ch8deg.Name = "lb_ch8deg";
             this.lb_ch8deg.Size = new System.Drawing.Size(50, 12);
@@ -297,14 +301,14 @@
             // 
             this.btnConnect.BackColor = System.Drawing.Color.Red;
             this.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConnect.Font = new System.Drawing.Font("Headline R", 7F);
+            this.btnConnect.Font = new System.Drawing.Font("휴먼둥근헤드라인", 7F);
             this.btnConnect.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnConnect.Location = new System.Drawing.Point(494, 0);
+            this.btnConnect.Location = new System.Drawing.Point(480, 0);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnConnect.Size = new System.Drawing.Size(68, 21);
+            this.btnConnect.Size = new System.Drawing.Size(82, 21);
             this.btnConnect.TabIndex = 34;
-            this.btnConnect.Text = "Connect";
+            this.btnConnect.Text = "Disconnect";
             this.btnConnect.UseVisualStyleBackColor = false;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
@@ -320,7 +324,7 @@
             // 
             this.btn_testStart.BackColor = System.Drawing.Color.White;
             this.btn_testStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_testStart.Font = new System.Drawing.Font("Headline R", 15F);
+            this.btn_testStart.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15F);
             this.btn_testStart.Location = new System.Drawing.Point(663, 304);
             this.btn_testStart.Name = "btn_testStart";
             this.btn_testStart.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -348,8 +352,11 @@
             // 
             // gb_stimulationTime
             // 
+            this.gb_stimulationTime.Controls.Add(this.label5);
+            this.gb_stimulationTime.Controls.Add(this.tb_form1StimulationTimeWait);
+            this.gb_stimulationTime.Controls.Add(this.tb_form1StimulationTime);
             this.gb_stimulationTime.Controls.Add(this.lb_stimulationTime);
-            this.gb_stimulationTime.Font = new System.Drawing.Font("Headline R", 9F);
+            this.gb_stimulationTime.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F);
             this.gb_stimulationTime.Location = new System.Drawing.Point(663, 240);
             this.gb_stimulationTime.Name = "gb_stimulationTime";
             this.gb_stimulationTime.Size = new System.Drawing.Size(114, 57);
@@ -360,38 +367,39 @@
             // lb_stimulationTime
             // 
             this.lb_stimulationTime.AutoSize = true;
-            this.lb_stimulationTime.Font = new System.Drawing.Font("Headline R", 15F);
+            this.lb_stimulationTime.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15F);
             this.lb_stimulationTime.Location = new System.Drawing.Point(31, 32);
             this.lb_stimulationTime.Name = "lb_stimulationTime";
-            this.lb_stimulationTime.Size = new System.Drawing.Size(77, 21);
+            this.lb_stimulationTime.Size = new System.Drawing.Size(0, 21);
             this.lb_stimulationTime.TabIndex = 40;
-            this.lb_stimulationTime.Text = "1s/3s";
+            this.lb_stimulationTime.Visible = false;
             // 
             // gb_routineCount
             // 
+            this.gb_routineCount.Controls.Add(this.tb_form1RoutineCount);
             this.gb_routineCount.Controls.Add(this.lb_routineCount);
-            this.gb_routineCount.Font = new System.Drawing.Font("Headline R", 9F);
+            this.gb_routineCount.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F);
             this.gb_routineCount.Location = new System.Drawing.Point(783, 240);
             this.gb_routineCount.Name = "gb_routineCount";
             this.gb_routineCount.Size = new System.Drawing.Size(114, 57);
             this.gb_routineCount.TabIndex = 39;
             this.gb_routineCount.TabStop = false;
             this.gb_routineCount.Text = "Routine Count";
+            this.gb_routineCount.Enter += new System.EventHandler(this.gb_routineCount_Enter);
             // 
             // lb_routineCount
             // 
             this.lb_routineCount.AutoSize = true;
-            this.lb_routineCount.Font = new System.Drawing.Font("Headline R", 20F);
+            this.lb_routineCount.Font = new System.Drawing.Font("휴먼둥근헤드라인", 20F);
             this.lb_routineCount.Location = new System.Drawing.Point(76, 19);
             this.lb_routineCount.Name = "lb_routineCount";
-            this.lb_routineCount.Size = new System.Drawing.Size(31, 28);
+            this.lb_routineCount.Size = new System.Drawing.Size(0, 28);
             this.lb_routineCount.TabIndex = 41;
-            this.lb_routineCount.Text = "3";
             // 
             // lb_testtime
             // 
             this.lb_testtime.AutoSize = true;
-            this.lb_testtime.Font = new System.Drawing.Font("Headline R", 50F);
+            this.lb_testtime.Font = new System.Drawing.Font("휴먼둥근헤드라인", 50F);
             this.lb_testtime.Location = new System.Drawing.Point(658, 26);
             this.lb_testtime.Name = "lb_testtime";
             this.lb_testtime.Size = new System.Drawing.Size(246, 70);
@@ -401,7 +409,7 @@
             // lb_testtimeText
             // 
             this.lb_testtimeText.AutoSize = true;
-            this.lb_testtimeText.Font = new System.Drawing.Font("Headline R", 10F);
+            this.lb_testtimeText.Font = new System.Drawing.Font("휴먼둥근헤드라인", 10F);
             this.lb_testtimeText.Location = new System.Drawing.Point(730, 9);
             this.lb_testtimeText.Name = "lb_testtimeText";
             this.lb_testtimeText.Size = new System.Drawing.Size(92, 15);
@@ -419,7 +427,7 @@
             // rb_serial
             // 
             this.rb_serial.AutoSize = true;
-            this.rb_serial.Font = new System.Drawing.Font("Headline R", 12F);
+            this.rb_serial.Font = new System.Drawing.Font("휴먼둥근헤드라인", 12F);
             this.rb_serial.Location = new System.Drawing.Point(7, 23);
             this.rb_serial.Name = "rb_serial";
             this.rb_serial.Size = new System.Drawing.Size(83, 21);
@@ -433,7 +441,7 @@
             this.gb_mode.Controls.Add(this.rb_random);
             this.gb_mode.Controls.Add(this.rb_manual);
             this.gb_mode.Controls.Add(this.rb_serial);
-            this.gb_mode.Font = new System.Drawing.Font("Headline R", 11F);
+            this.gb_mode.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11F);
             this.gb_mode.Location = new System.Drawing.Point(663, 113);
             this.gb_mode.Name = "gb_mode";
             this.gb_mode.Size = new System.Drawing.Size(234, 90);
@@ -445,7 +453,7 @@
             // 
             this.rb_preset.AutoSize = true;
             this.rb_preset.Checked = true;
-            this.rb_preset.Font = new System.Drawing.Font("Headline R", 12F);
+            this.rb_preset.Font = new System.Drawing.Font("휴먼둥근헤드라인", 12F);
             this.rb_preset.Location = new System.Drawing.Point(129, 58);
             this.rb_preset.Name = "rb_preset";
             this.rb_preset.Size = new System.Drawing.Size(91, 21);
@@ -458,7 +466,7 @@
             // rb_random
             // 
             this.rb_random.AutoSize = true;
-            this.rb_random.Font = new System.Drawing.Font("Headline R", 12F);
+            this.rb_random.Font = new System.Drawing.Font("휴먼둥근헤드라인", 12F);
             this.rb_random.Location = new System.Drawing.Point(7, 58);
             this.rb_random.Name = "rb_random";
             this.rb_random.Size = new System.Drawing.Size(100, 21);
@@ -469,7 +477,7 @@
             // rb_manual
             // 
             this.rb_manual.AutoSize = true;
-            this.rb_manual.Font = new System.Drawing.Font("Headline R", 12F);
+            this.rb_manual.Font = new System.Drawing.Font("휴먼둥근헤드라인", 12F);
             this.rb_manual.Location = new System.Drawing.Point(129, 23);
             this.rb_manual.Name = "rb_manual";
             this.rb_manual.Size = new System.Drawing.Size(95, 21);
@@ -480,7 +488,7 @@
             // lb_preset
             // 
             this.lb_preset.AutoSize = true;
-            this.lb_preset.Font = new System.Drawing.Font("Headline R", 15F);
+            this.lb_preset.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15F);
             this.lb_preset.Location = new System.Drawing.Point(924, 9);
             this.lb_preset.Name = "lb_preset";
             this.lb_preset.Size = new System.Drawing.Size(90, 21);
@@ -632,7 +640,7 @@
             // lb_ch2
             // 
             this.lb_ch2.AutoSize = true;
-            this.lb_ch2.Font = new System.Drawing.Font("Headline R", 6F);
+            this.lb_ch2.Font = new System.Drawing.Font("휴먼둥근헤드라인", 6F);
             this.lb_ch2.Location = new System.Drawing.Point(493, 61);
             this.lb_ch2.Name = "lb_ch2";
             this.lb_ch2.Size = new System.Drawing.Size(26, 8);
@@ -753,7 +761,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Gulim", 20F);
+            this.label4.Font = new System.Drawing.Font("굴림", 20F);
             this.label4.Location = new System.Drawing.Point(76, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(23, 27);
@@ -780,19 +788,21 @@
             // 
             // tb_stimulationTimeWait
             // 
-            this.tb_stimulationTimeWait.Font = new System.Drawing.Font("Gulim", 20F);
+            this.tb_stimulationTimeWait.Font = new System.Drawing.Font("굴림", 20F);
             this.tb_stimulationTimeWait.Location = new System.Drawing.Point(110, 20);
             this.tb_stimulationTimeWait.Name = "tb_stimulationTimeWait";
             this.tb_stimulationTimeWait.Size = new System.Drawing.Size(36, 38);
             this.tb_stimulationTimeWait.TabIndex = 1;
+            this.tb_stimulationTimeWait.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tb_stimulationTime
             // 
-            this.tb_stimulationTime.Font = new System.Drawing.Font("Gulim", 20F);
+            this.tb_stimulationTime.Font = new System.Drawing.Font("굴림", 20F);
             this.tb_stimulationTime.Location = new System.Drawing.Point(22, 20);
             this.tb_stimulationTime.Name = "tb_stimulationTime";
             this.tb_stimulationTime.Size = new System.Drawing.Size(36, 38);
             this.tb_stimulationTime.TabIndex = 0;
+            this.tb_stimulationTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // gb_listStimulationCount
             // 
@@ -806,11 +816,12 @@
             // 
             // tb_stimulationCount
             // 
-            this.tb_stimulationCount.Font = new System.Drawing.Font("Gulim", 20F);
+            this.tb_stimulationCount.Font = new System.Drawing.Font("굴림", 20F);
             this.tb_stimulationCount.Location = new System.Drawing.Point(43, 20);
             this.tb_stimulationCount.Name = "tb_stimulationCount";
             this.tb_stimulationCount.Size = new System.Drawing.Size(36, 38);
             this.tb_stimulationCount.TabIndex = 2;
+            this.tb_stimulationCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btn_listAdd
             // 
@@ -852,15 +863,55 @@
             this.btn_csvOpen.UseVisualStyleBackColor = true;
             this.btn_csvOpen.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btn_csvClose
+            // btn_csvSave
             // 
-            this.btn_csvClose.Location = new System.Drawing.Point(1147, 9);
-            this.btn_csvClose.Name = "btn_csvClose";
-            this.btn_csvClose.Size = new System.Drawing.Size(75, 23);
-            this.btn_csvClose.TabIndex = 66;
-            this.btn_csvClose.Text = "SAVE";
-            this.btn_csvClose.UseVisualStyleBackColor = true;
-            this.btn_csvClose.Click += new System.EventHandler(this.button2_Click);
+            this.btn_csvSave.Location = new System.Drawing.Point(1147, 9);
+            this.btn_csvSave.Name = "btn_csvSave";
+            this.btn_csvSave.Size = new System.Drawing.Size(75, 23);
+            this.btn_csvSave.TabIndex = 66;
+            this.btn_csvSave.Text = "SAVE";
+            this.btn_csvSave.UseVisualStyleBackColor = true;
+            this.btn_csvSave.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("휴먼둥근헤드라인", 12F);
+            this.label5.Location = new System.Drawing.Point(49, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(16, 17);
+            this.label5.TabIndex = 43;
+            this.label5.Text = "/";
+            // 
+            // tb_form1StimulationTimeWait
+            // 
+            this.tb_form1StimulationTimeWait.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11F);
+            this.tb_form1StimulationTimeWait.Location = new System.Drawing.Point(71, 27);
+            this.tb_form1StimulationTimeWait.Name = "tb_form1StimulationTimeWait";
+            this.tb_form1StimulationTimeWait.Size = new System.Drawing.Size(32, 24);
+            this.tb_form1StimulationTimeWait.TabIndex = 42;
+            this.tb_form1StimulationTimeWait.Text = "2";
+            this.tb_form1StimulationTimeWait.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tb_form1StimulationTime
+            // 
+            this.tb_form1StimulationTime.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11F);
+            this.tb_form1StimulationTime.Location = new System.Drawing.Point(11, 27);
+            this.tb_form1StimulationTime.Name = "tb_form1StimulationTime";
+            this.tb_form1StimulationTime.Size = new System.Drawing.Size(32, 24);
+            this.tb_form1StimulationTime.TabIndex = 41;
+            this.tb_form1StimulationTime.Text = "1";
+            this.tb_form1StimulationTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tb_form1RoutineCount
+            // 
+            this.tb_form1RoutineCount.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11F);
+            this.tb_form1RoutineCount.Location = new System.Drawing.Point(41, 27);
+            this.tb_form1RoutineCount.Name = "tb_form1RoutineCount";
+            this.tb_form1RoutineCount.Size = new System.Drawing.Size(32, 24);
+            this.tb_form1RoutineCount.TabIndex = 44;
+            this.tb_form1RoutineCount.Text = "2";
+            this.tb_form1RoutineCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SpeakerSelector
             // 
@@ -868,7 +919,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 629);
-            this.Controls.Add(this.btn_csvClose);
+            this.Controls.Add(this.btn_csvSave);
             this.Controls.Add(this.btn_csvOpen);
             this.Controls.Add(this.btn_listDelete);
             this.Controls.Add(this.btn_listModify);
@@ -920,6 +971,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SpeakerSelector";
             this.Text = "SoundCareTech.";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SpeakerSelector_FormClosing);
             this.Load += new System.EventHandler(this.SpeakerSelector_Load);
             this.gb_stimulationTime.ResumeLayout(false);
             this.gb_stimulationTime.PerformLayout();
@@ -1009,7 +1061,7 @@
         private System.Windows.Forms.Button btn_listModify;
         private System.Windows.Forms.Button btn_listDelete;
         private System.Windows.Forms.Button btn_csvOpen;
-        private System.Windows.Forms.Button btn_csvClose;
+        private System.Windows.Forms.Button btn_csvSave;
         public System.Windows.Forms.Label lb_stimulationTime;
         public System.Windows.Forms.Label lb_routineCount;
         public System.Windows.Forms.Button btnConnect;
@@ -1021,6 +1073,10 @@
         public System.Windows.Forms.CheckBox cb_listCh4;
         public System.Windows.Forms.CheckBox cb_listCh2;
         public System.Windows.Forms.CheckBox cb_listCh1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tb_form1StimulationTimeWait;
+        private System.Windows.Forms.TextBox tb_form1StimulationTime;
+        private System.Windows.Forms.TextBox tb_form1RoutineCount;
     }
 }
 

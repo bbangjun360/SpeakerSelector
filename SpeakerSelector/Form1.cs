@@ -37,6 +37,16 @@ namespace SpeakerSelector
             Form2 SpeakerSelectorSetUp = new Form2(this);
             SpeakerSelectorSetUp.ShowDialog();
             btn_csvOpen.PerformClick();
+            switch(Properties.Settings.Default.save_selectedmode)
+            {
+                case 1: rb_serial.Checked = true; break;
+                case 2: rb_random.Checked = true; break;
+                case 3: rb_manual.Checked = true; break;
+                case 4: rb_preset.Checked = true; break;
+            }
+            tb_form1StimulationTime.Text = Properties.Settings.Default.save_tb_stimulationTime;
+            tb_form1StimulationTimeWait.Text = Properties.Settings.Default.save_tb_stimulationTimeWait;
+            tb_form1RoutineCount.Text = Properties.Settings.Default.save_tb_routineTime;
         }
         void TESTTIME_timerCallBack(Object state)
         {
@@ -278,8 +288,19 @@ namespace SpeakerSelector
                 testtime_time = 0;
                 TESTTIME_ThreadTimer.Change(0, 1000);
                 StimulationTime_ThreadTimer.Change(0, 1000);
+
+                if (rb_serial.Checked) Properties.Settings.Default.save_selectedmode = 1;
+                else if (rb_random.Checked) Properties.Settings.Default.save_selectedmode = 2;
+                else if (rb_manual.Checked) Properties.Settings.Default.save_selectedmode = 3;
+                else if (rb_preset.Checked) Properties.Settings.Default.save_selectedmode = 4;
+
+                Properties.Settings.Default.save_tb_stimulationTime = tb_form1StimulationTime.Text;
+                Properties.Settings.Default.save_tb_stimulationTimeWait = tb_form1StimulationTimeWait.Text;
+                Properties.Settings.Default.save_tb_routineTime = tb_form1RoutineCount.Text;
+                Properties.Settings.Default.Save();
+
             }
-           else
+            else
             {
                 teststart = false;
                 btn_testStart.Text = "TEST START";
@@ -290,7 +311,7 @@ namespace SpeakerSelector
                 currentCh = 0;
                 stimulationTime_time = 0;
                 stimulationTimeWait_time = 0;
-                lb_routineCount.Text = Properties.Settings.Default.save_tb_routineTime;
+                tb_form1RoutineCount.Text = Properties.Settings.Default.save_tb_routineTime;
                 pb_ch1.BackgroundImage = Properties.Resources.spk_off;
                 btn_csvOpen.PerformClick();
 
@@ -340,7 +361,7 @@ namespace SpeakerSelector
                         {
                             currentCh = 0;
                             routineCountChk++;
-                            lb_routineCount.Text = (Int32.Parse(lb_routineCount.Text)-1).ToString();
+                            tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text)-1).ToString();
                         }
                     }
                     else
@@ -349,7 +370,7 @@ namespace SpeakerSelector
                         {
                             currentCh = 0;
                             routineCountChk++;
-                            lb_routineCount.Text = (Int32.Parse(lb_routineCount.Text) - 1).ToString();
+                            tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
                         }
                     }
                 }
@@ -375,7 +396,7 @@ namespace SpeakerSelector
                         {
                             currentCh = 0;
                             routineCountChk++;
-                            lb_routineCount.Text = (Int32.Parse(lb_routineCount.Text) - 1).ToString();
+                            tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
                         }
                     }
                     else
@@ -384,7 +405,7 @@ namespace SpeakerSelector
                         {
                             currentCh = 0;
                             routineCountChk++;
-                            lb_routineCount.Text = (Int32.Parse(lb_routineCount.Text) - 1).ToString();
+                            tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
                         }
                     }
                     speakerSwitch(randomvalue);
@@ -449,8 +470,8 @@ namespace SpeakerSelector
                 {
                     if (stimulationTime_time == 0)
                     {
-                        lv_preset.Items[currentCh].Selected = true;
                         modeSelector();
+                        lv_preset.Items[currentCh].Selected = true;
                     }
                     else if (stimulationTime_time == Int32.Parse(lv_preset.Items[currentCh].SubItems[1].Text.Split('/')[0]))
                     {
@@ -548,6 +569,7 @@ namespace SpeakerSelector
             ListViewItem lvi = new ListViewItem(strs);
             lv_preset.Items.Add(lvi);
             ClearInputControl();
+            btn_csvSave.PerformClick();
         }
         private void ClearInputControl()
         {
@@ -591,6 +613,7 @@ namespace SpeakerSelector
             ListViewItem lvi = lv_preset.SelectedItems[0];
             lv_preset.Items.Remove(lvi);
             ClearInputControl();
+            btn_csvSave.PerformClick();
         }
 
         private void btn_listModify_Click(object sender, EventArgs e)
@@ -609,7 +632,9 @@ namespace SpeakerSelector
             lvi.SubItems[1].Text = stimulationTime;
             lvi.SubItems[2].Text = stimulationCount;
             ClearInputControl();
+            btn_csvSave.PerformClick();
         }
+
 
         //preset 저장 불러오기 관련 함수
         const string fname = "presetData.csv";
@@ -674,6 +699,39 @@ namespace SpeakerSelector
             }
             btnConnect.BackColor = System.Drawing.Color.Green;
             btnConnect.Text = "connected";
+            
+        }
+
+        private void SpeakerSelector_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            btn_line1 = false;
+            PCM_send("L10");
+            pb_ch2.BackgroundImage = Properties.Resources.spk_off;
+            btn_line2 = false;
+            PCM_send("L20");
+            pb_ch3.BackgroundImage = Properties.Resources.spk_off;
+            btn_line3 = false;
+            PCM_send("L40");
+            pb_ch4.BackgroundImage = Properties.Resources.spk_off;
+            btn_line4 = false;
+            PCM_send("L50");
+            pb_ch5.BackgroundImage = Properties.Resources.spk_off;
+            btn_line5 = false;
+            PCM_send("L50");
+            pb_ch6.BackgroundImage = Properties.Resources.spk_off;
+            btn_line6 = false;
+            PCM_send("L60");
+            pb_ch7.BackgroundImage = Properties.Resources.spk_off;
+            btn_line7 = false;
+            PCM_send("L70");
+            pb_ch8.BackgroundImage = Properties.Resources.spk_off;
+            btn_line8 = false;
+            PCM_send("L80");
+        }
+
+        private void gb_routineCount_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

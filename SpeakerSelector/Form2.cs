@@ -43,12 +43,16 @@ namespace SpeakerSelector
                 rb_8chsel.Checked = false;
                 rb_4chsel.Checked = true;
             }
-            tb_form2StimulationTime.Text = Properties.Settings.Default.save_tb_stimulationTime;
-            tb_form2StimulationTimeWait.Text = Properties.Settings.Default.save_tb_stimulationTimeWait;
-            tb_form2RoutineTime.Text = Properties.Settings.Default.save_tb_routineTime;
-            form1.lb_stimulationTime.Text = tb_form2StimulationTime.Text + "s/" + tb_form2StimulationTimeWait.Text + "s";
-            form1.lb_routineCount.Text = tb_form2RoutineTime.Text;
-
+            if (Properties.Settings.Default.save_selectedSpeakerAng == 1)
+            {
+                rb_180deg.Checked = true;
+                rb_360deg.Checked = false;
+            }
+            else
+            {
+                rb_180deg.Checked = false;
+                rb_360deg.Checked = true;
+            }
             btn_apply.PerformClick();
             if (Properties.Settings.Default.form2Opened == false)
             {
@@ -92,6 +96,8 @@ namespace SpeakerSelector
             if (!form1.serialPort1.IsOpen)                                                             //시리얼포트가 열려 있지 않으면
             {
                 form1.serialPort1.PortName = cb_SerialPort.Text;                                   //콤보박스의 선택된 COM포트명을 시리얼포트명으로 지정
+                Properties.Settings.Default.save_cb_SerialPort = cb_SerialPort.Text;
+                Properties.Settings.Default.Save();
                 form1.serialPort1.BaudRate = 9600;                                                     //baudrate 변경이 필요하면 숫자 변경하기
                 form1.serialPort1.DataBits = 8;
                 form1.serialPort1.StopBits = StopBits.One;
@@ -116,17 +122,32 @@ namespace SpeakerSelector
             if (rb_4chsel.Checked == true)
             {
                 gb_8ch.Visible = false;
+                gb_speakerAngle.Visible = true;
 
             }
             else if (rb_4chsel.Checked == false)
             {
                 gb_8ch.Visible = true;
+                gb_speakerAngle.Visible = false;
 
             }
         }
 
         private void btn_apply_Click(object sender, EventArgs e)
         {
+            switch (cb_chairdeg.SelectedIndex)
+            {
+                case 0: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair0d; break;
+                case 1: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair45d; break;
+                case 2: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair90d; break;
+                case 3: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair135d; break;
+                case 4: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair180d; break;
+                case 5: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair225d; break;
+                case 6: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair270d; break;
+                case 7: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair315d; break;
+                default: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair0d; break;
+            }
+
             if (rb_4chsel.Checked == true)
             {
                 gb_8ch.Visible = false;
@@ -139,14 +160,10 @@ namespace SpeakerSelector
                 form1.pb_ch8.Visible = false;
                 form1.lb_ch8.Visible = false;
 
-                form1.pb_ch1.Location = new Point(0, 394);
-                form1.pb_ch2.Location = new Point(103, 113);
-                form1.pb_ch3.Location = new Point(464, 105);
-                form1.pb_ch4.Location = new Point(563, 394);
-                form1.lb_ch1.Location = new Point(0, 394);
-                form1.lb_ch2.Location = new Point(103, 113);
-                form1.lb_ch3.Location = new Point(464, 105);
-                form1.lb_ch4.Location = new Point(563, 394);
+                form1.cb_listCh5.Visible = false;
+                form1.cb_listCh6.Visible = false;
+                form1.cb_listCh7.Visible = false;
+                form1.cb_listCh8.Visible = false;
 
                 form1.lb_ch1deg.Text = tb_ch1ang.Text;
                 form1.lb_ch2deg.Text = tb_ch2ang.Text;
@@ -161,22 +178,55 @@ namespace SpeakerSelector
                 Properties.Settings.Default.save_ch2ang = tb_ch2ang.Text;
                 Properties.Settings.Default.save_ch3ang = tb_ch3ang.Text;
                 Properties.Settings.Default.save_ch4ang = tb_ch4ang.Text;
+                if (rb_180deg.Checked)
+                {   
+                    form1.pb_ChairCircle.BackgroundImage = Properties.Resources.HalfCircle90deg;
+                    Properties.Settings.Default.save_selectedSpeakerAng = 1;
 
-                form1.lb_ch1deg.Location = new Point(98, 415);
-                form1.lb_ch2deg.Location = new Point(218, 240);
-                form1.lb_ch3deg.Location = new Point(420, 259);
-                form1.lb_ch4deg.Location = new Point(501, 436);
+                    form1.pb_ch1.Location = new Point(0, 394);
+                    form1.pb_ch2.Location = new Point(103, 113);
+                    form1.pb_ch3.Location = new Point(464, 105);
+                    form1.pb_ch4.Location = new Point(563, 394);
 
-                form1.pb_ChairCircle.BackgroundImage = Properties.Resources.HalfCircle90deg;
+                    form1.lb_ch1.Location = new Point(0, 394);
+                    form1.lb_ch2.Location = new Point(103, 113);
+                    form1.lb_ch3.Location = new Point(464, 105);
+                    form1.lb_ch4.Location = new Point(563, 394);
 
-                form1.cb_listCh1.Location = new Point(6, 31);
-                form1.cb_listCh2.Location = new Point(82, 31);
-                form1.cb_listCh3.Location = new Point(158, 31);
-                form1.cb_listCh4.Location = new Point(234, 31);
-                form1.cb_listCh5.Visible = false;
-                form1.cb_listCh6.Visible = false;
-                form1.cb_listCh7.Visible = false;
-                form1.cb_listCh8.Visible = false;
+                    form1.lb_ch1deg.Location = new Point(98, 415);
+                    form1.lb_ch2deg.Location = new Point(218, 240);
+                    form1.lb_ch3deg.Location = new Point(420, 259);
+                    form1.lb_ch4deg.Location = new Point(501, 436);
+
+                    form1.cb_listCh1.Location = new Point(6, 31);
+                    form1.cb_listCh2.Location = new Point(82, 31);
+                    form1.cb_listCh3.Location = new Point(158, 31);
+                    form1.cb_listCh4.Location = new Point(234, 31);
+                }
+                else if(rb_360deg.Checked)
+                {
+                    Properties.Settings.Default.save_selectedSpeakerAng = 2;
+
+                    form1.pb_ch1.Location = new Point(284, 1);
+                    form1.pb_ch2.Location = new Point(557, 272);
+                    form1.pb_ch3.Location = new Point(283, 545);
+                    form1.pb_ch4.Location = new Point(11, 273);
+
+                    form1.lb_ch1.Location = new Point(284, 1);
+                    form1.lb_ch2.Location = new Point(557, 272);
+                    form1.lb_ch3.Location = new Point(283, 545);
+                    form1.lb_ch4.Location = new Point(11, 273);
+
+                    form1.lb_ch1deg.Location = new Point(321, 124);
+                    form1.lb_ch2deg.Location = new Point(492, 314);
+                    form1.lb_ch3deg.Location = new Point(268, 483);
+                    form1.lb_ch4deg.Location = new Point(108, 296);
+
+                    form1.cb_listCh1.Location = new Point(6, 31);
+                    form1.cb_listCh2.Location = new Point(82, 31);
+                    form1.cb_listCh3.Location = new Point(158, 31);
+                    form1.cb_listCh4.Location = new Point(234, 31);
+                }
                 
 
             }
@@ -215,18 +265,6 @@ namespace SpeakerSelector
                 form1.lb_ch3deg.Location = new Point(492, 314);
                 form1.lb_ch4deg.Location = new Point(411, 451);
 
-                switch (cb_chairdeg.SelectedIndex)
-                {
-                    case 0: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair0d; break;
-                    case 1: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair45d; break;
-                    case 2: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair90d; break;
-                    case 3: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair135d; break;
-                    case 4: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair180d; break;
-                    case 5: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair225d; break;
-                    case 6: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair270d; break;
-                    case 7: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair315d; break;
-                    default: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair0d; break;
-                }
                 form1.cb_listCh1.Location = new Point(6, 20);
                 form1.cb_listCh2.Location = new Point(82, 20);
                 form1.cb_listCh3.Location = new Point(158, 20);
@@ -236,8 +274,6 @@ namespace SpeakerSelector
                 form1.cb_listCh7.Visible = true;
                 form1.cb_listCh8.Visible = true;
             }
-            form1.lb_stimulationTime.Text = tb_form2StimulationTime.Text +"s/" + tb_form2StimulationTimeWait.Text +"s";
-            form1.lb_routineCount.Text = tb_form2RoutineTime.Text;
 
             Properties.Settings.Default.save_ch1ang = tb_ch1ang.Text;
             Properties.Settings.Default.save_ch2ang = tb_ch2ang.Text;
@@ -248,15 +284,8 @@ namespace SpeakerSelector
             Properties.Settings.Default.save_ch7ang = tb_ch7ang.Text;
             Properties.Settings.Default.save_ch8ang = tb_ch8ang.Text;
 
-            
-
             Properties.Settings.Default.save_rb_8chsel = rb_8chsel.Checked;
             Properties.Settings.Default.save_cb_chairdeg = cb_chairdeg.SelectedIndex;
-            Properties.Settings.Default.save_cb_SerialPort = cb_SerialPort.Text;
-
-            Properties.Settings.Default.save_tb_stimulationTime = tb_form2StimulationTime.Text;
-            Properties.Settings.Default.save_tb_stimulationTimeWait = tb_form2StimulationTimeWait.Text;
-            Properties.Settings.Default.save_tb_routineTime = tb_form2RoutineTime.Text;
 
             Properties.Settings.Default.Save();
 
