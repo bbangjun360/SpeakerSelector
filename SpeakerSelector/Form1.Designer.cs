@@ -54,8 +54,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.gb_stimulationTime = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tb_form1StimulationTimeWait = new System.Windows.Forms.TextBox();
+            this.tb_form1StimulationTime = new System.Windows.Forms.TextBox();
             this.lb_stimulationTime = new System.Windows.Forms.Label();
             this.gb_routineCount = new System.Windows.Forms.GroupBox();
+            this.tb_form1RoutineCount = new System.Windows.Forms.TextBox();
             this.lb_routineCount = new System.Windows.Forms.Label();
             this.lb_testtime = new System.Windows.Forms.Label();
             this.lb_testtimeText = new System.Windows.Forms.Label();
@@ -103,10 +107,7 @@
             this.btn_listDelete = new System.Windows.Forms.Button();
             this.btn_csvOpen = new System.Windows.Forms.Button();
             this.btn_csvSave = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tb_form1StimulationTimeWait = new System.Windows.Forms.TextBox();
-            this.tb_form1StimulationTime = new System.Windows.Forms.TextBox();
-            this.tb_form1RoutineCount = new System.Windows.Forms.TextBox();
+            this.btn_timerReset = new System.Windows.Forms.Button();
             this.gb_stimulationTime.SuspendLayout();
             this.gb_routineCount.SuspendLayout();
             this.gb_mode.SuspendLayout();
@@ -364,6 +365,36 @@
             this.gb_stimulationTime.TabStop = false;
             this.gb_stimulationTime.Text = "Stimulation Time";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("휴먼둥근헤드라인", 12F);
+            this.label5.Location = new System.Drawing.Point(49, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(16, 17);
+            this.label5.TabIndex = 43;
+            this.label5.Text = "/";
+            // 
+            // tb_form1StimulationTimeWait
+            // 
+            this.tb_form1StimulationTimeWait.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11F);
+            this.tb_form1StimulationTimeWait.Location = new System.Drawing.Point(71, 27);
+            this.tb_form1StimulationTimeWait.Name = "tb_form1StimulationTimeWait";
+            this.tb_form1StimulationTimeWait.Size = new System.Drawing.Size(32, 24);
+            this.tb_form1StimulationTimeWait.TabIndex = 42;
+            this.tb_form1StimulationTimeWait.Text = "2";
+            this.tb_form1StimulationTimeWait.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tb_form1StimulationTime
+            // 
+            this.tb_form1StimulationTime.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11F);
+            this.tb_form1StimulationTime.Location = new System.Drawing.Point(11, 27);
+            this.tb_form1StimulationTime.Name = "tb_form1StimulationTime";
+            this.tb_form1StimulationTime.Size = new System.Drawing.Size(32, 24);
+            this.tb_form1StimulationTime.TabIndex = 41;
+            this.tb_form1StimulationTime.Text = "1";
+            this.tb_form1StimulationTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // lb_stimulationTime
             // 
             this.lb_stimulationTime.AutoSize = true;
@@ -385,7 +416,16 @@
             this.gb_routineCount.TabIndex = 39;
             this.gb_routineCount.TabStop = false;
             this.gb_routineCount.Text = "Routine Count";
-            this.gb_routineCount.Enter += new System.EventHandler(this.gb_routineCount_Enter);
+            // 
+            // tb_form1RoutineCount
+            // 
+            this.tb_form1RoutineCount.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11F);
+            this.tb_form1RoutineCount.Location = new System.Drawing.Point(41, 27);
+            this.tb_form1RoutineCount.Name = "tb_form1RoutineCount";
+            this.tb_form1RoutineCount.Size = new System.Drawing.Size(32, 24);
+            this.tb_form1RoutineCount.TabIndex = 44;
+            this.tb_form1RoutineCount.Text = "2";
+            this.tb_form1RoutineCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lb_routineCount
             // 
@@ -434,6 +474,7 @@
             this.rb_serial.TabIndex = 52;
             this.rb_serial.Text = "Serial";
             this.rb_serial.UseVisualStyleBackColor = true;
+            this.rb_serial.CheckedChanged += new System.EventHandler(this.rb_serial_CheckedChanged);
             // 
             // gb_mode
             // 
@@ -473,6 +514,7 @@
             this.rb_random.TabIndex = 55;
             this.rb_random.Text = "Random";
             this.rb_random.UseVisualStyleBackColor = true;
+            this.rb_random.CheckedChanged += new System.EventHandler(this.rb_random_CheckedChanged);
             // 
             // rb_manual
             // 
@@ -484,6 +526,7 @@
             this.rb_manual.TabIndex = 54;
             this.rb_manual.Text = "Manual";
             this.rb_manual.UseVisualStyleBackColor = true;
+            this.rb_manual.CheckedChanged += new System.EventHandler(this.rb_manual_CheckedChanged);
             // 
             // lb_preset
             // 
@@ -873,45 +916,17 @@
             this.btn_csvSave.UseVisualStyleBackColor = true;
             this.btn_csvSave.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label5
+            // btn_timerReset
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("휴먼둥근헤드라인", 12F);
-            this.label5.Location = new System.Drawing.Point(49, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(16, 17);
-            this.label5.TabIndex = 43;
-            this.label5.Text = "/";
-            // 
-            // tb_form1StimulationTimeWait
-            // 
-            this.tb_form1StimulationTimeWait.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11F);
-            this.tb_form1StimulationTimeWait.Location = new System.Drawing.Point(71, 27);
-            this.tb_form1StimulationTimeWait.Name = "tb_form1StimulationTimeWait";
-            this.tb_form1StimulationTimeWait.Size = new System.Drawing.Size(32, 24);
-            this.tb_form1StimulationTimeWait.TabIndex = 42;
-            this.tb_form1StimulationTimeWait.Text = "2";
-            this.tb_form1StimulationTimeWait.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // tb_form1StimulationTime
-            // 
-            this.tb_form1StimulationTime.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11F);
-            this.tb_form1StimulationTime.Location = new System.Drawing.Point(11, 27);
-            this.tb_form1StimulationTime.Name = "tb_form1StimulationTime";
-            this.tb_form1StimulationTime.Size = new System.Drawing.Size(32, 24);
-            this.tb_form1StimulationTime.TabIndex = 41;
-            this.tb_form1StimulationTime.Text = "1";
-            this.tb_form1StimulationTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // tb_form1RoutineCount
-            // 
-            this.tb_form1RoutineCount.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11F);
-            this.tb_form1RoutineCount.Location = new System.Drawing.Point(41, 27);
-            this.tb_form1RoutineCount.Name = "tb_form1RoutineCount";
-            this.tb_form1RoutineCount.Size = new System.Drawing.Size(32, 24);
-            this.tb_form1RoutineCount.TabIndex = 44;
-            this.tb_form1RoutineCount.Text = "2";
-            this.tb_form1RoutineCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_timerReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_timerReset.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F);
+            this.btn_timerReset.Location = new System.Drawing.Point(889, 6);
+            this.btn_timerReset.Name = "btn_timerReset";
+            this.btn_timerReset.Size = new System.Drawing.Size(21, 21);
+            this.btn_timerReset.TabIndex = 67;
+            this.btn_timerReset.Text = "R";
+            this.btn_timerReset.UseVisualStyleBackColor = true;
+            this.btn_timerReset.Click += new System.EventHandler(this.btn_timerReset_Click);
             // 
             // SpeakerSelector
             // 
@@ -919,6 +934,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 629);
+            this.Controls.Add(this.btn_timerReset);
             this.Controls.Add(this.btn_csvSave);
             this.Controls.Add(this.btn_csvOpen);
             this.Controls.Add(this.btn_listDelete);
@@ -972,6 +988,7 @@
             this.Name = "SpeakerSelector";
             this.Text = "SoundCareTech.";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SpeakerSelector_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SpeakerSelector_FormClosed);
             this.Load += new System.EventHandler(this.SpeakerSelector_Load);
             this.gb_stimulationTime.ResumeLayout(false);
             this.gb_stimulationTime.PerformLayout();
@@ -1023,16 +1040,12 @@
         public System.Windows.Forms.Label lb_ch7;
         public System.Windows.Forms.Label lb_ch8;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_testStart;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.GroupBox gb_stimulationTime;
-        private System.Windows.Forms.GroupBox gb_routineCount;
         private System.Windows.Forms.Label lb_testtime;
         private System.Windows.Forms.Label lb_testtimeText;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RadioButton rb_serial;
-        private System.Windows.Forms.GroupBox gb_mode;
         private System.Windows.Forms.RadioButton rb_preset;
         private System.Windows.Forms.RadioButton rb_random;
         private System.Windows.Forms.RadioButton rb_manual;
@@ -1077,6 +1090,11 @@
         private System.Windows.Forms.TextBox tb_form1StimulationTimeWait;
         private System.Windows.Forms.TextBox tb_form1StimulationTime;
         private System.Windows.Forms.TextBox tb_form1RoutineCount;
+        public System.Windows.Forms.Button btn_testStart;
+        public System.Windows.Forms.GroupBox gb_stimulationTime;
+        public System.Windows.Forms.GroupBox gb_routineCount;
+        public System.Windows.Forms.GroupBox gb_mode;
+        private System.Windows.Forms.Button btn_timerReset;
     }
 }
 

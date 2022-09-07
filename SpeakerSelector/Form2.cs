@@ -20,14 +20,7 @@ namespace SpeakerSelector
         {
             InitializeComponent();
             form1 = form;
-            tb_ch1ang.Text = form1.lb_ch1deg.Text;
-            tb_ch2ang.Text = form1.lb_ch2deg.Text;
-            tb_ch3ang.Text = form1.lb_ch3deg.Text;
-            tb_ch4ang.Text = form1.lb_ch4deg.Text;
-            tb_ch5ang.Text = form1.lb_ch5deg.Text;
-            tb_ch6ang.Text = form1.lb_ch6deg.Text;
-            tb_ch7ang.Text = form1.lb_ch7deg.Text;
-            tb_ch8ang.Text = form1.lb_ch8deg.Text;
+
 
         }
 
@@ -53,20 +46,20 @@ namespace SpeakerSelector
                 rb_180deg.Checked = false;
                 rb_360deg.Checked = true;
             }
+            cb_chairdeg.SelectedIndex = Properties.Settings.Default.save_cb_chairdeg;
+            rb_4chsel.Checked = !(Properties.Settings.Default.save_rb_8chsel);
+            rb_8chsel.Checked = Properties.Settings.Default.save_rb_8chsel;
+            tb_ch1ang.Text = Properties.Settings.Default.save_ch1ang;
+            tb_ch2ang.Text = Properties.Settings.Default.save_ch2ang;
+            tb_ch3ang.Text = Properties.Settings.Default.save_ch3ang;
+            tb_ch4ang.Text = Properties.Settings.Default.save_ch4ang;
+            tb_ch5ang.Text = Properties.Settings.Default.save_ch5ang;
+            tb_ch6ang.Text = Properties.Settings.Default.save_ch6ang;
+            tb_ch7ang.Text = Properties.Settings.Default.save_ch7ang;
+            tb_ch8ang.Text = Properties.Settings.Default.save_ch8ang;
             btn_apply.PerformClick();
             if (Properties.Settings.Default.form2Opened == false)
             {
-                cb_chairdeg.SelectedIndex = Properties.Settings.Default.save_cb_chairdeg;
-                rb_4chsel.Checked = !(Properties.Settings.Default.save_rb_8chsel);
-                rb_8chsel.Checked = Properties.Settings.Default.save_rb_8chsel;
-                tb_ch1ang.Text = Properties.Settings.Default.save_ch1ang;
-                tb_ch2ang.Text = Properties.Settings.Default.save_ch2ang;
-                tb_ch3ang.Text = Properties.Settings.Default.save_ch3ang;
-                tb_ch4ang.Text = Properties.Settings.Default.save_ch4ang;
-                tb_ch5ang.Text = Properties.Settings.Default.save_ch5ang;
-                tb_ch6ang.Text = Properties.Settings.Default.save_ch6ang;
-                tb_ch7ang.Text = Properties.Settings.Default.save_ch7ang;
-                tb_ch8ang.Text = Properties.Settings.Default.save_ch8ang;
                 Properties.Settings.Default.form2Opened = true;
                 Properties.Settings.Default.Save();
                 
@@ -135,6 +128,11 @@ namespace SpeakerSelector
 
         private void btn_apply_Click(object sender, EventArgs e)
         {
+            form1.gb_mode.Enabled = true;
+            form1.gb_stimulationTime.Enabled = true;
+            form1.gb_routineCount.Enabled = true;
+            form1.btn_testStart.Enabled = true;
+
             switch (cb_chairdeg.SelectedIndex)
             {
                 case 0: form1.pb_ChairCircle.BackgroundImage = Properties.Resources.circlechair0d; break;

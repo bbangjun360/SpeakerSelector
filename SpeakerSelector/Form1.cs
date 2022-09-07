@@ -47,6 +47,19 @@ namespace SpeakerSelector
             tb_form1StimulationTime.Text = Properties.Settings.Default.save_tb_stimulationTime;
             tb_form1StimulationTimeWait.Text = Properties.Settings.Default.save_tb_stimulationTimeWait;
             tb_form1RoutineCount.Text = Properties.Settings.Default.save_tb_routineTime;
+
+            pb_ch1.Enabled = false;
+            pb_ch2.Enabled = false;
+            pb_ch3.Enabled = false;
+            pb_ch4.Enabled = false;
+            pb_ch5.Enabled = false;
+            pb_ch6.Enabled = false;
+            pb_ch7.Enabled = false;
+            pb_ch8.Enabled = false;
+            gb_mode.Enabled = false;
+            gb_stimulationTime.Enabled = false;
+            gb_routineCount.Enabled = false;
+            btn_testStart.Enabled = false;
         }
         void TESTTIME_timerCallBack(Object state)
         {
@@ -265,186 +278,177 @@ namespace SpeakerSelector
             lb_ch1deg.Text = ang;
         }
 
-        private void rb_preset_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rb_preset.Checked)
-            {
-                this.Size = new Size(1250, 668);
-            }
-            else
-            {
-                this.Size = new Size(930, 668);
-            }
-        }
-
         bool teststart = false;
         private void btn_testStart_Click(object sender, EventArgs e)
         {
            if(teststart == false)
            {
+                if (rb_preset.Checked)
+                {
+                    for (int i = 0; i < lv_preset.Items.Count; i++)
+                        routineCntSum += Int32.Parse(lv_preset.Items[i].SubItems[2].Text);
+                }
                 teststart = true;
                 btn_testStart.Text = "TEST STOP";
                 lb_testtime.Text = "00:00";
-                testtime_time = 0;
+                testtime_time = -1;
                 TESTTIME_ThreadTimer.Change(0, 1000);
                 StimulationTime_ThreadTimer.Change(0, 1000);
-
-                if (rb_serial.Checked) Properties.Settings.Default.save_selectedmode = 1;
-                else if (rb_random.Checked) Properties.Settings.Default.save_selectedmode = 2;
-                else if (rb_manual.Checked) Properties.Settings.Default.save_selectedmode = 3;
-                else if (rb_preset.Checked) Properties.Settings.Default.save_selectedmode = 4;
 
                 Properties.Settings.Default.save_tb_stimulationTime = tb_form1StimulationTime.Text;
                 Properties.Settings.Default.save_tb_stimulationTimeWait = tb_form1StimulationTimeWait.Text;
                 Properties.Settings.Default.save_tb_routineTime = tb_form1RoutineCount.Text;
                 Properties.Settings.Default.Save();
-
+                tb_form1StimulationTime.Enabled = false;
+                tb_form1StimulationTimeWait.Enabled = false;
+                tb_form1RoutineCount.Enabled = false;
             }
             else
             {
-                teststart = false;
-                btn_testStart.Text = "TEST START";
-                TESTTIME_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
-                StimulationTime_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
-                StimulationTimeWait_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
-                routineCountChk = 0;
-                currentCh = 0;
-                stimulationTime_time = 0;
-                stimulationTimeWait_time = 0;
-                tb_form1RoutineCount.Text = Properties.Settings.Default.save_tb_routineTime;
-                pb_ch1.BackgroundImage = Properties.Resources.spk_off;
-                btn_csvOpen.PerformClick();
-
-                btn_line1 = false;
-                PCM_send("L10");
-                pb_ch2.BackgroundImage = Properties.Resources.spk_off;
-                btn_line2 = false;
-                PCM_send("L20");
-                pb_ch3.BackgroundImage = Properties.Resources.spk_off;
-                btn_line3 = false;
-                PCM_send("L40");
-                pb_ch4.BackgroundImage = Properties.Resources.spk_off;
-                btn_line4 = false;
-                PCM_send("L50");
-                pb_ch5.BackgroundImage = Properties.Resources.spk_off;
-                btn_line5 = false;
-                PCM_send("L50");
-                pb_ch6.BackgroundImage = Properties.Resources.spk_off;
-                btn_line6 = false;
-                PCM_send("L60"); 
-                pb_ch7.BackgroundImage = Properties.Resources.spk_off;
-                btn_line7 = false;
-                PCM_send("L70");
-                pb_ch8.BackgroundImage = Properties.Resources.spk_off;
-                btn_line8 = false;
-                PCM_send("L80");
-
+                testStop();
             }
+        }
+        private void testStop()
+        {
+            teststart = false;
+            btn_testStart.Text = "TEST START";
+            TESTTIME_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+            StimulationTime_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+            StimulationTimeWait_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+            routineCountChk = 0;
+            currentCh = 0;
+            stimulationTime_time = 0;
+            stimulationTimeWait_time = 0;
+            tb_form1RoutineCount.Text = Properties.Settings.Default.save_tb_routineTime;
+            pb_ch1.BackgroundImage = Properties.Resources.spk_off;
+            btn_csvOpen.PerformClick();
+
+            btn_line1 = false;
+            PCM_send("L10");
+            pb_ch2.BackgroundImage = Properties.Resources.spk_off;
+            btn_line2 = false;
+            PCM_send("L20");
+            pb_ch3.BackgroundImage = Properties.Resources.spk_off;
+            btn_line3 = false;
+            PCM_send("L40");
+            pb_ch4.BackgroundImage = Properties.Resources.spk_off;
+            btn_line4 = false;
+            PCM_send("L50");
+            pb_ch5.BackgroundImage = Properties.Resources.spk_off;
+            btn_line5 = false;
+            PCM_send("L50");
+            pb_ch6.BackgroundImage = Properties.Resources.spk_off;
+            btn_line6 = false;
+            PCM_send("L60");
+            pb_ch7.BackgroundImage = Properties.Resources.spk_off;
+            btn_line7 = false;
+            PCM_send("L70");
+            pb_ch8.BackgroundImage = Properties.Resources.spk_off;
+            btn_line8 = false;
+            PCM_send("L80");
+
+            tb_form1StimulationTime.Enabled = true;
+            tb_form1StimulationTimeWait.Enabled = true;
+            tb_form1RoutineCount.Enabled = true;
         }
         //mode 관련 함수
         int currentCh = 0;
         int routineCountChk = 0;
         bool rndSpkOn = false;
         int randomvalue = 1;
+        int routineCntSum = 0;
         private void modeSelector()
         {
-            
-            if (routineCountChk < Int32.Parse(Properties.Settings.Default.save_tb_routineTime))
+            if (rb_preset.Checked)
             {
-                if (rb_serial.Checked)
+                while (Int32.Parse(lv_preset.Items[currentCh].SubItems[2].Text) == 0)
                 {
-                    speakerSwitch(currentCh / 2 + 1);
                     currentCh++;
-                    if (Properties.Settings.Default.save_rb_8chsel == false)
-                    {
-                        if (currentCh == 8)
-                        {
-                            currentCh = 0;
-                            routineCountChk++;
-                            tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text)-1).ToString();
-                        }
-                    }
-                    else
-                    {
-                        if (currentCh == 16)
-                        {
-                            currentCh = 0;
-                            routineCountChk++;
-                            tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
-                        }
-                    }
+                    if (lv_preset.Items.Count <= currentCh)
+                        currentCh = 0;
                 }
-                else if (rb_random.Checked)
+                string channels = lv_preset.Items[currentCh].SubItems[0].Text;
+                string[] channel = channels.Split(' ');
+                for (int i = 0; i < (channels.Replace(" ", "").Length / 3); i++)
                 {
-                    if (rndSpkOn == false)
-                    {
-                        Random rnd = new Random(DateTime.Now.Millisecond);
-                        if (Properties.Settings.Default.save_rb_8chsel == false)
-                        {   //4채널
-                            randomvalue = rnd.Next(1, 5);
-                        }
-                        else
-                        {   //8채널
-                            randomvalue = rnd.Next(1, 9);
-                        }
-                        rndSpkOn = true;
-                    }
-                    currentCh++;
-                    if (Properties.Settings.Default.save_rb_8chsel == false)
-                    {
-                        if (currentCh == 8)
-                        {
-                            currentCh = 0;
-                            routineCountChk++;
-                            tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
-                        }
-                    }
-                    else
-                    {
-                        if (currentCh == 16)
-                        {
-                            currentCh = 0;
-                            routineCountChk++;
-                            tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
-                        }
-                    }
-                    speakerSwitch(randomvalue);
-                }
-                else if (rb_manual.Checked)
-                {
-                    StimulationTime_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
-                }
-                else if (rb_preset.Checked)
-                {
-                    int routineCntSum = 0;
-                    for (int i = 0; i < lv_preset.Items.Count; i++)
-                        routineCntSum += Int32.Parse(lv_preset.Items[i].SubItems[2].Text);
-                    if(routineCntSum != 0)
-                    {
-                        while (Int32.Parse(lv_preset.Items[currentCh].SubItems[2].Text) == 0)
-                        {
-                            currentCh++;
-                            if (lv_preset.Items.Count <= currentCh)
-                                currentCh = 0;
-                        }
-                        string channels = lv_preset.Items[currentCh].SubItems[0].Text;
-                        string[] channel = channels.Split(' ');
-                        for (int i = 0; i < (channels.Replace(" ", "").Length / 3); i++)
-                        {
-                            speakerSwitch((int)Char.GetNumericValue(channel[i][2]));
-                        }
-                    }
-                    else
-                    {
-                        btn_testStart.PerformClick();
-                    }
+                    speakerSwitch((int)Char.GetNumericValue(channel[i][2]));
                 }
             }
             else
-            {   // routineCount 끝나면 종료
-                btn_testStart.PerformClick();
+            {
+                if (routineCountChk < Int32.Parse(Properties.Settings.Default.save_tb_routineTime))
+                {
+                    if (rb_serial.Checked)
+                    {
+                        speakerSwitch(currentCh / 2 + 1);
+                        currentCh++;
+                        if (Properties.Settings.Default.save_rb_8chsel == false)
+                        {
+                            if (currentCh == 8)
+                            {
+                                currentCh = 0;
+                                routineCountChk++;
+                                tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
+                            }
+                        }
+                        else
+                        {
+                            if (currentCh == 16)
+                            {
+                                currentCh = 0;
+                                routineCountChk++;
+                                tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
+                            }
+                        }
+                    }
+                    else if (rb_random.Checked)
+                    {
+                        if (rndSpkOn == false)
+                        {
+                            Random rnd = new Random(DateTime.Now.Millisecond);
+                            if (Properties.Settings.Default.save_rb_8chsel == false)
+                            {   //4채널
+                                randomvalue = rnd.Next(1, 5);
+                            }
+                            else
+                            {   //8채널
+                                randomvalue = rnd.Next(1, 9);
+                            }
+                            rndSpkOn = true;
+                        }
+                        currentCh++;
+                        if (Properties.Settings.Default.save_rb_8chsel == false)
+                        {
+                            if (currentCh == 8)
+                            {
+                                currentCh = 0;
+                                routineCountChk++;
+                                tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
+                            }
+                        }
+                        else
+                        {
+                            if (currentCh == 16)
+                            {
+                                currentCh = 0;
+                                routineCountChk++;
+                                tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
+                            }
+                        }
+                        speakerSwitch(randomvalue);
+                    }
+                    else if (rb_manual.Checked)
+                    {
+                        StimulationTime_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+                    }
+                }
+                else
+                {   // routineCount 끝나면 종료
+                    btn_testStart.PerformClick();
 
+                }
             }
+            
         }
         private void speakerSwitch(int speakerNum)
         {
@@ -515,7 +519,15 @@ namespace SpeakerSelector
                         if (lv_preset.Items.Count <= currentCh)
                             currentCh = 0;
                         stimulationTime_time = 0;
-                        StimulationTime_ThreadTimer.Change(0, 1000);
+                        routineCntSum--;
+                        if (routineCntSum == 0)
+                        {
+                            btn_testStart.PerformClick();
+                        }
+                        else
+                        {
+                            StimulationTime_ThreadTimer.Change(0, 1000);
+                        }
                     }
                 }
                 else
@@ -682,8 +694,23 @@ namespace SpeakerSelector
         private void btnConnect_Click(object sender, EventArgs e)
         {
             serialPort1.Close();
+
+
             if (!serialPort1.IsOpen)                                                             //시리얼포트가 열려 있지 않으면
             {
+                gb_mode.Enabled = true;
+                btn_testStart.Enabled = true;
+                if (rb_manual.Checked == true)
+                {
+                    gb_stimulationTime.Enabled = false;
+                    gb_routineCount.Enabled = false;
+                }
+                else
+                {
+                    gb_stimulationTime.Enabled = true;
+                    gb_routineCount.Enabled = true;
+                }
+
                 serialPort1.PortName = Properties.Settings.Default.save_cb_SerialPort;                                   //콤보박스의 선택된 COM포트명을 시리얼포트명으로 지정
                 serialPort1.BaudRate = 9600;                                                     //baudrate 변경이 필요하면 숫자 변경하기
                 serialPort1.DataBits = 8;
@@ -704,34 +731,141 @@ namespace SpeakerSelector
 
         private void SpeakerSelector_FormClosing(object sender, FormClosingEventArgs e)
         {
-            btn_line1 = false;
             PCM_send("L10");
-            pb_ch2.BackgroundImage = Properties.Resources.spk_off;
-            btn_line2 = false;
             PCM_send("L20");
-            pb_ch3.BackgroundImage = Properties.Resources.spk_off;
-            btn_line3 = false;
+            PCM_send("L30");
             PCM_send("L40");
-            pb_ch4.BackgroundImage = Properties.Resources.spk_off;
-            btn_line4 = false;
             PCM_send("L50");
-            pb_ch5.BackgroundImage = Properties.Resources.spk_off;
-            btn_line5 = false;
-            PCM_send("L50");
-            pb_ch6.BackgroundImage = Properties.Resources.spk_off;
-            btn_line6 = false;
             PCM_send("L60");
-            pb_ch7.BackgroundImage = Properties.Resources.spk_off;
-            btn_line7 = false;
             PCM_send("L70");
-            pb_ch8.BackgroundImage = Properties.Resources.spk_off;
-            btn_line8 = false;
             PCM_send("L80");
         }
-
-        private void gb_routineCount_Enter(object sender, EventArgs e)
+        private void SpeakerSelector_FormClosed(object sender, FormClosedEventArgs e)
         {
+            PCM_send("L10");
+            PCM_send("L20");
+            PCM_send("L30");
+            PCM_send("L40");
+            PCM_send("L50");
+            PCM_send("L60");
+            PCM_send("L70");
+            PCM_send("L80");
+        }
+        // radio 버튼 변경될 때 마다 저장하고 행동 실행하는 부분
+        private void rb_serial_CheckedChanged(object sender, EventArgs e)
+        {
+            lb_testtime.Text = "00:00";
+            testStop();
+            if (rb_serial.Checked) Properties.Settings.Default.save_selectedmode = 1;
+            else if (rb_random.Checked) Properties.Settings.Default.save_selectedmode = 2;
+            else if (rb_manual.Checked)
+            {
+                gb_stimulationTime.Enabled = false;
+                gb_routineCount.Enabled = false;
+                Properties.Settings.Default.save_selectedmode = 3;
+            }
+            else if (rb_preset.Checked) Properties.Settings.Default.save_selectedmode = 4;
+            Properties.Settings.Default.Save();
+
+            pb_ch1.Enabled = false;
+            pb_ch2.Enabled = false;
+            pb_ch3.Enabled = false;
+            pb_ch4.Enabled = false;
+            pb_ch5.Enabled = false;
+            pb_ch6.Enabled = false;
+            pb_ch7.Enabled = false;
+            pb_ch8.Enabled = false;
 
         }
+
+        private void rb_random_CheckedChanged(object sender, EventArgs e)
+        {
+            gb_stimulationTime.Enabled = true;
+            gb_routineCount.Enabled = true;
+
+            lb_testtime.Text = "00:00";
+            testStop();
+            if (rb_serial.Checked) Properties.Settings.Default.save_selectedmode = 1;
+            else if (rb_random.Checked) Properties.Settings.Default.save_selectedmode = 2;
+            else if (rb_manual.Checked)
+            {
+                gb_stimulationTime.Enabled = false;
+                gb_routineCount.Enabled = false;
+                Properties.Settings.Default.save_selectedmode = 3;
+            }
+            else if (rb_preset.Checked) Properties.Settings.Default.save_selectedmode = 4;
+            Properties.Settings.Default.Save();
+            pb_ch1.Enabled = false;
+            pb_ch2.Enabled = false;
+            pb_ch3.Enabled = false;
+            pb_ch4.Enabled = false;
+            pb_ch5.Enabled = false;
+            pb_ch6.Enabled = false;
+            pb_ch7.Enabled = false;
+            pb_ch8.Enabled = false;
+        }
+
+        private void rb_manual_CheckedChanged(object sender, EventArgs e)
+        {
+            lb_testtime.Text = "00:00";
+            testStop();
+            if (rb_serial.Checked) Properties.Settings.Default.save_selectedmode = 1;
+            else if (rb_random.Checked) Properties.Settings.Default.save_selectedmode = 2;
+            else if (rb_manual.Checked)
+            {
+                gb_stimulationTime.Enabled = false;
+                gb_routineCount.Enabled = false;
+                Properties.Settings.Default.save_selectedmode = 3;
+            }
+            else if (rb_preset.Checked) Properties.Settings.Default.save_selectedmode = 4;
+            Properties.Settings.Default.Save();
+            pb_ch1.Enabled = true;
+            pb_ch2.Enabled = true;
+            pb_ch3.Enabled = true;
+            pb_ch4.Enabled = true;
+            pb_ch5.Enabled = true;
+            pb_ch6.Enabled = true;
+            pb_ch7.Enabled = true;
+            pb_ch8.Enabled = true;
+        }
+        private void rb_preset_CheckedChanged(object sender, EventArgs e)
+        {
+            testStop();
+            lb_testtime.Text = "00:00";
+            if (rb_serial.Checked) Properties.Settings.Default.save_selectedmode = 1;
+            else if (rb_random.Checked) Properties.Settings.Default.save_selectedmode = 2;
+            else if (rb_manual.Checked)
+            {
+                gb_stimulationTime.Enabled = false;
+                gb_routineCount.Enabled = false;
+                Properties.Settings.Default.save_selectedmode = 3;
+            }
+            else if (rb_preset.Checked) Properties.Settings.Default.save_selectedmode = 4;
+            Properties.Settings.Default.Save();
+            pb_ch1.Enabled = false;
+            pb_ch2.Enabled = false;
+            pb_ch3.Enabled = false;
+            pb_ch4.Enabled = false;
+            pb_ch5.Enabled = false;
+            pb_ch6.Enabled = false;
+            pb_ch7.Enabled = false;
+            pb_ch8.Enabled = false;
+
+            if (rb_preset.Checked)
+            {
+                this.Size = new Size(1250, 668);
+            }
+            else
+            {
+                this.Size = new Size(930, 668);
+            }
+        }
+
+        private void btn_timerReset_Click(object sender, EventArgs e)
+        {
+            lb_testtime.Text = "00:00";
+            testtime_time = 0;
+        }
+
     }
 }
