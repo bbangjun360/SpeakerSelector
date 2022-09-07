@@ -920,11 +920,11 @@
             // 
             this.btn_timerReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_timerReset.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F);
-            this.btn_timerReset.Location = new System.Drawing.Point(889, 6);
+            this.btn_timerReset.Location = new System.Drawing.Point(578, 599);
             this.btn_timerReset.Name = "btn_timerReset";
-            this.btn_timerReset.Size = new System.Drawing.Size(21, 21);
+            this.btn_timerReset.Size = new System.Drawing.Size(59, 21);
             this.btn_timerReset.TabIndex = 67;
-            this.btn_timerReset.Text = "R";
+            this.btn_timerReset.Text = "RESET";
             this.btn_timerReset.UseVisualStyleBackColor = true;
             this.btn_timerReset.Click += new System.EventHandler(this.btn_timerReset_Click);
             // 

@@ -863,9 +863,33 @@ namespace SpeakerSelector
 
         private void btn_timerReset_Click(object sender, EventArgs e)
         {
-            lb_testtime.Text = "00:00";
-            testtime_time = 0;
-        }
+            pb_ch1.BackgroundImage = Properties.Resources.spk_off;
+            btn_line1 = false;
+            PCM_send("L10");
+            pb_ch2.BackgroundImage = Properties.Resources.spk_off;
+            btn_line2 = false;
+            PCM_send("L20");
+            pb_ch3.BackgroundImage = Properties.Resources.spk_off;
+            btn_line3 = false;
+            PCM_send("L30");
+            pb_ch4.BackgroundImage = Properties.Resources.spk_off;
+            btn_line4 = false;
+            PCM_send("L40");
+            pb_ch5.BackgroundImage = Properties.Resources.spk_off;
+            btn_line5 = false;
+            PCM_send("L50");
+            pb_ch6.BackgroundImage = Properties.Resources.spk_off;
+            btn_line6 = false;
+            PCM_send("L60");
+            pb_ch7.BackgroundImage = Properties.Resources.spk_off;
+            btn_line7 = false;
+            PCM_send("L70");
+            pb_ch8.BackgroundImage = Properties.Resources.spk_off;
+            btn_line8 = false;
+            PCM_send("L80");
 
+            testStop();
+            MessageBox.Show("! HARDWARE RESET !","WARNING");
+        }
     }
 }
