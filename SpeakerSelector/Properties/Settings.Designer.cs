@@ -157,7 +157,7 @@ namespace SpeakerSelector.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public string save_tb_stimulationTime {
             get {
                 return ((string)(this["save_tb_stimulationTime"]));
@@ -169,7 +169,7 @@ namespace SpeakerSelector.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public string save_tb_stimulationTimeWait {
             get {
                 return ((string)(this["save_tb_stimulationTimeWait"]));
@@ -181,7 +181,7 @@ namespace SpeakerSelector.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public string save_tb_routineTime {
             get {
                 return ((string)(this["save_tb_routineTime"]));

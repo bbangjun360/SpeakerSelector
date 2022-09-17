@@ -108,6 +108,8 @@
             this.btn_csvOpen = new System.Windows.Forms.Button();
             this.btn_csvSave = new System.Windows.Forms.Button();
             this.btn_timerReset = new System.Windows.Forms.Button();
+            this.cb_clockwise = new System.Windows.Forms.CheckBox();
+            this.cb_allRandom = new System.Windows.Forms.CheckBox();
             this.gb_stimulationTime.SuspendLayout();
             this.gb_routineCount.SuspendLayout();
             this.gb_mode.SuspendLayout();
@@ -298,6 +300,10 @@
             this.lb_ch8deg.TabIndex = 33;
             this.lb_ch8deg.Text = "315 °";
             // 
+            // serialPort1
+            // 
+            this.serialPort1.BaudRate = 115200;
+            // 
             // btnConnect
             // 
             this.btnConnect.BackColor = System.Drawing.Color.Red;
@@ -326,7 +332,7 @@
             this.btn_testStart.BackColor = System.Drawing.Color.White;
             this.btn_testStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_testStart.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15F);
-            this.btn_testStart.Location = new System.Drawing.Point(663, 304);
+            this.btn_testStart.Location = new System.Drawing.Point(663, 340);
             this.btn_testStart.Name = "btn_testStart";
             this.btn_testStart.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_testStart.Size = new System.Drawing.Size(234, 49);
@@ -338,7 +344,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(655, 366);
+            this.panel3.Location = new System.Drawing.Point(655, 325);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(250, 2);
             this.panel3.TabIndex = 46;
@@ -346,7 +352,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(655, 221);
+            this.panel4.Location = new System.Drawing.Point(655, 218);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(250, 2);
             this.panel4.TabIndex = 47;
@@ -358,7 +364,7 @@
             this.gb_stimulationTime.Controls.Add(this.tb_form1StimulationTime);
             this.gb_stimulationTime.Controls.Add(this.lb_stimulationTime);
             this.gb_stimulationTime.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F);
-            this.gb_stimulationTime.Location = new System.Drawing.Point(663, 240);
+            this.gb_stimulationTime.Location = new System.Drawing.Point(663, 236);
             this.gb_stimulationTime.Name = "gb_stimulationTime";
             this.gb_stimulationTime.Size = new System.Drawing.Size(114, 57);
             this.gb_stimulationTime.TabIndex = 38;
@@ -410,7 +416,7 @@
             this.gb_routineCount.Controls.Add(this.tb_form1RoutineCount);
             this.gb_routineCount.Controls.Add(this.lb_routineCount);
             this.gb_routineCount.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F);
-            this.gb_routineCount.Location = new System.Drawing.Point(783, 240);
+            this.gb_routineCount.Location = new System.Drawing.Point(783, 236);
             this.gb_routineCount.Name = "gb_routineCount";
             this.gb_routineCount.Size = new System.Drawing.Size(114, 57);
             this.gb_routineCount.TabIndex = 39;
@@ -483,7 +489,7 @@
             this.gb_mode.Controls.Add(this.rb_manual);
             this.gb_mode.Controls.Add(this.rb_serial);
             this.gb_mode.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11F);
-            this.gb_mode.Location = new System.Drawing.Point(663, 113);
+            this.gb_mode.Location = new System.Drawing.Point(663, 112);
             this.gb_mode.Name = "gb_mode";
             this.gb_mode.Size = new System.Drawing.Size(234, 90);
             this.gb_mode.TabIndex = 53;
@@ -560,25 +566,25 @@
             // ch_speakerOn
             // 
             this.ch_speakerOn.Text = "Speaker On";
-            this.ch_speakerOn.Width = 80;
+            this.ch_speakerOn.Width = 157;
             // 
             // ch_stimulationTime
             // 
-            this.ch_stimulationTime.Text = "Stimultion Time";
-            this.ch_stimulationTime.Width = 101;
+            this.ch_stimulationTime.Text = "Time";
+            this.ch_stimulationTime.Width = 81;
             // 
             // ch_stimulationCount
             // 
-            this.ch_stimulationCount.Text = "Stimulation Count";
+            this.ch_stimulationCount.Text = "Count";
             this.ch_stimulationCount.Width = 114;
             // 
             // panel5
             // 
             this.panel5.BackgroundImage = global::SpeakerSelector.Properties.Resources.programLogo;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel5.Location = new System.Drawing.Point(670, 390);
+            this.panel5.Location = new System.Drawing.Point(670, 403);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(220, 220);
+            this.panel5.Size = new System.Drawing.Size(215, 215);
             this.panel5.TabIndex = 57;
             // 
             // pb_ch5
@@ -898,6 +904,7 @@
             // 
             // btn_csvOpen
             // 
+            this.btn_csvOpen.Enabled = false;
             this.btn_csvOpen.Location = new System.Drawing.Point(1066, 9);
             this.btn_csvOpen.Name = "btn_csvOpen";
             this.btn_csvOpen.Size = new System.Drawing.Size(75, 23);
@@ -908,6 +915,7 @@
             // 
             // btn_csvSave
             // 
+            this.btn_csvSave.Enabled = false;
             this.btn_csvSave.Location = new System.Drawing.Point(1147, 9);
             this.btn_csvSave.Name = "btn_csvSave";
             this.btn_csvSave.Size = new System.Drawing.Size(75, 23);
@@ -928,12 +936,40 @@
             this.btn_timerReset.UseVisualStyleBackColor = true;
             this.btn_timerReset.Click += new System.EventHandler(this.btn_timerReset_Click);
             // 
+            // cb_clockwise
+            // 
+            this.cb_clockwise.AutoSize = true;
+            this.cb_clockwise.Checked = true;
+            this.cb_clockwise.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_clockwise.Font = new System.Drawing.Font("휴먼둥근헤드라인", 8F);
+            this.cb_clockwise.Location = new System.Drawing.Point(665, 301);
+            this.cb_clockwise.Name = "cb_clockwise";
+            this.cb_clockwise.Size = new System.Drawing.Size(97, 15);
+            this.cb_clockwise.TabIndex = 68;
+            this.cb_clockwise.Text = "Clock Wise";
+            this.cb_clockwise.UseVisualStyleBackColor = true;
+            // 
+            // cb_allRandom
+            // 
+            this.cb_allRandom.AutoSize = true;
+            this.cb_allRandom.Checked = true;
+            this.cb_allRandom.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_allRandom.Font = new System.Drawing.Font("휴먼둥근헤드라인", 8F);
+            this.cb_allRandom.Location = new System.Drawing.Point(786, 301);
+            this.cb_allRandom.Name = "cb_allRandom";
+            this.cb_allRandom.Size = new System.Drawing.Size(99, 15);
+            this.cb_allRandom.TabIndex = 69;
+            this.cb_allRandom.Text = "All Random";
+            this.cb_allRandom.UseVisualStyleBackColor = true;
+            // 
             // SpeakerSelector
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 629);
+            this.Controls.Add(this.cb_allRandom);
+            this.Controls.Add(this.cb_clockwise);
             this.Controls.Add(this.btn_timerReset);
             this.Controls.Add(this.btn_csvSave);
             this.Controls.Add(this.btn_csvOpen);
@@ -1048,7 +1084,6 @@
         private System.Windows.Forms.RadioButton rb_serial;
         private System.Windows.Forms.RadioButton rb_preset;
         private System.Windows.Forms.RadioButton rb_random;
-        private System.Windows.Forms.RadioButton rb_manual;
         private System.Windows.Forms.Label lb_preset;
         private System.Windows.Forms.ListView lv_preset;
         private System.Windows.Forms.ColumnHeader ch_speakerOn;
@@ -1095,6 +1130,9 @@
         public System.Windows.Forms.GroupBox gb_routineCount;
         public System.Windows.Forms.GroupBox gb_mode;
         private System.Windows.Forms.Button btn_timerReset;
+        public System.Windows.Forms.RadioButton rb_manual;
+        private System.Windows.Forms.CheckBox cb_clockwise;
+        private System.Windows.Forms.CheckBox cb_allRandom;
     }
 }
 

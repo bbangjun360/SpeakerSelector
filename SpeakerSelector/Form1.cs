@@ -48,6 +48,9 @@ namespace SpeakerSelector
             tb_form1StimulationTimeWait.Text = Properties.Settings.Default.save_tb_stimulationTimeWait;
             tb_form1RoutineCount.Text = Properties.Settings.Default.save_tb_routineTime;
 
+            cb_clockwise.Enabled = false;
+            cb_allRandom.Enabled = false;
+
             pb_ch1.Enabled = false;
             pb_ch2.Enabled = false;
             pb_ch3.Enabled = false;
@@ -281,33 +284,104 @@ namespace SpeakerSelector
         bool teststart = false;
         private void btn_testStart_Click(object sender, EventArgs e)
         {
-           if(teststart == false)
-           {
-                if (rb_preset.Checked)
+            if (rb_manual.Checked)
+            {
+                if (teststart == false)
                 {
-                    for (int i = 0; i < lv_preset.Items.Count; i++)
-                        routineCntSum += Int32.Parse(lv_preset.Items[i].SubItems[2].Text);
-                }
-                teststart = true;
-                btn_testStart.Text = "TEST STOP";
-                lb_testtime.Text = "00:00";
-                testtime_time = -1;
-                TESTTIME_ThreadTimer.Change(0, 1000);
-                StimulationTime_ThreadTimer.Change(0, 1000);
+                    if (rb_preset.Checked)
+                    {
+                        for (int i = 0; i < lv_preset.Items.Count; i++)
+                            routineCntSum += Int32.Parse(lv_preset.Items[i].SubItems[2].Text);
+                    }
+                    teststart = true;
+                    btn_testStart.Text = "TEST STOP";
+                    lb_testtime.Text = "00:00";
+                    testtime_time = -1;
+                    TESTTIME_ThreadTimer.Change(0, 1000);
+                    StimulationTime_ThreadTimer.Change(0, 1000);
 
-                Properties.Settings.Default.save_tb_stimulationTime = tb_form1StimulationTime.Text;
-                Properties.Settings.Default.save_tb_stimulationTimeWait = tb_form1StimulationTimeWait.Text;
-                Properties.Settings.Default.save_tb_routineTime = tb_form1RoutineCount.Text;
-                Properties.Settings.Default.Save();
-                tb_form1StimulationTime.Enabled = false;
-                tb_form1StimulationTimeWait.Enabled = false;
-                tb_form1RoutineCount.Enabled = false;
+                    Properties.Settings.Default.save_tb_stimulationTime = tb_form1StimulationTime.Text;
+                    Properties.Settings.Default.save_tb_stimulationTimeWait = tb_form1StimulationTimeWait.Text;
+                    Properties.Settings.Default.save_tb_routineTime = tb_form1RoutineCount.Text;
+                    Properties.Settings.Default.Save();
+                    tb_form1StimulationTime.Enabled = false;
+                    tb_form1StimulationTimeWait.Enabled = false;
+                    tb_form1RoutineCount.Enabled = false;
+                }
+                else
+                {
+                    testStop();
+                }
             }
             else
             {
-                testStop();
+                if (tb_form1StimulationTime.Text == "")
+                {
+                    MessageBox.Show("Please Set StimulationTime First");
+                }
+                else if (tb_form1StimulationTimeWait.Text == "")
+                {
+                    MessageBox.Show("Please Set StimulationTimeWait First");
+                }
+                else if (tb_form1RoutineCount.Text == "")
+                {
+                    MessageBox.Show("Please Set RoutineCount First");
+                }
+                else
+                {
+                    if (teststart == false)
+                    {
+                        if (rb_preset.Checked)
+                        {
+                            for (int i = 0; i < lv_preset.Items.Count; i++)
+                                routineCntSum += Int32.Parse(lv_preset.Items[i].SubItems[2].Text);
+                        }
+                        teststart = true;
+                        btn_testStart.Text = "TEST STOP";
+                        lb_testtime.Text = "00:00";
+                        testtime_time = -1;
+                        TESTTIME_ThreadTimer.Change(0, 1000);
+                        StimulationTime_ThreadTimer.Change(0, 1000);
+
+                        Properties.Settings.Default.save_tb_stimulationTime = tb_form1StimulationTime.Text;
+                        Properties.Settings.Default.save_tb_stimulationTimeWait = tb_form1StimulationTimeWait.Text;
+                        Properties.Settings.Default.save_tb_routineTime = tb_form1RoutineCount.Text;
+                        Properties.Settings.Default.Save();
+                        tb_form1StimulationTime.Enabled = false;
+                        tb_form1StimulationTimeWait.Enabled = false;
+                        tb_form1RoutineCount.Enabled = false;
+                    }
+                    else
+                    {
+                        testStop();
+                    }
+                }
+            }
+            if (rb_random.Checked)
+            {
+                Random rnd = new Random(DateTime.Now.Millisecond);
+                if(Properties.Settings.Default.save_rb_8chsel == false)
+                {
+                    for(int i = 0; i < 4; i++)
+                    {
+                        randomArray[i] = rnd.Next(1, 5);
+                    }
+                    while (randomArray[0] != randomArray[1])
+                    {
+                        randomArray[1] = rnd.Next(1, 5);
+                    }
+                    while (randomArray[0] != randomArray[2] && randomArray[1] != randomArray[2])
+                    {
+                        randomArray[2] = rnd.Next(1, 5);
+                    }
+                    while (randomArray[0] != randomArray[3] && randomArray[1] != randomArray[3] && randomArray[2] != randomArray[3])
+                    {
+                        randomArray[3] = rnd.Next(1, 5);
+                    }
+                }
             }
         }
+        int[] randomArray = new int[8];
         private void testStop()
         {
             teststart = false;
@@ -324,28 +398,22 @@ namespace SpeakerSelector
             btn_csvOpen.PerformClick();
 
             btn_line1 = false;
-            PCM_send("L10");
+            PCM_send("AF"); //전체종료
+
             pb_ch2.BackgroundImage = Properties.Resources.spk_off;
             btn_line2 = false;
-            PCM_send("L20");
             pb_ch3.BackgroundImage = Properties.Resources.spk_off;
             btn_line3 = false;
-            PCM_send("L40");
             pb_ch4.BackgroundImage = Properties.Resources.spk_off;
             btn_line4 = false;
-            PCM_send("L50");
             pb_ch5.BackgroundImage = Properties.Resources.spk_off;
             btn_line5 = false;
-            PCM_send("L50");
             pb_ch6.BackgroundImage = Properties.Resources.spk_off;
             btn_line6 = false;
-            PCM_send("L60");
             pb_ch7.BackgroundImage = Properties.Resources.spk_off;
             btn_line7 = false;
-            PCM_send("L70");
             pb_ch8.BackgroundImage = Properties.Resources.spk_off;
             btn_line8 = false;
-            PCM_send("L80");
 
             tb_form1StimulationTime.Enabled = true;
             tb_form1StimulationTimeWait.Enabled = true;
@@ -380,25 +448,14 @@ namespace SpeakerSelector
                 {
                     if (rb_serial.Checked)
                     {
-                        speakerSwitch(currentCh / 2 + 1);
-                        currentCh++;
-                        if (Properties.Settings.Default.save_rb_8chsel == false)
+                        if (cb_clockwise.Checked)
                         {
-                            if (currentCh == 8)
-                            {
-                                currentCh = 0;
-                                routineCountChk++;
-                                tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
-                            }
+                            speakerSwitch(currentCh + 1);
+
                         }
                         else
                         {
-                            if (currentCh == 16)
-                            {
-                                currentCh = 0;
-                                routineCountChk++;
-                                tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
-                            }
+                            speakerSwitch(4 - currentCh);
                         }
                     }
                     else if (rb_random.Checked)
@@ -406,6 +463,7 @@ namespace SpeakerSelector
                         if (rndSpkOn == false)
                         {
                             Random rnd = new Random(DateTime.Now.Millisecond);
+                            
                             if (Properties.Settings.Default.save_rb_8chsel == false)
                             {   //4채널
                                 randomvalue = rnd.Next(1, 5);
@@ -415,25 +473,6 @@ namespace SpeakerSelector
                                 randomvalue = rnd.Next(1, 9);
                             }
                             rndSpkOn = true;
-                        }
-                        currentCh++;
-                        if (Properties.Settings.Default.save_rb_8chsel == false)
-                        {
-                            if (currentCh == 8)
-                            {
-                                currentCh = 0;
-                                routineCountChk++;
-                                tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
-                            }
-                        }
-                        else
-                        {
-                            if (currentCh == 16)
-                            {
-                                currentCh = 0;
-                                routineCountChk++;
-                                tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
-                            }
                         }
                         speakerSwitch(randomvalue);
                     }
@@ -445,7 +484,6 @@ namespace SpeakerSelector
                 else
                 {   // routineCount 끝나면 종료
                     btn_testStart.PerformClick();
-
                 }
             }
             
@@ -534,6 +572,25 @@ namespace SpeakerSelector
                 {
                     if (stimulationTimeWait_time == Int32.Parse(Properties.Settings.Default.save_tb_stimulationTimeWait))
                     {
+                        currentCh++;
+                        if (Properties.Settings.Default.save_rb_8chsel == false)
+                        {
+                            if (currentCh == 4)
+                            {
+                                currentCh = 0;
+                                routineCountChk++;
+                                tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
+                            }
+                        }
+                        else
+                        {
+                            if (currentCh == 8)
+                            {
+                                currentCh = 0;
+                                routineCountChk++;
+                                tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
+                            }
+                        }
                         StimulationTimeWait_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
                         stimulationTime_time = 0;
                         StimulationTime_ThreadTimer.Change(0, 1000);
@@ -546,14 +603,14 @@ namespace SpeakerSelector
         public string CheckBoxSpeakerChecked()
         {
             string speakerSelected = "";
-            if (cb_listCh1.Checked) speakerSelected += "CH1 ";
-            if (cb_listCh2.Checked) speakerSelected += "CH2 ";
-            if (cb_listCh3.Checked) speakerSelected += "CH3 ";
-            if (cb_listCh4.Checked) speakerSelected += "CH4 ";
-            if (cb_listCh5.Checked) speakerSelected += "CH5 ";
-            if (cb_listCh6.Checked) speakerSelected += "CH6 ";
-            if (cb_listCh7.Checked) speakerSelected += "CH7 ";
-            if (cb_listCh8.Checked) speakerSelected += "CH8 ";
+            if (cb_listCh1.Checked) speakerSelected += "1 ";
+            if (cb_listCh2.Checked) speakerSelected += "2 ";
+            if (cb_listCh3.Checked) speakerSelected += "3 ";
+            if (cb_listCh4.Checked) speakerSelected += "4 ";
+            if (cb_listCh5.Checked) speakerSelected += "5 ";
+            if (cb_listCh6.Checked) speakerSelected += "6 ";
+            if (cb_listCh7.Checked) speakerSelected += "7 ";
+            if (cb_listCh8.Checked) speakerSelected += "8 ";
             return speakerSelected;
         }
         public void CheckBoxSpeakerChecking(string str)
@@ -562,14 +619,14 @@ namespace SpeakerSelector
             int num = str.Replace(" ", "").Length / 3;
             for (int i = 0; i < num; i++)
             {
-                if (channels[i].Contains("CH1")) cb_listCh1.Checked = true;
-                else if (channels[i].Contains("CH2")) cb_listCh2.Checked = true;
-                else if (channels[i].Contains("CH3")) cb_listCh3.Checked = true;
-                else if (channels[i].Contains("CH4")) cb_listCh4.Checked = true;
-                else if (channels[i].Contains("CH5")) cb_listCh5.Checked = true;
-                else if (channels[i].Contains("CH6")) cb_listCh6.Checked = true;
-                else if (channels[i].Contains("CH7")) cb_listCh7.Checked = true;
-                else if (channels[i].Contains("CH8")) cb_listCh8.Checked = true;
+                if (channels[i].Contains("1")) cb_listCh1.Checked = true;
+                else if (channels[i].Contains("2")) cb_listCh2.Checked = true;
+                else if (channels[i].Contains("3")) cb_listCh3.Checked = true;
+                else if (channels[i].Contains("4")) cb_listCh4.Checked = true;
+                else if (channels[i].Contains("5")) cb_listCh5.Checked = true;
+                else if (channels[i].Contains("6")) cb_listCh6.Checked = true;
+                else if (channels[i].Contains("7")) cb_listCh7.Checked = true;
+                else if (channels[i].Contains("8")) cb_listCh8.Checked = true;
             }
         }
         private void btn_listAdd_Click(object sender, EventArgs e)
@@ -704,6 +761,26 @@ namespace SpeakerSelector
                 {
                     gb_stimulationTime.Enabled = false;
                     gb_routineCount.Enabled = false;
+                    pb_ch1.Enabled = true;
+                    pb_ch2.Enabled = true;
+                    pb_ch3.Enabled = true;
+                    pb_ch4.Enabled = true;
+                    pb_ch5.Enabled = true;
+                    pb_ch6.Enabled = true;
+                    pb_ch7.Enabled = true;
+                    pb_ch8.Enabled = true;
+                }
+                else if (rb_serial.Checked)
+                {
+                    gb_stimulationTime.Enabled = true;
+                    gb_routineCount.Enabled = true;
+                    cb_clockwise.Enabled = true;
+                }
+                else if(rb_random.Checked)
+                {
+                    gb_stimulationTime.Enabled = true;
+                    gb_routineCount.Enabled = true;
+                    cb_allRandom.Enabled = true;
                 }
                 else
                 {
@@ -731,29 +808,21 @@ namespace SpeakerSelector
 
         private void SpeakerSelector_FormClosing(object sender, FormClosingEventArgs e)
         {
-            PCM_send("L10");
-            PCM_send("L20");
-            PCM_send("L30");
-            PCM_send("L40");
-            PCM_send("L50");
-            PCM_send("L60");
-            PCM_send("L70");
-            PCM_send("L80");
+            PCM_send("AF");
         }
         private void SpeakerSelector_FormClosed(object sender, FormClosedEventArgs e)
         {
-            PCM_send("L10");
-            PCM_send("L20");
-            PCM_send("L30");
-            PCM_send("L40");
-            PCM_send("L50");
-            PCM_send("L60");
-            PCM_send("L70");
-            PCM_send("L80");
+            PCM_send("AF");
         }
         // radio 버튼 변경될 때 마다 저장하고 행동 실행하는 부분
         private void rb_serial_CheckedChanged(object sender, EventArgs e)
         {
+            cb_clockwise.Enabled = true;
+            cb_allRandom.Enabled = false;
+            gb_stimulationTime.Enabled = true;
+            gb_routineCount.Enabled = true;
+            btn_testStart.Enabled = true;
+
             lb_testtime.Text = "00:00";
             testStop();
             if (rb_serial.Checked) Properties.Settings.Default.save_selectedmode = 1;
@@ -780,6 +849,9 @@ namespace SpeakerSelector
 
         private void rb_random_CheckedChanged(object sender, EventArgs e)
         {
+            cb_clockwise.Enabled = false;
+            cb_allRandom.Enabled = true;
+            btn_testStart.Enabled = true;
             gb_stimulationTime.Enabled = true;
             gb_routineCount.Enabled = true;
 
@@ -807,6 +879,12 @@ namespace SpeakerSelector
 
         private void rb_manual_CheckedChanged(object sender, EventArgs e)
         {
+            cb_clockwise.Enabled = false;
+            cb_allRandom.Enabled = false;
+            gb_stimulationTime.Enabled = true;
+            gb_routineCount.Enabled = true;
+            btn_testStart.Enabled = false;
+
             lb_testtime.Text = "00:00";
             testStop();
             if (rb_serial.Checked) Properties.Settings.Default.save_selectedmode = 1;
@@ -830,6 +908,12 @@ namespace SpeakerSelector
         }
         private void rb_preset_CheckedChanged(object sender, EventArgs e)
         {
+            cb_clockwise.Enabled = false;
+            cb_allRandom.Enabled = false;
+            gb_stimulationTime.Enabled = false;
+            gb_routineCount.Enabled = false;
+            btn_testStart.Enabled = true;
+
             testStop();
             lb_testtime.Text = "00:00";
             if (rb_serial.Checked) Properties.Settings.Default.save_selectedmode = 1;
@@ -863,30 +947,23 @@ namespace SpeakerSelector
 
         private void btn_timerReset_Click(object sender, EventArgs e)
         {
+            PCM_send("AF");
             pb_ch1.BackgroundImage = Properties.Resources.spk_off;
             btn_line1 = false;
-            PCM_send("L10");
             pb_ch2.BackgroundImage = Properties.Resources.spk_off;
             btn_line2 = false;
-            PCM_send("L20");
             pb_ch3.BackgroundImage = Properties.Resources.spk_off;
             btn_line3 = false;
-            PCM_send("L30");
             pb_ch4.BackgroundImage = Properties.Resources.spk_off;
             btn_line4 = false;
-            PCM_send("L40");
             pb_ch5.BackgroundImage = Properties.Resources.spk_off;
             btn_line5 = false;
-            PCM_send("L50");
             pb_ch6.BackgroundImage = Properties.Resources.spk_off;
             btn_line6 = false;
-            PCM_send("L60");
             pb_ch7.BackgroundImage = Properties.Resources.spk_off;
             btn_line7 = false;
-            PCM_send("L70");
             pb_ch8.BackgroundImage = Properties.Resources.spk_off;
             btn_line8 = false;
-            PCM_send("L80");
 
             testStop();
             MessageBox.Show("! HARDWARE RESET !","WARNING");

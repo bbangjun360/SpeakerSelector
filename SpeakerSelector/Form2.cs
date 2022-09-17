@@ -88,6 +88,27 @@ namespace SpeakerSelector
             form1.serialPort1.Close();
             if (!form1.serialPort1.IsOpen)                                                             //시리얼포트가 열려 있지 않으면
             {
+                form1.gb_mode.Enabled = true;
+                form1.btn_testStart.Enabled = true;
+                if (form1.rb_manual.Checked == true)
+                {
+                    form1.gb_stimulationTime.Enabled = false;
+                    form1.gb_routineCount.Enabled = false;
+                    form1.pb_ch1.Enabled = true;
+                    form1.pb_ch2.Enabled = true;
+                    form1.pb_ch3.Enabled = true;
+                    form1.pb_ch4.Enabled = true;
+                    form1.pb_ch5.Enabled = true;
+                    form1.pb_ch6.Enabled = true;
+                    form1.pb_ch7.Enabled = true;
+                    form1.pb_ch8.Enabled = true;
+                }
+                else
+                {
+                    form1.gb_stimulationTime.Enabled = true;
+                    form1.gb_routineCount.Enabled = true;
+                }
+
                 form1.serialPort1.PortName = cb_SerialPort.Text;                                   //콤보박스의 선택된 COM포트명을 시리얼포트명으로 지정
                 Properties.Settings.Default.save_cb_SerialPort = cb_SerialPort.Text;
                 Properties.Settings.Default.Save();
