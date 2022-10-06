@@ -437,9 +437,13 @@ namespace SpeakerSelector
                 }
                 string channels = lv_preset.Items[currentCh].SubItems[0].Text;
                 string[] channel = channels.Split(' ');
-                for (int i = 0; i < (channels.Replace(" ", "").Length / 3); i++)
+                //Console.WriteLine(channel[0]);
+                //Console.WriteLine(channel[1]);
+                //Console.WriteLine(channels.Replace(" ", "").Length);
+                int lenn = channels.Replace(" ", "").Length;
+                for (int i = 0; i < lenn; i++)
                 {
-                    speakerSwitch((int)Char.GetNumericValue(channel[i][2]));
+                    speakerSwitch(Int32.Parse(channel[i]));
                 }
             }
             else
@@ -913,6 +917,7 @@ namespace SpeakerSelector
             gb_stimulationTime.Enabled = false;
             gb_routineCount.Enabled = false;
             btn_testStart.Enabled = true;
+            
 
             testStop();
             lb_testtime.Text = "00:00";
@@ -924,7 +929,10 @@ namespace SpeakerSelector
                 gb_routineCount.Enabled = false;
                 Properties.Settings.Default.save_selectedmode = 3;
             }
-            else if (rb_preset.Checked) Properties.Settings.Default.save_selectedmode = 4;
+            else if (rb_preset.Checked)
+            {
+                Properties.Settings.Default.save_selectedmode = 4;
+            }
             Properties.Settings.Default.Save();
             pb_ch1.Enabled = false;
             pb_ch2.Enabled = false;

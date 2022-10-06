@@ -904,7 +904,6 @@
             // 
             // btn_csvOpen
             // 
-            this.btn_csvOpen.Enabled = false;
             this.btn_csvOpen.Location = new System.Drawing.Point(1066, 9);
             this.btn_csvOpen.Name = "btn_csvOpen";
             this.btn_csvOpen.Size = new System.Drawing.Size(75, 23);
@@ -915,7 +914,6 @@
             // 
             // btn_csvSave
             // 
-            this.btn_csvSave.Enabled = false;
             this.btn_csvSave.Location = new System.Drawing.Point(1147, 9);
             this.btn_csvSave.Name = "btn_csvSave";
             this.btn_csvSave.Size = new System.Drawing.Size(75, 23);
@@ -1022,6 +1020,7 @@
             this.Controls.Add(this.pb_ChairCircle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SpeakerSelector";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SoundCareTech.";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SpeakerSelector_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SpeakerSelector_FormClosed);
