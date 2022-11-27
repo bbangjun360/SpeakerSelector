@@ -340,8 +340,6 @@ namespace SpeakerSelector
                         btn_testStart.Text = "TEST STOP";
                         lb_testtime.Text = "00:00";
                         testtime_time = -1;
-                        TESTTIME_ThreadTimer.Change(0, 1000);
-                        StimulationTime_ThreadTimer.Change(0, 1000);
 
                         Properties.Settings.Default.save_tb_stimulationTime = tb_form1StimulationTime.Text;
                         Properties.Settings.Default.save_tb_stimulationTimeWait = tb_form1StimulationTimeWait.Text;
@@ -350,6 +348,9 @@ namespace SpeakerSelector
                         tb_form1StimulationTime.Enabled = false;
                         tb_form1StimulationTimeWait.Enabled = false;
                         tb_form1RoutineCount.Enabled = false;
+
+                        TESTTIME_ThreadTimer.Change(0, 1000);
+                        StimulationTime_ThreadTimer.Change(0, 1000);
                     }
                     else
                     {
@@ -391,6 +392,8 @@ namespace SpeakerSelector
             StimulationTimeWait_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
             routineCountChk = 0;
             currentCh = 0;
+            randomvalue = 1;
+            routineCntSum = 0;
             stimulationTime_time = 0;
             stimulationTimeWait_time = 0;
             tb_form1RoutineCount.Text = Properties.Settings.Default.save_tb_routineTime;
@@ -487,7 +490,7 @@ namespace SpeakerSelector
                 }
                 else
                 {   // routineCount 끝나면 종료
-                    btn_testStart.PerformClick();
+                    testStop();
                 }
             }
             
