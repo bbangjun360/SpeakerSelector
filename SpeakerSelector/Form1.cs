@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SpeakerSelector
 {
@@ -348,8 +349,6 @@ namespace SpeakerSelector
                     btn_testStart.Text = "TEST STOP";
                     lb_testtime.Text = "00:00";
                     testtime_time = -1;
-                    TESTTIME_ThreadTimer.Change(0, 1000);
-                    StimulationTime_ThreadTimer.Change(0, 1000);
 
                     Properties.Settings.Default.save_tb_stimulationTime = tb_form1StimulationTime.Text;
                     Properties.Settings.Default.save_tb_stimulationTimeWait = tb_form1StimulationTimeWait.Text;
@@ -358,6 +357,11 @@ namespace SpeakerSelector
                     tb_form1StimulationTime.Enabled = false;
                     tb_form1StimulationTimeWait.Enabled = false;
                     tb_form1RoutineCount.Enabled = false;
+
+                    stimulationTime_time = 0;
+                    stimulationTimeWait_time = 0;
+                    TESTTIME_ThreadTimer.Change(0, 1000);
+                    StimulationTime_ThreadTimer.Change(0, 1000);
                 }
                 else
                 {
@@ -400,6 +404,8 @@ namespace SpeakerSelector
                         tb_form1StimulationTimeWait.Enabled = false;
                         tb_form1RoutineCount.Enabled = false;
 
+                        stimulationTime_time = 0;
+                        stimulationTimeWait_time = 0;
                         TESTTIME_ThreadTimer.Change(0, 1000);
                         StimulationTime_ThreadTimer.Change(0, 1000);
                     }
@@ -412,25 +418,37 @@ namespace SpeakerSelector
             if (rb_random.Checked)
             {
                 Random rnd = new Random(DateTime.Now.Millisecond);
-                if(Properties.Settings.Default.save_rb_8chsel == false)
+                for(int i = 0; i < 4; i++)
                 {
-                    for(int i = 0; i < 4; i++)
-                    {
-                        randomArray[i] = rnd.Next(1, 5);
-                    }
-                    while (randomArray[0] != randomArray[1])
-                    {
-                        randomArray[1] = rnd.Next(1, 5);
-                    }
-                    while (randomArray[0] != randomArray[2] && randomArray[1] != randomArray[2])
-                    {
-                        randomArray[2] = rnd.Next(1, 5);
-                    }
-                    while (randomArray[0] != randomArray[3] && randomArray[1] != randomArray[3] && randomArray[2] != randomArray[3])
-                    {
-                        randomArray[3] = rnd.Next(1, 5);
-                    }
+                    randomArray[i] = rnd.Next(1, 5);
                 }
+                while (randomArray[0] == randomArray[1])
+                {
+                    randomArray[1] = rnd.Next(1, 5);
+                }
+                while (randomArray[0] == randomArray[2] || randomArray[1] == randomArray[2])
+                {
+                    randomArray[2] = rnd.Next(1, 5);
+                }
+                while (randomArray[0] == randomArray[3] || randomArray[1] == randomArray[3] || randomArray[2] == randomArray[3])
+                {
+                    randomArray[3] = rnd.Next(1, 5);
+                }
+                if (Properties.Settings.Default.save_rb_8chsel == true)
+                {
+                    randomArray[4] = randomArray[0] + 4;
+                    randomArray[5] = randomArray[1] + 4;
+                    randomArray[6] = randomArray[2] + 4;
+                    randomArray[7] = randomArray[3] + 4;
+                    int temp = randomArray[5];
+                    randomArray[5] = randomArray[1];
+                    randomArray[1] = temp;
+                    temp = randomArray[7];
+                    randomArray[7] = randomArray[3];
+                    randomArray[3] = temp;
+                }
+
+                textBox1.AppendText(randomArray[0].ToString() + "," + randomArray[1].ToString() + "," + randomArray[2].ToString() + "," + randomArray[3].ToString() + "," + randomArray[4].ToString() + "," + randomArray[5].ToString() + "," + randomArray[6].ToString() + "," + randomArray[7].ToString() + "\r\n");
             }
         }
         int[] randomArray = new int[8];
@@ -445,8 +463,8 @@ namespace SpeakerSelector
             currentCh = 0;
             randomvalue = 1;
             routineCntSum = 0;
-            stimulationTime_time = 0;
-            stimulationTimeWait_time = 0;
+            //stimulationTime_time = 0;
+            //stimulationTimeWait_time = 0;
             tb_form1RoutineCount.Text = Properties.Settings.Default.save_tb_routineTime;
             pb_ch1.BackgroundImage = Properties.Resources.spk_off;
             btn_csvOpen.PerformClick();
@@ -576,6 +594,7 @@ namespace SpeakerSelector
                     }
                     else if (stimulationTime_time == Int32.Parse(lv_preset.Items[currentCh].SubItems[1].Text.Split('/')[0]))
                     {
+                        
                         modeSelector();
                         StimulationTime_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
                         stimulationTimeWait_time = 0;
@@ -587,10 +606,12 @@ namespace SpeakerSelector
                     if (stimulationTime_time == 0)
                     {
                         rndSpkOn = false;
+                        textBox1.AppendText("ON:" + stimulationTime_time.ToString() + "\r\n");
                         modeSelector();
                     }
                     else if (stimulationTime_time == Int32.Parse(Properties.Settings.Default.save_tb_stimulationTime))
                     {
+                        textBox1.AppendText("OFF:"+ stimulationTime_time.ToString() +"\r\n");
                         modeSelector();
                         StimulationTime_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
                         stimulationTimeWait_time = 0;
@@ -615,7 +636,6 @@ namespace SpeakerSelector
                         currentCh++;
                         if (lv_preset.Items.Count <= currentCh)
                             currentCh = 0;
-                        stimulationTime_time = 0;
                         routineCntSum--;
                         if (routineCntSum == 0)
                         {
@@ -623,6 +643,7 @@ namespace SpeakerSelector
                         }
                         else
                         {
+                            stimulationTime_time = 0;
                             StimulationTime_ThreadTimer.Change(0, 1000);
                         }
                     }
@@ -651,8 +672,15 @@ namespace SpeakerSelector
                             }
                         }
                         StimulationTimeWait_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
-                        stimulationTime_time = 0;
-                        StimulationTime_ThreadTimer.Change(0, 1000);
+                        if (routineCountChk < Int32.Parse(Properties.Settings.Default.save_tb_routineTime))
+                        {
+                            stimulationTime_time = 0;
+                            StimulationTime_ThreadTimer.Change(0, 1000);
+                        }
+                        else//routine 카운트 끝
+                        {
+                            testStop();
+                        }
                     }
                 }
                 stimulationTimeWait_time += 1;
