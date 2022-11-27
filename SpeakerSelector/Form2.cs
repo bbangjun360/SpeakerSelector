@@ -118,10 +118,8 @@ namespace SpeakerSelector
                 form1.serialPort1.Parity = Parity.None;
                 form1.serialPort1.DataReceived += new SerialDataReceivedEventHandler(form1.serialPort1_DataReceived); //PCM 시리얼 데이터가 들어오면 "serialPort_PCM_DataReceived"함수로 전송
                 form1.serialPort1.Open();                                                              //시리얼포트 열기
-                //serialPort_PCM.Write("\n");
 
                 lb_SerialPort.Text = "포트가 열렸습니다";
-                
             }
             else                                                                                    //시리얼포트가 열려 있으면
             {

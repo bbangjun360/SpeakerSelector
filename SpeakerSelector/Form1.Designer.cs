@@ -75,6 +75,7 @@
             this.ch_stimulationTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ch_stimulationCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel5 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pb_ch5 = new System.Windows.Forms.PictureBox();
             this.pb_ch7 = new System.Windows.Forms.PictureBox();
             this.pb_ch1 = new System.Windows.Forms.PictureBox();
@@ -113,6 +114,7 @@
             this.gb_stimulationTime.SuspendLayout();
             this.gb_routineCount.SuspendLayout();
             this.gb_mode.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ch5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ch7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ch1)).BeginInit();
@@ -154,7 +156,7 @@
             // 
             this.lb_ch1deg.AutoSize = true;
             this.lb_ch1deg.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lb_ch1deg.Location = new System.Drawing.Point(321, 124);
+            this.lb_ch1deg.Location = new System.Drawing.Point(322, 124);
             this.lb_ch1deg.Name = "lb_ch1deg";
             this.lb_ch1deg.Size = new System.Drawing.Size(32, 12);
             this.lb_ch1deg.TabIndex = 9;
@@ -302,7 +304,7 @@
             // 
             // serialPort1
             // 
-            this.serialPort1.BaudRate = 115200;
+            this.serialPort1.DtrEnable = true;
             // 
             // btnConnect
             // 
@@ -582,10 +584,21 @@
             // 
             this.panel5.BackgroundImage = global::SpeakerSelector.Properties.Resources.programLogo;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel5.Controls.Add(this.textBox1);
             this.panel5.Location = new System.Drawing.Point(670, 403);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(215, 215);
             this.panel5.TabIndex = 57;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(13, 15);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(176, 192);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Visible = false;
             // 
             // pb_ch5
             // 
@@ -1031,6 +1044,8 @@
             this.gb_routineCount.PerformLayout();
             this.gb_mode.ResumeLayout(false);
             this.gb_mode.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ch5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ch7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ch1)).EndInit();
@@ -1132,6 +1147,7 @@
         public System.Windows.Forms.RadioButton rb_manual;
         private System.Windows.Forms.CheckBox cb_clockwise;
         private System.Windows.Forms.CheckBox cb_allRandom;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

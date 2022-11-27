@@ -94,9 +94,31 @@ namespace SpeakerSelector
         }
         private void MySerialReceived1(object s, EventArgs e)                                    //여기에서 수신 데이타를 사용자의 용도에 따라 처리한다.
         {
-            //tb_Serial.AppendText(serialPort1.ReadLine() + "\r\n");   //data_pcm += data_temp;     //원래:ReadExisting 으로 사용햇음    //시리얼 통신으로 들어온 데이터 data_pcm에 저장
+            string data_temp = serialPort1.ReadLine();  //data_pcm += data_temp;     //원래:ReadExisting 으로 사용햇음    //시리얼 통신으로 들어온 데이터 data_pcm에 저장
+            textBox1.AppendText(data_temp + "\r\n");
+            if (data_temp.StartsWith("START"))
+            {
+                if(data_temp.Contains("START_MASTER"))
+                    MessageBox.Show((String)"MASTER 장치와 연결되었습니다");
+                else if (data_temp.Contains("START_DEVELOPER"))
+                    MessageBox.Show((String)" 개발자 장치와 연결되었습니다");
+            }
+            else if (data_temp.StartsWith("L"))
+            {
+                switch (data_temp[1])
+                {
+                    case '1': ch1ClickReceived(data_temp[2]); break;
+                    case '2': ch2ClickReceived(data_temp[2]); break;
+                    case '3': ch3ClickReceived(data_temp[2]); break;
+                    case '4': ch4ClickReceived(data_temp[2]); break;
+                    case '5': ch5ClickReceived(data_temp[2]); break;
+                    case '6': ch6ClickReceived(data_temp[2]); break;
+                    case '7': ch7ClickReceived(data_temp[2]); break;
+                    case '8': ch8ClickReceived(data_temp[2]); break;
+                }
+            }
         }
-        private void PCM_send(string data_input)                                                    //
+        public void PCM_send(string data_input)                                                    //
         {
             if (serialPort1.IsOpen)
             {
@@ -122,15 +144,24 @@ namespace SpeakerSelector
         {
             if (btn_line1 == true)
             {
+                PCM_send("L10");
+            }
+            else
+            {
+                PCM_send("L11");
+            }
+        }
+        private void ch1ClickReceived(char spkState)
+        {
+            if (spkState == '0')
+            {
                 pb_ch1.BackgroundImage = Properties.Resources.spk_off;
                 btn_line1 = false;
-                PCM_send("L10");
             }
             else
             {
                 pb_ch1.BackgroundImage = Properties.Resources.spk_on;
                 btn_line1 = true;
-                PCM_send("L11");
             }
         }
         private void pb_ch2_Click(object sender, EventArgs e)
@@ -139,37 +170,42 @@ namespace SpeakerSelector
         }
         private void ch2Click()
         {
-            if (btn_line2 == true)
+            if (btn_line2 == true) PCM_send("L20");
+            else if (btn_line2 == false) PCM_send("L21");
+        }
+        private void ch2ClickReceived(char spkState)
+        {
+            if (spkState == '0')
             {
                 pb_ch2.BackgroundImage = Properties.Resources.spk_off;
                 btn_line2 = false;
-                PCM_send("L20");
             }
             else
             {
                 pb_ch2.BackgroundImage = Properties.Resources.spk_on;
                 btn_line2 = true;
-                PCM_send("L21");
             }
         }
-
         private void pb_ch3_Click(object sender, EventArgs e)
         {
             ch3Click();
         }
         private void ch3Click()
         {
-            if (btn_line3 == true)
+            if (btn_line3 == true) PCM_send("L30");
+            else if (btn_line3 == false) PCM_send("L31");
+        }
+        private void ch3ClickReceived(char spkState)
+        {
+            if (spkState == '0')
             {
                 pb_ch3.BackgroundImage = Properties.Resources.spk_off;
                 btn_line3 = false;
-                PCM_send("L30");
             }
             else
             {
                 pb_ch3.BackgroundImage = Properties.Resources.spk_on;
                 btn_line3 = true;
-                PCM_send("L31");
             }
         }
         private void pb_ch4_Click(object sender, EventArgs e)
@@ -178,17 +214,20 @@ namespace SpeakerSelector
         }
         private void ch4Click()
         {
-            if (btn_line4 == true)
+            if(btn_line4 == true) PCM_send("L40");
+            else if (btn_line4 == false) PCM_send("L41");
+        }
+        private void ch4ClickReceived(char spkState)
+        {
+            if (spkState == '0')
             {
                 pb_ch4.BackgroundImage = Properties.Resources.spk_off;
                 btn_line4 = false;
-                PCM_send("L40");
             }
             else
             {
                 pb_ch4.BackgroundImage = Properties.Resources.spk_on;
                 btn_line4 = true;
-                PCM_send("L41");
             }
         }
 
@@ -198,17 +237,20 @@ namespace SpeakerSelector
         }
         private void ch5Click()
         {
-            if (btn_line5 == true)
+            if (btn_line5 == true) PCM_send("L50");
+            else if (btn_line5 == false) PCM_send("L51");
+        }
+        private void ch5ClickReceived(char spkState)
+        {
+            if (spkState == '0')
             {
                 pb_ch5.BackgroundImage = Properties.Resources.spk_off;
                 btn_line5 = false;
-                PCM_send("L50");
             }
             else
             {
                 pb_ch5.BackgroundImage = Properties.Resources.spk_on;
                 btn_line5 = true;
-                PCM_send("L51");
             }
         }
         private void pb_ch6_Click(object sender, EventArgs e)
@@ -217,17 +259,20 @@ namespace SpeakerSelector
         }
         private void ch6Click()
         {
-            if (btn_line6 == true)
+            if (btn_line6 == true) PCM_send("L60");
+            else if (btn_line6 == false) PCM_send("L61");
+        }
+        private void ch6ClickReceived(char spkState)
+        {
+            if (spkState == '0')
             {
                 pb_ch6.BackgroundImage = Properties.Resources.spk_off;
                 btn_line6 = false;
-                PCM_send("L60");
             }
             else
             {
                 pb_ch6.BackgroundImage = Properties.Resources.spk_on;
                 btn_line6 = true;
-                PCM_send("L61");
             }
         }
         private void pb_ch7_Click(object sender, EventArgs e)
@@ -236,17 +281,20 @@ namespace SpeakerSelector
         }
         private void ch7Click()
         {
-            if (btn_line7 == true)
+            if (btn_line7 == true) PCM_send("L70");
+            else if (btn_line7 == false) PCM_send("L71");
+        }
+        private void ch7ClickReceived(char spkState)
+        {
+            if (spkState == '0')
             {
                 pb_ch7.BackgroundImage = Properties.Resources.spk_off;
                 btn_line7 = false;
-                PCM_send("L70");
             }
             else
             {
                 pb_ch7.BackgroundImage = Properties.Resources.spk_on;
                 btn_line7 = true;
-                PCM_send("L71");
             }
         }
         private void pb_ch8_Click(object sender, EventArgs e)
@@ -255,17 +303,20 @@ namespace SpeakerSelector
         }
         private void ch8Click()
         {
-            if (btn_line8 == true)
+            if (btn_line8 == true) PCM_send("L80");
+            else if (btn_line8 == false) PCM_send("L81");
+        }
+        private void ch8ClickReceived(char spkState)
+        {
+            if (spkState == '0')
             {
                 pb_ch8.BackgroundImage = Properties.Resources.spk_off;
                 btn_line8 = false;
-                PCM_send("L80");
             }
             else
             {
                 pb_ch8.BackgroundImage = Properties.Resources.spk_on;
                 btn_line8 = true;
-                PCM_send("L81");
             }
         }
         private void btnSetUp_Click(object sender, EventArgs e)
@@ -459,7 +510,8 @@ namespace SpeakerSelector
                         }
                         else
                         {
-                            speakerSwitch(4 - currentCh);
+                            if(Properties.Settings.Default.save_rb_8chsel == true) speakerSwitch(8 - currentCh);
+                            else speakerSwitch(4 - currentCh);
                         }
                     }
                     else if (rb_random.Checked)
@@ -754,9 +806,6 @@ namespace SpeakerSelector
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            serialPort1.Close();
-
-
             if (!serialPort1.IsOpen)                                                             //시리얼포트가 열려 있지 않으면
             {
                 gb_mode.Enabled = true;
@@ -799,15 +848,12 @@ namespace SpeakerSelector
                 serialPort1.Parity = Parity.None;
                 serialPort1.DataReceived += new SerialDataReceivedEventHandler(serialPort1_DataReceived); //PCM 시리얼 데이터가 들어오면 "serialPort_PCM_DataReceived"함수로 전송
                 serialPort1.Open();                                                              //시리얼포트 열기
-                //serialPort_PCM.Write("\n");
-
+                btnConnect.BackColor = System.Drawing.Color.Green;
+                btnConnect.Text = "connected";
             }
             else                                                                                    //시리얼포트가 열려 있으면
             {
             }
-            btnConnect.BackColor = System.Drawing.Color.Green;
-            btnConnect.Text = "connected";
-            
         }
 
         private void SpeakerSelector_FormClosing(object sender, FormClosingEventArgs e)
