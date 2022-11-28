@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("1");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("2");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("3");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("4");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("5");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("6");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("7");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("8");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpeakerSelector));
             this.btnSetUp = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -111,6 +119,11 @@
             this.btn_timerReset = new System.Windows.Forms.Button();
             this.cb_clockwise = new System.Windows.Forms.CheckBox();
             this.cb_allRandom = new System.Windows.Forms.CheckBox();
+            this.pn_Preset = new System.Windows.Forms.Panel();
+            this.pn_Random = new System.Windows.Forms.Panel();
+            this.lb_Random = new System.Windows.Forms.Label();
+            this.lv_Random = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gb_stimulationTime.SuspendLayout();
             this.gb_routineCount.SuspendLayout();
             this.gb_mode.SuspendLayout();
@@ -127,6 +140,8 @@
             this.gb_listSpeakerOn.SuspendLayout();
             this.gb_listStimulationTime.SuspendLayout();
             this.gb_listStimulationCount.SuspendLayout();
+            this.pn_Preset.SuspendLayout();
+            this.pn_Random.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSetUp
@@ -540,7 +555,7 @@
             // 
             this.lb_preset.AutoSize = true;
             this.lb_preset.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15F);
-            this.lb_preset.Location = new System.Drawing.Point(924, 9);
+            this.lb_preset.Location = new System.Drawing.Point(3, 3);
             this.lb_preset.Name = "lb_preset";
             this.lb_preset.Size = new System.Drawing.Size(90, 21);
             this.lb_preset.TabIndex = 54;
@@ -556,7 +571,7 @@
             this.lv_preset.GridLines = true;
             this.lv_preset.HideSelection = false;
             this.lv_preset.LabelEdit = true;
-            this.lv_preset.Location = new System.Drawing.Point(929, 38);
+            this.lv_preset.Location = new System.Drawing.Point(4, 31);
             this.lv_preset.MultiSelect = false;
             this.lv_preset.Name = "lv_preset";
             this.lv_preset.Size = new System.Drawing.Size(293, 407);
@@ -598,6 +613,7 @@
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(176, 192);
             this.textBox1.TabIndex = 0;
+            this.textBox1.Visible = false;
             // 
             // pb_ch5
             // 
@@ -718,7 +734,7 @@
             this.gb_listSpeakerOn.Controls.Add(this.cb_listCh4);
             this.gb_listSpeakerOn.Controls.Add(this.cb_listCh2);
             this.gb_listSpeakerOn.Controls.Add(this.cb_listCh1);
-            this.gb_listSpeakerOn.Location = new System.Drawing.Point(929, 451);
+            this.gb_listSpeakerOn.Location = new System.Drawing.Point(4, 444);
             this.gb_listSpeakerOn.Name = "gb_listSpeakerOn";
             this.gb_listSpeakerOn.Size = new System.Drawing.Size(293, 62);
             this.gb_listSpeakerOn.TabIndex = 59;
@@ -812,7 +828,7 @@
             this.gb_listStimulationTime.Controls.Add(this.label2);
             this.gb_listStimulationTime.Controls.Add(this.tb_stimulationTimeWait);
             this.gb_listStimulationTime.Controls.Add(this.tb_stimulationTime);
-            this.gb_listStimulationTime.Location = new System.Drawing.Point(930, 519);
+            this.gb_listStimulationTime.Location = new System.Drawing.Point(5, 512);
             this.gb_listStimulationTime.Name = "gb_listStimulationTime";
             this.gb_listStimulationTime.Size = new System.Drawing.Size(167, 71);
             this.gb_listStimulationTime.TabIndex = 60;
@@ -868,7 +884,7 @@
             // gb_listStimulationCount
             // 
             this.gb_listStimulationCount.Controls.Add(this.tb_stimulationCount);
-            this.gb_listStimulationCount.Location = new System.Drawing.Point(1102, 519);
+            this.gb_listStimulationCount.Location = new System.Drawing.Point(177, 512);
             this.gb_listStimulationCount.Name = "gb_listStimulationCount";
             this.gb_listStimulationCount.Size = new System.Drawing.Size(121, 71);
             this.gb_listStimulationCount.TabIndex = 61;
@@ -886,7 +902,7 @@
             // 
             // btn_listAdd
             // 
-            this.btn_listAdd.Location = new System.Drawing.Point(931, 596);
+            this.btn_listAdd.Location = new System.Drawing.Point(6, 589);
             this.btn_listAdd.Name = "btn_listAdd";
             this.btn_listAdd.Size = new System.Drawing.Size(75, 23);
             this.btn_listAdd.TabIndex = 62;
@@ -896,7 +912,7 @@
             // 
             // btn_listModify
             // 
-            this.btn_listModify.Location = new System.Drawing.Point(1039, 596);
+            this.btn_listModify.Location = new System.Drawing.Point(114, 589);
             this.btn_listModify.Name = "btn_listModify";
             this.btn_listModify.Size = new System.Drawing.Size(75, 23);
             this.btn_listModify.TabIndex = 63;
@@ -906,7 +922,7 @@
             // 
             // btn_listDelete
             // 
-            this.btn_listDelete.Location = new System.Drawing.Point(1147, 596);
+            this.btn_listDelete.Location = new System.Drawing.Point(222, 589);
             this.btn_listDelete.Name = "btn_listDelete";
             this.btn_listDelete.Size = new System.Drawing.Size(75, 23);
             this.btn_listDelete.TabIndex = 64;
@@ -916,7 +932,7 @@
             // 
             // btn_csvOpen
             // 
-            this.btn_csvOpen.Location = new System.Drawing.Point(1066, 9);
+            this.btn_csvOpen.Location = new System.Drawing.Point(141, 2);
             this.btn_csvOpen.Name = "btn_csvOpen";
             this.btn_csvOpen.Size = new System.Drawing.Size(75, 23);
             this.btn_csvOpen.TabIndex = 65;
@@ -926,7 +942,7 @@
             // 
             // btn_csvSave
             // 
-            this.btn_csvSave.Location = new System.Drawing.Point(1147, 9);
+            this.btn_csvSave.Location = new System.Drawing.Point(222, 2);
             this.btn_csvSave.Name = "btn_csvSave";
             this.btn_csvSave.Size = new System.Drawing.Size(75, 23);
             this.btn_csvSave.TabIndex = 66;
@@ -972,26 +988,87 @@
             this.cb_allRandom.Text = "All Random";
             this.cb_allRandom.UseVisualStyleBackColor = true;
             // 
+            // pn_Preset
+            // 
+            this.pn_Preset.Controls.Add(this.lb_preset);
+            this.pn_Preset.Controls.Add(this.lv_preset);
+            this.pn_Preset.Controls.Add(this.gb_listSpeakerOn);
+            this.pn_Preset.Controls.Add(this.gb_listStimulationTime);
+            this.pn_Preset.Controls.Add(this.btn_csvSave);
+            this.pn_Preset.Controls.Add(this.gb_listStimulationCount);
+            this.pn_Preset.Controls.Add(this.btn_csvOpen);
+            this.pn_Preset.Controls.Add(this.btn_listAdd);
+            this.pn_Preset.Controls.Add(this.btn_listDelete);
+            this.pn_Preset.Controls.Add(this.btn_listModify);
+            this.pn_Preset.Location = new System.Drawing.Point(922, 4);
+            this.pn_Preset.Name = "pn_Preset";
+            this.pn_Preset.Size = new System.Drawing.Size(304, 619);
+            this.pn_Preset.TabIndex = 70;
+            // 
+            // pn_Random
+            // 
+            this.pn_Random.Controls.Add(this.lv_Random);
+            this.pn_Random.Controls.Add(this.lb_Random);
+            this.pn_Random.Location = new System.Drawing.Point(924, 7);
+            this.pn_Random.Name = "pn_Random";
+            this.pn_Random.Size = new System.Drawing.Size(107, 607);
+            this.pn_Random.TabIndex = 67;
+            this.pn_Random.Visible = false;
+            // 
+            // lb_Random
+            // 
+            this.lb_Random.AutoSize = true;
+            this.lb_Random.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15F);
+            this.lb_Random.Location = new System.Drawing.Point(3, 9);
+            this.lb_Random.Name = "lb_Random";
+            this.lb_Random.Size = new System.Drawing.Size(102, 42);
+            this.lb_Random.TabIndex = 55;
+            this.lb_Random.Text = "Random\r\nOrder\r\n";
+            this.lb_Random.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lv_Random
+            // 
+            this.lv_Random.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.lv_Random.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lv_Random.Font = new System.Drawing.Font("새굴림", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lv_Random.GridLines = true;
+            this.lv_Random.HideSelection = false;
+            this.lv_Random.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8});
+            this.lv_Random.Location = new System.Drawing.Point(28, 60);
+            this.lv_Random.MultiSelect = false;
+            this.lv_Random.Name = "lv_Random";
+            this.lv_Random.Scrollable = false;
+            this.lv_Random.Size = new System.Drawing.Size(46, 520);
+            this.lv_Random.TabIndex = 67;
+            this.lv_Random.UseCompatibleStateImageBehavior = false;
+            this.lv_Random.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "";
+            this.columnHeader1.Width = 80;
+            // 
             // SpeakerSelector
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 629);
+            this.Controls.Add(this.pn_Random);
+            this.Controls.Add(this.pn_Preset);
             this.Controls.Add(this.cb_allRandom);
             this.Controls.Add(this.cb_clockwise);
             this.Controls.Add(this.btn_timerReset);
-            this.Controls.Add(this.btn_csvSave);
-            this.Controls.Add(this.btn_csvOpen);
-            this.Controls.Add(this.btn_listDelete);
-            this.Controls.Add(this.btn_listModify);
-            this.Controls.Add(this.btn_listAdd);
-            this.Controls.Add(this.gb_listStimulationCount);
-            this.Controls.Add(this.gb_listStimulationTime);
-            this.Controls.Add(this.gb_listSpeakerOn);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.lv_preset);
-            this.Controls.Add(this.lb_preset);
             this.Controls.Add(this.gb_mode);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lb_testtimeText);
@@ -1060,6 +1137,10 @@
             this.gb_listStimulationTime.PerformLayout();
             this.gb_listStimulationCount.ResumeLayout(false);
             this.gb_listStimulationCount.PerformLayout();
+            this.pn_Preset.ResumeLayout(false);
+            this.pn_Preset.PerformLayout();
+            this.pn_Random.ResumeLayout(false);
+            this.pn_Random.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1147,6 +1228,11 @@
         private System.Windows.Forms.CheckBox cb_clockwise;
         private System.Windows.Forms.CheckBox cb_allRandom;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel pn_Preset;
+        private System.Windows.Forms.Panel pn_Random;
+        private System.Windows.Forms.ListView lv_Random;
+        private System.Windows.Forms.Label lb_Random;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }
 

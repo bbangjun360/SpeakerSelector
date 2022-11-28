@@ -417,41 +417,46 @@ namespace SpeakerSelector
             }
             if (rb_random.Checked)
             {
-                Random rnd = new Random(DateTime.Now.Millisecond);
-                for(int i = 0; i < 4; i++)
-                {
-                    randomArray[i] = rnd.Next(1, 5);
-                }
-                while (randomArray[0] == randomArray[1])
-                {
-                    randomArray[1] = rnd.Next(1, 5);
-                }
-                while (randomArray[0] == randomArray[2] || randomArray[1] == randomArray[2])
-                {
-                    randomArray[2] = rnd.Next(1, 5);
-                }
-                while (randomArray[0] == randomArray[3] || randomArray[1] == randomArray[3] || randomArray[2] == randomArray[3])
-                {
-                    randomArray[3] = rnd.Next(1, 5);
-                }
-                if (Properties.Settings.Default.save_rb_8chsel == true)
-                {
-                    randomArray[4] = randomArray[0] + 4;
-                    randomArray[5] = randomArray[1] + 4;
-                    randomArray[6] = randomArray[2] + 4;
-                    randomArray[7] = randomArray[3] + 4;
-                    int temp = randomArray[5];
-                    randomArray[5] = randomArray[1];
-                    randomArray[1] = temp;
-                    temp = randomArray[7];
-                    randomArray[7] = randomArray[3];
-                    randomArray[3] = temp;
-                }
-
-                textBox1.AppendText(randomArray[0].ToString() + "," + randomArray[1].ToString() + "," + randomArray[2].ToString() + "," + randomArray[3].ToString() + "," + randomArray[4].ToString() + "," + randomArray[5].ToString() + "," + randomArray[6].ToString() + "," + randomArray[7].ToString() + "\r\n");
+                rndArrMaker();
             }
         }
         int[] randomArray = new int[8];
+        void rndArrMaker()
+        {
+            Random rnd = new Random(DateTime.Now.Millisecond);
+            for (int i = 0; i < 4; i++)
+            {
+                randomArray[i] = rnd.Next(1, 5);
+            }
+            while (randomArray[0] == randomArray[1])
+            {
+                randomArray[1] = rnd.Next(1, 5);
+            }
+            while (randomArray[0] == randomArray[2] || randomArray[1] == randomArray[2])
+            {
+                randomArray[2] = rnd.Next(1, 5);
+            }
+            while (randomArray[0] == randomArray[3] || randomArray[1] == randomArray[3] || randomArray[2] == randomArray[3])
+            {
+                randomArray[3] = rnd.Next(1, 5);
+            }
+            if (Properties.Settings.Default.save_rb_8chsel == true)
+            {
+                randomArray[4] = randomArray[0] + 4;
+                randomArray[5] = randomArray[1] + 4;
+                randomArray[6] = randomArray[2] + 4;
+                randomArray[7] = randomArray[3] + 4;
+                int temp = randomArray[5];
+                randomArray[5] = randomArray[1];
+                randomArray[1] = temp;
+                temp = randomArray[7];
+                randomArray[7] = randomArray[3];
+                randomArray[3] = temp;
+            }
+            for(int i = 0; i < 8; i++)
+                lv_Random.Items[i].Text = randomArray[i].ToString(); 
+            textBox1.AppendText(randomArray[0].ToString() + "," + randomArray[1].ToString() + "," + randomArray[2].ToString() + "," + randomArray[3].ToString() + "," + randomArray[4].ToString() + "," + randomArray[5].ToString() + "," + randomArray[6].ToString() + "," + randomArray[7].ToString() + "\r\n");
+        }
         private void testStop()
         {
             teststart = false;
@@ -537,21 +542,29 @@ namespace SpeakerSelector
                     }
                     else if (rb_random.Checked)
                     {
-                        if (rndSpkOn == false)
+                        if (cb_allRandom.Checked == true)
                         {
-                            Random rnd = new Random(DateTime.Now.Millisecond);
-                            
-                            if (Properties.Settings.Default.save_rb_8chsel == false)
-                            {   //4채널
-                                randomvalue = rnd.Next(1, 5);
-                            }
-                            else
-                            {   //8채널
-                                randomvalue = rnd.Next(1, 9);
-                            }
-                            rndSpkOn = true;
+                            speakerSwitch(randomArray[currentCh]);
+                            lv_Random.Items[currentCh].Selected = true;
                         }
-                        speakerSwitch(randomvalue);
+                        else if (cb_allRandom.Checked == false)
+                        {
+                            if (rndSpkOn == false)
+                            {
+                                Random rnd = new Random(DateTime.Now.Millisecond);
+
+                                if (Properties.Settings.Default.save_rb_8chsel == false)
+                                {   //4채널
+                                    randomvalue = rnd.Next(1, 5);
+                                }
+                                else
+                                {   //8채널
+                                    randomvalue = rnd.Next(1, 9);
+                                }
+                                rndSpkOn = true;
+                            }
+                            speakerSwitch(randomvalue);
+                        }
                     }
                     else if (rb_manual.Checked)
                     {
@@ -660,6 +673,7 @@ namespace SpeakerSelector
                                 currentCh = 0;
                                 routineCountChk++;
                                 tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
+                                rndArrMaker();
                             }
                         }
                         else
@@ -669,6 +683,7 @@ namespace SpeakerSelector
                                 currentCh = 0;
                                 routineCountChk++;
                                 tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
+                                rndArrMaker();
                             }
                         }
                         StimulationTimeWait_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
@@ -939,7 +954,8 @@ namespace SpeakerSelector
             lb_testtime.Text = "00:00";
             testStop();
             if (rb_serial.Checked) Properties.Settings.Default.save_selectedmode = 1;
-            else if (rb_random.Checked) Properties.Settings.Default.save_selectedmode = 2;
+            else if (rb_random.Checked)
+                Properties.Settings.Default.save_selectedmode = 2;
             else if (rb_manual.Checked)
             {
                 gb_stimulationTime.Enabled = false;
@@ -956,6 +972,16 @@ namespace SpeakerSelector
             pb_ch6.Enabled = false;
             pb_ch7.Enabled = false;
             pb_ch8.Enabled = false;
+            if (rb_random.Checked)
+            {
+                this.Size = new Size(1050, 668);
+                pn_Random.Visible = true;
+            }
+            else
+            {
+                this.Size = new Size(930, 668);
+                pn_Random.Visible = false;
+            }
         }
 
         private void rb_manual_CheckedChanged(object sender, EventArgs e)
@@ -1009,6 +1035,7 @@ namespace SpeakerSelector
             else if (rb_preset.Checked)
             {
                 Properties.Settings.Default.save_selectedmode = 4;
+                pn_Preset.Visible = true;
             }
             Properties.Settings.Default.Save();
             pb_ch1.Enabled = false;
@@ -1023,10 +1050,12 @@ namespace SpeakerSelector
             if (rb_preset.Checked)
             {
                 this.Size = new Size(1250, 668);
+                pn_Preset.Visible = true;
             }
             else
             {
                 this.Size = new Size(930, 668);
+                pn_Preset.Visible = false;
             }
         }
 
