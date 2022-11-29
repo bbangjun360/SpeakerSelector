@@ -455,6 +455,11 @@ namespace SpeakerSelector
             }
             for(int i = 0; i < 8; i++)
                 lv_Random.Items[i].Text = randomArray[i].ToString(); 
+            if(Properties.Settings.Default.save_rb_8chsel == false)
+            {
+                for (int i = 4; i < 8; i++)
+                    lv_Random.Items[i].Text = "";
+            }
             textBox1.AppendText(randomArray[0].ToString() + "," + randomArray[1].ToString() + "," + randomArray[2].ToString() + "," + randomArray[3].ToString() + "," + randomArray[4].ToString() + "," + randomArray[5].ToString() + "," + randomArray[6].ToString() + "," + randomArray[7].ToString() + "\r\n");
         }
         private void testStop()
