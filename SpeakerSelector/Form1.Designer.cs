@@ -613,6 +613,7 @@
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(176, 192);
             this.textBox1.TabIndex = 0;
+            this.textBox1.Visible = false;
             // 
             // pb_ch5
             // 

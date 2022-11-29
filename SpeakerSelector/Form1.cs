@@ -507,6 +507,7 @@ namespace SpeakerSelector
         bool rndSpkOn = false;
         int randomvalue = 1;
         int routineCntSum = 0;
+        int currentChSaved = 0;
         private void modeSelector()
         {
             if (rb_preset.Checked)
@@ -517,6 +518,8 @@ namespace SpeakerSelector
                     if (lv_preset.Items.Count <= currentCh)
                         currentCh = 0;
                 }
+                currentChSaved = currentCh; //스피커 끄기함수 실행위해서 값 저장용
+
                 string channels = lv_preset.Items[currentCh].SubItems[0].Text;
                 string[] channel = channels.Split(' ');
                 //Console.WriteLine(channel[0]);
@@ -599,6 +602,7 @@ namespace SpeakerSelector
         }
         int stimulationTime_time = 0;
         int stimulationTimeWait_time = 0;
+        int presetChCount = 0;
         private void StimulationTime_timerWork()
         {                                                                   //초 마다 타이머 함수 실행되면 -1해 남은시간 줄여줌
             if (teststart == true)
@@ -608,12 +612,21 @@ namespace SpeakerSelector
                     if (stimulationTime_time == 0)
                     {
                         modeSelector();
+                        string dataChange = (Int32.Parse(lv_preset.Items[currentCh].SubItems[2].Text) - 1).ToString();
+                        lv_preset.Items[currentCh].SubItems[2].Text = dataChange;
                         lv_preset.Items[currentCh].Selected = true;
+                        presetChCount = Int32.Parse(lv_preset.Items[currentCh].SubItems[2].Text);
                     }
                     else if (stimulationTime_time == Int32.Parse(lv_preset.Items[currentCh].SubItems[1].Text.Split('/')[0]))
                     {
+                        string channels = lv_preset.Items[currentChSaved].SubItems[0].Text;
+                        string[] channel = channels.Split(' ');
+                        int lenn = channels.Replace(" ", "").Length;
+                        for (int i = 0; i < lenn; i++)
+                        {
+                            speakerSwitch(Int32.Parse(channel[i]));
+                        }
                         
-                        modeSelector();
                         StimulationTime_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
                         stimulationTimeWait_time = 0;
                         StimulationTimeWait_ThreadTimer.Change(0, 1000);
@@ -648,8 +661,7 @@ namespace SpeakerSelector
                     if (stimulationTimeWait_time == Int32.Parse(lv_preset.Items[currentCh].SubItems[1].Text.Split('/')[1]))
                     {
                         StimulationTimeWait_ThreadTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
-                        string dataChange = (Int32.Parse(lv_preset.Items[currentCh].SubItems[2].Text) - 1).ToString();
-                        lv_preset.Items[currentCh].SubItems[2].Text = dataChange;
+                        textBox1.AppendText((lv_preset.Items.Count).ToString() + ":" + (currentCh).ToString() + "\r\n");
                         lv_preset.Items[currentCh].Selected = false;
                         currentCh++;
                         if (lv_preset.Items.Count <= currentCh)
@@ -657,7 +669,7 @@ namespace SpeakerSelector
                         routineCntSum--;
                         if (routineCntSum == 0)
                         {
-                            btn_testStart.PerformClick();
+                            testStop();
                         }
                         else
                         {
