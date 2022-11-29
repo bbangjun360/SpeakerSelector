@@ -723,7 +723,7 @@ namespace SpeakerSelector
         public void CheckBoxSpeakerChecking(string str)
         {
             string[] channels = str.Split(new char[] { ' ' });
-            int num = str.Replace(" ", "").Length / 3;
+            int num = str.Replace(" ", "").Length;
             for (int i = 0; i < num; i++)
             {
                 if (channels[i].Contains("1")) cb_listCh1.Checked = true;

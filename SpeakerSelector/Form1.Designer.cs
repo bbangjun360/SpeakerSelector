@@ -121,9 +121,9 @@
             this.cb_allRandom = new System.Windows.Forms.CheckBox();
             this.pn_Preset = new System.Windows.Forms.Panel();
             this.pn_Random = new System.Windows.Forms.Panel();
-            this.lb_Random = new System.Windows.Forms.Label();
             this.lv_Random = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lb_Random = new System.Windows.Forms.Label();
             this.gb_stimulationTime.SuspendLayout();
             this.gb_routineCount.SuspendLayout();
             this.gb_mode.SuspendLayout();
@@ -613,7 +613,6 @@
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(176, 192);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Visible = false;
             // 
             // pb_ch5
             // 
@@ -1015,17 +1014,6 @@
             this.pn_Random.TabIndex = 67;
             this.pn_Random.Visible = false;
             // 
-            // lb_Random
-            // 
-            this.lb_Random.AutoSize = true;
-            this.lb_Random.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15F);
-            this.lb_Random.Location = new System.Drawing.Point(3, 9);
-            this.lb_Random.Name = "lb_Random";
-            this.lb_Random.Size = new System.Drawing.Size(102, 42);
-            this.lb_Random.TabIndex = 55;
-            this.lb_Random.Text = "Random\r\nOrder\r\n";
-            this.lb_Random.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lv_Random
             // 
             this.lv_Random.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -1056,6 +1044,17 @@
             // 
             this.columnHeader1.Text = "";
             this.columnHeader1.Width = 80;
+            // 
+            // lb_Random
+            // 
+            this.lb_Random.AutoSize = true;
+            this.lb_Random.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15F);
+            this.lb_Random.Location = new System.Drawing.Point(3, 9);
+            this.lb_Random.Name = "lb_Random";
+            this.lb_Random.Size = new System.Drawing.Size(102, 42);
+            this.lb_Random.TabIndex = 55;
+            this.lb_Random.Text = "Random\r\nOrder\r\n";
+            this.lb_Random.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SpeakerSelector
             // 
