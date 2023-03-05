@@ -247,7 +247,7 @@ namespace SpeakerSelector
                 
 
             }
-            else if (rb_4chsel.Checked == false)
+            else if (rb_8chsel.Checked == true)
             {
                 gb_8ch.Visible = true;
                 form1.pb_ch5.Visible = true;
@@ -291,6 +291,59 @@ namespace SpeakerSelector
                 form1.cb_listCh7.Visible = true;
                 form1.cb_listCh8.Visible = true;
             }
+            else if (rb_6chsel.Checked == true)
+            {
+                gb_8ch.Visible = true;
+                form1.pb_ch5.Visible = true;
+                form1.lb_ch5.Visible = true;
+                form1.pb_ch6.Visible = true;
+                form1.lb_ch6.Visible = true;
+
+                form1.pb_ch7.Visible = false;
+                form1.lb_ch7.Visible = false;
+                form1.pb_ch8.Visible = false;
+                form1.lb_ch8.Visible = false;
+
+                form1.pb_ch1.Location = new Point(284, 1);
+                form1.pb_ch2.Location = new Point(495, 61);
+                form1.pb_ch3.Location = new Point(557, 272);
+                form1.pb_ch4.Location = new Point(495, 483);
+                //form1.pb_ch5.Location = new Point(557, 272);
+                //form1.pb_ch6.Location = new Point(495, 483);
+
+                form1.lb_ch1.Location = new Point(284, 1);
+                form1.lb_ch2.Location = new Point(495, 61);
+                form1.lb_ch3.Location = new Point(557, 272);
+                form1.lb_ch4.Location = new Point(495, 483);
+                //form1.pb_ch5.Location = new Point(557, 272);
+                //form1.pb_ch6.Location = new Point(495, 483);
+
+                form1.lb_ch1deg.Text = tb_ch1ang.Text;
+                form1.lb_ch2deg.Text = tb_ch2ang.Text;
+                form1.lb_ch3deg.Text = tb_ch3ang.Text;
+                form1.lb_ch4deg.Text = tb_ch4ang.Text;
+                form1.lb_ch5deg.Text = tb_ch5ang.Text;
+                form1.lb_ch6deg.Text = tb_ch6ang.Text;
+
+                form1.lb_ch1deg.Location = new Point(321, 124);
+                form1.lb_ch2deg.Location = new Point(453, 183);
+                form1.lb_ch3deg.Location = new Point(492, 314);
+                form1.lb_ch4deg.Location = new Point(411, 451);
+                //form1.lb_ch5deg.Location = new Point(492, 314);
+                //form1.lb_ch6deg.Location = new Point(411, 451);
+
+                form1.cb_listCh1.Location = new Point(6, 20);
+                form1.cb_listCh2.Location = new Point(82, 20);
+                form1.cb_listCh3.Location = new Point(158, 20);
+                form1.cb_listCh4.Location = new Point(234, 20);
+                //form1.cb_listCh5.Location = new Point(158, 20);
+                //form1.cb_listCh6.Location = new Point(234, 20);
+
+                form1.cb_listCh5.Visible = true;
+                form1.cb_listCh6.Visible = true;
+                form1.cb_listCh7.Visible = false;
+                form1.cb_listCh8.Visible = false;
+            }
 
             Properties.Settings.Default.save_ch1ang = tb_ch1ang.Text;
             Properties.Settings.Default.save_ch2ang = tb_ch2ang.Text;
@@ -301,7 +354,8 @@ namespace SpeakerSelector
             Properties.Settings.Default.save_ch7ang = tb_ch7ang.Text;
             Properties.Settings.Default.save_ch8ang = tb_ch8ang.Text;
 
-            Properties.Settings.Default.save_rb_8chsel = rb_8chsel.Checked;
+            Properties.Settings.Default.save_rb_8chsel = rb_8chsel.Checked;     // 8채널 선택되었는지 저장
+            Properties.Settings.Default.save_rb_6chsel = rb_6chsel.Checked;     // 6채널 선택되었는지 저장
             Properties.Settings.Default.save_cb_chairdeg = cb_chairdeg.SelectedIndex;
 
             Properties.Settings.Default.Save();
@@ -321,6 +375,21 @@ namespace SpeakerSelector
                 MessageBox.Show("연결을 먼저 진행해주세요!");
             }
             
+        }
+
+        private void cg_4ch_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rb_8chsel_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

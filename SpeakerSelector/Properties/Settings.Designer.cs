@@ -226,5 +226,17 @@ namespace SpeakerSelector.Properties {
                 this["save_selectedSpeakerAng"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool save_rb_6chsel {
+            get {
+                return ((bool)(this["save_rb_6chsel"]));
+            }
+            set {
+                this["save_rb_6chsel"] = value;
+            }
+        }
     }
 }

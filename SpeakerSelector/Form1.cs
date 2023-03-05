@@ -453,12 +453,37 @@ namespace SpeakerSelector
                 randomArray[7] = randomArray[3];
                 randomArray[3] = temp;
             }
+            else if(Properties.Settings.Default.save_rb_6chsel == true)
+            {
+                randomArray[4] = rnd.Next(1, 2) + 4;
+                randomArray[5] = 5 + (6 - randomArray[4]); // randomArray[4]가 5라면 6이 되고 5면 6이 되게하는 코드
+                if (rnd.Next(1, 3) == 1)
+                {
+                    int temp = randomArray[4];
+                    randomArray[4] = randomArray[0];
+                    randomArray[0] = temp;
+                }
+                if (rnd.Next(1, 3) == 1)
+                {
+                    int temp = randomArray[5];
+                    randomArray[5] = randomArray[2];
+                    randomArray[2] = temp;
+                }
+            }
             for(int i = 0; i < 8; i++)
                 lv_Random.Items[i].Text = randomArray[i].ToString(); 
             if(Properties.Settings.Default.save_rb_8chsel == false)
             {
-                for (int i = 4; i < 8; i++)
-                    lv_Random.Items[i].Text = "";
+                if(Properties.Settings.Default.save_rb_6chsel == true)
+                {
+                    for (int i = 5; i < 8; i++)
+                        lv_Random.Items[i].Text = "";
+                }
+                else
+                {
+                    for (int i = 4; i < 8; i++)
+                        lv_Random.Items[i].Text = "";
+                }
             }
             textBox1.AppendText(randomArray[0].ToString() + "," + randomArray[1].ToString() + "," + randomArray[2].ToString() + "," + randomArray[3].ToString() + "," + randomArray[4].ToString() + "," + randomArray[5].ToString() + "," + randomArray[6].ToString() + "," + randomArray[7].ToString() + "\r\n");
         }
@@ -544,8 +569,18 @@ namespace SpeakerSelector
                         }
                         else
                         {
-                            if(Properties.Settings.Default.save_rb_8chsel == true) speakerSwitch(8 - currentCh);
-                            else speakerSwitch(4 - currentCh);
+                            if (Properties.Settings.Default.save_rb_8chsel == true)
+                            {
+                                speakerSwitch(8 - currentCh);
+                            }
+                            else if (Properties.Settings.Default.save_rb_6chsel == true)
+                            {
+                                speakerSwitch(6 - currentCh);
+                            }
+                            else
+                            {
+                                speakerSwitch(4 - currentCh);
+                            }
                         }
                     }
                     else if (rb_random.Checked)
@@ -561,13 +596,17 @@ namespace SpeakerSelector
                             {
                                 Random rnd = new Random(DateTime.Now.Millisecond);
 
-                                if (Properties.Settings.Default.save_rb_8chsel == false)
-                                {   //4채널
-                                    randomvalue = rnd.Next(1, 5);
-                                }
-                                else
+                                if (Properties.Settings.Default.save_rb_8chsel == true)
                                 {   //8채널
                                     randomvalue = rnd.Next(1, 9);
+                                }
+                                else if (Properties.Settings.Default.save_rb_6chsel == true)
+                                {   //6채널
+                                    randomvalue = rnd.Next(1, 7);
+                                }
+                                else
+                                {   //4채널
+                                    randomvalue = rnd.Next(1, 5);
                                 }
                                 rndSpkOn = true;
                             }
@@ -683,9 +722,19 @@ namespace SpeakerSelector
                     if (stimulationTimeWait_time == Int32.Parse(Properties.Settings.Default.save_tb_stimulationTimeWait))
                     {
                         currentCh++;
-                        if (Properties.Settings.Default.save_rb_8chsel == false)
+                        if (Properties.Settings.Default.save_rb_8chsel == true)
                         {
-                            if (currentCh == 4)
+                            if (currentCh == 8)
+                            {
+                                currentCh = 0;
+                                routineCountChk++;
+                                tb_form1RoutineCount.Text = (Int32.Parse(tb_form1RoutineCount.Text) - 1).ToString();
+                                rndArrMaker();
+                            }
+                        }
+                        else if (Properties.Settings.Default.save_rb_6chsel == true)
+                        {
+                            if (currentCh == 6)
                             {
                                 currentCh = 0;
                                 routineCountChk++;
@@ -695,7 +744,7 @@ namespace SpeakerSelector
                         }
                         else
                         {
-                            if (currentCh == 8)
+                            if (currentCh == 4)
                             {
                                 currentCh = 0;
                                 routineCountChk++;

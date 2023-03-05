@@ -61,6 +61,7 @@
             this.gb_speakerAngle = new System.Windows.Forms.GroupBox();
             this.rb_180deg = new System.Windows.Forms.RadioButton();
             this.rb_360deg = new System.Windows.Forms.RadioButton();
+            this.rb_6chsel = new System.Windows.Forms.RadioButton();
             this.cg_4ch.SuspendLayout();
             this.gb_8ch.SuspendLayout();
             this.gb_Serial.SuspendLayout();
@@ -95,12 +96,12 @@
             // rb_4chsel
             // 
             this.rb_4chsel.AutoSize = true;
-            this.rb_4chsel.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F);
-            this.rb_4chsel.Location = new System.Drawing.Point(6, 23);
+            this.rb_4chsel.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rb_4chsel.Location = new System.Drawing.Point(9, 24);
             this.rb_4chsel.Name = "rb_4chsel";
-            this.rb_4chsel.Size = new System.Drawing.Size(60, 17);
+            this.rb_4chsel.Size = new System.Drawing.Size(49, 16);
             this.rb_4chsel.TabIndex = 2;
-            this.rb_4chsel.Text = "4채널";
+            this.rb_4chsel.Text = "4ch";
             this.rb_4chsel.UseVisualStyleBackColor = true;
             this.rb_4chsel.CheckedChanged += new System.EventHandler(this.rb_4chsel_CheckedChanged);
             // 
@@ -108,17 +109,19 @@
             // 
             this.rb_8chsel.AutoSize = true;
             this.rb_8chsel.Checked = true;
-            this.rb_8chsel.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.rb_8chsel.Location = new System.Drawing.Point(72, 23);
+            this.rb_8chsel.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rb_8chsel.Location = new System.Drawing.Point(119, 24);
             this.rb_8chsel.Name = "rb_8chsel";
-            this.rb_8chsel.Size = new System.Drawing.Size(60, 17);
+            this.rb_8chsel.Size = new System.Drawing.Size(49, 16);
             this.rb_8chsel.TabIndex = 4;
             this.rb_8chsel.TabStop = true;
-            this.rb_8chsel.Text = "8채널";
+            this.rb_8chsel.Text = "8ch";
             this.rb_8chsel.UseVisualStyleBackColor = true;
+            this.rb_8chsel.CheckedChanged += new System.EventHandler(this.rb_8chsel_CheckedChanged);
             // 
             // cg_4ch
             // 
+            this.cg_4ch.Controls.Add(this.rb_6chsel);
             this.cg_4ch.Controls.Add(this.tb_ch2ang);
             this.cg_4ch.Controls.Add(this.lb_ch2);
             this.cg_4ch.Controls.Add(this.tb_ch3ang);
@@ -132,15 +135,16 @@
             this.cg_4ch.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cg_4ch.Location = new System.Drawing.Point(164, 12);
             this.cg_4ch.Name = "cg_4ch";
-            this.cg_4ch.Size = new System.Drawing.Size(146, 158);
+            this.cg_4ch.Size = new System.Drawing.Size(170, 158);
             this.cg_4ch.TabIndex = 5;
             this.cg_4ch.TabStop = false;
             this.cg_4ch.Text = "스피커 위치";
+            this.cg_4ch.Enter += new System.EventHandler(this.cg_4ch_Enter);
             // 
             // tb_ch2ang
             // 
             this.tb_ch2ang.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_ch2ang.Location = new System.Drawing.Point(53, 74);
+            this.tb_ch2ang.Location = new System.Drawing.Point(60, 74);
             this.tb_ch2ang.Name = "tb_ch2ang";
             this.tb_ch2ang.Size = new System.Drawing.Size(63, 22);
             this.tb_ch2ang.TabIndex = 18;
@@ -150,7 +154,7 @@
             // 
             this.lb_ch2.AutoSize = true;
             this.lb_ch2.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lb_ch2.Location = new System.Drawing.Point(6, 83);
+            this.lb_ch2.Location = new System.Drawing.Point(13, 83);
             this.lb_ch2.Name = "lb_ch2";
             this.lb_ch2.Size = new System.Drawing.Size(41, 13);
             this.lb_ch2.TabIndex = 17;
@@ -159,7 +163,7 @@
             // tb_ch3ang
             // 
             this.tb_ch3ang.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_ch3ang.Location = new System.Drawing.Point(53, 102);
+            this.tb_ch3ang.Location = new System.Drawing.Point(60, 102);
             this.tb_ch3ang.Name = "tb_ch3ang";
             this.tb_ch3ang.Size = new System.Drawing.Size(63, 22);
             this.tb_ch3ang.TabIndex = 12;
@@ -169,7 +173,7 @@
             // 
             this.lb_ch3.AutoSize = true;
             this.lb_ch3.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lb_ch3.Location = new System.Drawing.Point(6, 111);
+            this.lb_ch3.Location = new System.Drawing.Point(13, 111);
             this.lb_ch3.Name = "lb_ch3";
             this.lb_ch3.Size = new System.Drawing.Size(41, 13);
             this.lb_ch3.TabIndex = 11;
@@ -178,7 +182,7 @@
             // tb_ch4ang
             // 
             this.tb_ch4ang.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_ch4ang.Location = new System.Drawing.Point(53, 130);
+            this.tb_ch4ang.Location = new System.Drawing.Point(60, 130);
             this.tb_ch4ang.Name = "tb_ch4ang";
             this.tb_ch4ang.Size = new System.Drawing.Size(63, 22);
             this.tb_ch4ang.TabIndex = 10;
@@ -188,7 +192,7 @@
             // 
             this.lb_ch4.AutoSize = true;
             this.lb_ch4.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lb_ch4.Location = new System.Drawing.Point(6, 139);
+            this.lb_ch4.Location = new System.Drawing.Point(13, 139);
             this.lb_ch4.Name = "lb_ch4";
             this.lb_ch4.Size = new System.Drawing.Size(41, 13);
             this.lb_ch4.TabIndex = 9;
@@ -198,7 +202,7 @@
             // tb_ch1ang
             // 
             this.tb_ch1ang.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_ch1ang.Location = new System.Drawing.Point(53, 46);
+            this.tb_ch1ang.Location = new System.Drawing.Point(60, 46);
             this.tb_ch1ang.Name = "tb_ch1ang";
             this.tb_ch1ang.Size = new System.Drawing.Size(63, 22);
             this.tb_ch1ang.TabIndex = 8;
@@ -208,7 +212,7 @@
             // 
             this.lb_ch1.AutoSize = true;
             this.lb_ch1.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lb_ch1.Location = new System.Drawing.Point(6, 55);
+            this.lb_ch1.Location = new System.Drawing.Point(13, 55);
             this.lb_ch1.Name = "lb_ch1";
             this.lb_ch1.Size = new System.Drawing.Size(41, 13);
             this.lb_ch1.TabIndex = 7;
@@ -228,7 +232,7 @@
             this.gb_8ch.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.gb_8ch.Location = new System.Drawing.Point(164, 176);
             this.gb_8ch.Name = "gb_8ch";
-            this.gb_8ch.Size = new System.Drawing.Size(146, 134);
+            this.gb_8ch.Size = new System.Drawing.Size(170, 134);
             this.gb_8ch.TabIndex = 19;
             this.gb_8ch.TabStop = false;
             // 
@@ -396,7 +400,7 @@
             this.gb_speakerAngle.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F);
             this.gb_speakerAngle.Location = new System.Drawing.Point(12, 176);
             this.gb_speakerAngle.Name = "gb_speakerAngle";
-            this.gb_speakerAngle.Size = new System.Drawing.Size(298, 50);
+            this.gb_speakerAngle.Size = new System.Drawing.Size(322, 50);
             this.gb_speakerAngle.TabIndex = 25;
             this.gb_speakerAngle.TabStop = false;
             this.gb_speakerAngle.Text = "Speaker angle";
@@ -426,11 +430,23 @@
             this.rb_360deg.Text = "360 deg";
             this.rb_360deg.UseVisualStyleBackColor = true;
             // 
+            // rb_6chsel
+            // 
+            this.rb_6chsel.AutoSize = true;
+            this.rb_6chsel.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rb_6chsel.Location = new System.Drawing.Point(64, 24);
+            this.rb_6chsel.Name = "rb_6chsel";
+            this.rb_6chsel.Size = new System.Drawing.Size(49, 16);
+            this.rb_6chsel.TabIndex = 19;
+            this.rb_6chsel.Text = "6ch";
+            this.rb_6chsel.UseVisualStyleBackColor = true;
+            this.rb_6chsel.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
             // Form2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(323, 376);
+            this.ClientSize = new System.Drawing.Size(340, 376);
             this.Controls.Add(this.gb_speakerAngle);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gb_chairlocation);
@@ -490,5 +506,6 @@
         private System.Windows.Forms.GroupBox gb_speakerAngle;
         private System.Windows.Forms.RadioButton rb_180deg;
         private System.Windows.Forms.RadioButton rb_360deg;
+        private System.Windows.Forms.RadioButton rb_6chsel;
     }
 }
