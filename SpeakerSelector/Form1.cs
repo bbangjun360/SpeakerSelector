@@ -453,28 +453,34 @@ namespace SpeakerSelector
                 randomArray[7] = randomArray[3];
                 randomArray[3] = temp;
             }
-            else if(Properties.Settings.Default.save_rb_6chsel == true)
+            else if(Properties.Settings.Default.save_rb_5chsel == true)
             {
-                randomArray[4] = rnd.Next(1, 2) + 4;
-                randomArray[5] = 5 + (6 - randomArray[4]); // randomArray[4]가 5라면 6이 되고 5면 6이 되게하는 코드
-                if (rnd.Next(1, 3) == 1)
+                for (int i = 0; i < 5; i++)
                 {
-                    int temp = randomArray[4];
-                    randomArray[4] = randomArray[0];
-                    randomArray[0] = temp;
+                    randomArray[i] = rnd.Next(1, 6);
                 }
-                if (rnd.Next(1, 3) == 1)
+                while (randomArray[0] == randomArray[1])
                 {
-                    int temp = randomArray[5];
-                    randomArray[5] = randomArray[2];
-                    randomArray[2] = temp;
+                    randomArray[1] = rnd.Next(1, 6);
+                }
+                while (randomArray[0] == randomArray[2] || randomArray[1] == randomArray[2])
+                {
+                    randomArray[2] = rnd.Next(1, 6);
+                }
+                while (randomArray[0] == randomArray[3] || randomArray[1] == randomArray[3] || randomArray[2] == randomArray[3])
+                {
+                    randomArray[3] = rnd.Next(1, 6);
+                }
+                while (randomArray[0] == randomArray[4] || randomArray[1] == randomArray[4] || randomArray[2] == randomArray[4] || randomArray[3] == randomArray[4])
+                {
+                    randomArray[4] = rnd.Next(1, 6);
                 }
             }
             for(int i = 0; i < 8; i++)
                 lv_Random.Items[i].Text = randomArray[i].ToString(); 
             if(Properties.Settings.Default.save_rb_8chsel == false)
             {
-                if(Properties.Settings.Default.save_rb_6chsel == true)
+                if(Properties.Settings.Default.save_rb_5chsel == true)
                 {
                     for (int i = 5; i < 8; i++)
                         lv_Random.Items[i].Text = "";
@@ -573,9 +579,9 @@ namespace SpeakerSelector
                             {
                                 speakerSwitch(8 - currentCh);
                             }
-                            else if (Properties.Settings.Default.save_rb_6chsel == true)
+                            else if (Properties.Settings.Default.save_rb_5chsel == true)
                             {
-                                speakerSwitch(6 - currentCh);
+                                speakerSwitch(5 - currentCh);
                             }
                             else
                             {
@@ -600,9 +606,9 @@ namespace SpeakerSelector
                                 {   //8채널
                                     randomvalue = rnd.Next(1, 9);
                                 }
-                                else if (Properties.Settings.Default.save_rb_6chsel == true)
+                                else if (Properties.Settings.Default.save_rb_5chsel == true)
                                 {   //6채널
-                                    randomvalue = rnd.Next(1, 7);
+                                    randomvalue = rnd.Next(1, 6);
                                 }
                                 else
                                 {   //4채널
@@ -732,9 +738,9 @@ namespace SpeakerSelector
                                 rndArrMaker();
                             }
                         }
-                        else if (Properties.Settings.Default.save_rb_6chsel == true)
+                        else if (Properties.Settings.Default.save_rb_5chsel == true)
                         {
-                            if (currentCh == 6)
+                            if (currentCh == 5)
                             {
                                 currentCh = 0;
                                 routineCountChk++;

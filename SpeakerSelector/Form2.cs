@@ -30,11 +30,19 @@ namespace SpeakerSelector
             if (Properties.Settings.Default.save_rb_8chsel == true)
             {
                 rb_8chsel.Checked = true;
+                rb_5chsel.Checked = false;
+                rb_4chsel.Checked = false;
+            }
+            else if (Properties.Settings.Default.save_rb_5chsel == true)
+            {
+                rb_8chsel.Checked = false;
+                rb_5chsel.Checked = true;
                 rb_4chsel.Checked = false;
             }
             else
             {
                 rb_8chsel.Checked = false;
+                rb_5chsel.Checked = false;
                 rb_4chsel.Checked = true;
             }
             if (Properties.Settings.Default.save_selectedSpeakerAng == 1)
@@ -48,8 +56,8 @@ namespace SpeakerSelector
                 rb_360deg.Checked = true;
             }
             cb_chairdeg.SelectedIndex = Properties.Settings.Default.save_cb_chairdeg;
-            rb_4chsel.Checked = !(Properties.Settings.Default.save_rb_8chsel);
-            rb_8chsel.Checked = Properties.Settings.Default.save_rb_8chsel;
+            //rb_4chsel.Checked = (Properties.Settings.Default.save_rb_8chsel);
+            //rb_8chsel.Checked = Properties.Settings.Default.save_rb_8chsel;
             tb_ch1ang.Text = Properties.Settings.Default.save_ch1ang;
             tb_ch2ang.Text = Properties.Settings.Default.save_ch2ang;
             tb_ch3ang.Text = Properties.Settings.Default.save_ch3ang;
@@ -58,7 +66,7 @@ namespace SpeakerSelector
             tb_ch6ang.Text = Properties.Settings.Default.save_ch6ang;
             tb_ch7ang.Text = Properties.Settings.Default.save_ch7ang;
             tb_ch8ang.Text = Properties.Settings.Default.save_ch8ang;
-            btn_apply.PerformClick();
+            btn_apply.PerformClick();   //이전 세팅으로 apply
             if (Properties.Settings.Default.form2Opened == false)
             {
                 Properties.Settings.Default.form2Opened = true;
@@ -142,8 +150,27 @@ namespace SpeakerSelector
             {
                 gb_8ch.Visible = true;
                 gb_speakerAngle.Visible = false;
+                if (rb_8chsel.Checked == true)
+                {
+                    lb_ch6.Visible = true;
+                    lb_ch7.Visible = true;
+                    lb_ch8.Visible = true;
+                    tb_ch6ang.Visible = true;
+                    tb_ch7ang.Visible = true;
+                    tb_ch8ang.Visible = true;
+                }
+                else
+                {
+                    lb_ch6.Visible = false;
+                    lb_ch7.Visible = false;
+                    lb_ch8.Visible = false;
+                    tb_ch6ang.Visible = false;
+                    tb_ch7ang.Visible = false;
+                    tb_ch8ang.Visible = false;
+                }
 
             }
+            
         }
 
         private void btn_apply_Click(object sender, EventArgs e)
@@ -245,7 +272,9 @@ namespace SpeakerSelector
                     form1.cb_listCh3.Location = new Point(158, 31);
                     form1.cb_listCh4.Location = new Point(234, 31);
                 }
-                
+                Properties.Settings.Default.save_rb_8chsel = false;     // 8채널 선택되었는지 저장
+                Properties.Settings.Default.save_rb_5chsel = false;     // 6채널 선택되었는지 저장
+
 
             }
             else if (rb_8chsel.Checked == true)
@@ -264,10 +293,14 @@ namespace SpeakerSelector
                 form1.pb_ch2.Location = new Point(495, 61);
                 form1.pb_ch3.Location = new Point(557, 272);
                 form1.pb_ch4.Location = new Point(495, 483);
+                form1.pb_ch5.Location = new Point(283, 545);     
+
+
                 form1.lb_ch1.Location = new Point(284, 1);
                 form1.lb_ch2.Location = new Point(495, 61);
                 form1.lb_ch3.Location = new Point(557, 272);
                 form1.lb_ch4.Location = new Point(495, 483);
+                form1.lb_ch5.Location = new Point(282, 545);     
 
                 form1.lb_ch1deg.Text = tb_ch1ang.Text;
                 form1.lb_ch2deg.Text = tb_ch2ang.Text;
@@ -282,6 +315,7 @@ namespace SpeakerSelector
                 form1.lb_ch2deg.Location = new Point(453, 183);
                 form1.lb_ch3deg.Location = new Point(492, 314);
                 form1.lb_ch4deg.Location = new Point(411, 451);
+                form1.lb_ch5deg.Location = new Point(268, 483);
 
                 form1.cb_listCh1.Location = new Point(6, 20);
                 form1.cb_listCh2.Location = new Point(82, 20);
@@ -291,6 +325,16 @@ namespace SpeakerSelector
                 form1.cb_listCh6.Visible = true;
                 form1.cb_listCh7.Visible = true;
                 form1.cb_listCh8.Visible = true;
+
+                lb_ch6.Visible = true;
+                lb_ch7.Visible = true;
+                lb_ch8.Visible = true;
+                tb_ch6ang.Visible = true;
+                tb_ch7ang.Visible = true;
+                tb_ch8ang.Visible = true;
+
+                Properties.Settings.Default.save_rb_8chsel = true;     // 8채널 선택되었는지 저장
+                Properties.Settings.Default.save_rb_5chsel = false;     // 6채널 선택되었는지 저장
             }
             else if (rb_5chsel.Checked == true)
             {
@@ -333,12 +377,21 @@ namespace SpeakerSelector
                 form1.cb_listCh2.Location = new Point(82, 20);
                 form1.cb_listCh3.Location = new Point(158, 20);
                 form1.cb_listCh4.Location = new Point(234, 20);
-                form1.cb_listCh5.Location = new Point(158, 20);
 
                 form1.cb_listCh5.Visible = true;
                 form1.cb_listCh6.Visible = false;
                 form1.cb_listCh7.Visible = false;
                 form1.cb_listCh8.Visible = false;
+
+                lb_ch6.Visible = false;
+                lb_ch7.Visible = false;
+                lb_ch8.Visible = false;
+                tb_ch6ang.Visible = false;
+                tb_ch7ang.Visible = false;
+                tb_ch8ang.Visible = false;
+
+                Properties.Settings.Default.save_rb_8chsel = false;     // 8채널 선택되었는지 저장
+                Properties.Settings.Default.save_rb_5chsel = true;     // 6채널 선택되었는지 저장
             }
 
             Properties.Settings.Default.save_ch1ang = tb_ch1ang.Text;
@@ -350,8 +403,8 @@ namespace SpeakerSelector
             Properties.Settings.Default.save_ch7ang = tb_ch7ang.Text;
             Properties.Settings.Default.save_ch8ang = tb_ch8ang.Text;
 
-            Properties.Settings.Default.save_rb_8chsel = rb_8chsel.Checked;     // 8채널 선택되었는지 저장
-            Properties.Settings.Default.save_rb_6chsel = rb_5chsel.Checked;     // 6채널 선택되었는지 저장
+            //Properties.Settings.Default.save_rb_8chsel = rb_8chsel.Checked;     // 8채널 선택되었는지 저장
+            //Properties.Settings.Default.save_rb_5chsel = rb_5chsel.Checked;     // 6채널 선택되었는지 저장
             Properties.Settings.Default.save_cb_chairdeg = cb_chairdeg.SelectedIndex;
 
             Properties.Settings.Default.Save();
@@ -385,7 +438,24 @@ namespace SpeakerSelector
 
         private void rb_8chsel_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (rb_8chsel.Checked == true)
+            {
+                lb_ch6.Visible = true;
+                lb_ch7.Visible = true;
+                lb_ch8.Visible = true;
+                tb_ch6ang.Visible = true;
+                tb_ch7ang.Visible = true;
+                tb_ch8ang.Visible = true;
+            }
+            else
+            {
+                lb_ch6.Visible = false;
+                lb_ch7.Visible = false;
+                lb_ch8.Visible = false;
+                tb_ch6ang.Visible = false;
+                tb_ch7ang.Visible = false;
+                tb_ch8ang.Visible = false;
+            }
         }
     }
 }
