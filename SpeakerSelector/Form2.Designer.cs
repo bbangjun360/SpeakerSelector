@@ -34,6 +34,7 @@
             this.rb_4chsel = new System.Windows.Forms.RadioButton();
             this.rb_8chsel = new System.Windows.Forms.RadioButton();
             this.cg_4ch = new System.Windows.Forms.GroupBox();
+            this.rb_5chsel = new System.Windows.Forms.RadioButton();
             this.tb_ch2ang = new System.Windows.Forms.TextBox();
             this.lb_ch2 = new System.Windows.Forms.Label();
             this.tb_ch3ang = new System.Windows.Forms.TextBox();
@@ -61,7 +62,6 @@
             this.gb_speakerAngle = new System.Windows.Forms.GroupBox();
             this.rb_180deg = new System.Windows.Forms.RadioButton();
             this.rb_360deg = new System.Windows.Forms.RadioButton();
-            this.rb_6chsel = new System.Windows.Forms.RadioButton();
             this.cg_4ch.SuspendLayout();
             this.gb_8ch.SuspendLayout();
             this.gb_Serial.SuspendLayout();
@@ -121,7 +121,7 @@
             // 
             // cg_4ch
             // 
-            this.cg_4ch.Controls.Add(this.rb_6chsel);
+            this.cg_4ch.Controls.Add(this.rb_5chsel);
             this.cg_4ch.Controls.Add(this.tb_ch2ang);
             this.cg_4ch.Controls.Add(this.lb_ch2);
             this.cg_4ch.Controls.Add(this.tb_ch3ang);
@@ -140,6 +140,19 @@
             this.cg_4ch.TabStop = false;
             this.cg_4ch.Text = "스피커 위치";
             this.cg_4ch.Enter += new System.EventHandler(this.cg_4ch_Enter);
+            // 
+            // rb_5chsel
+            // 
+            this.rb_5chsel.AutoSize = true;
+            this.rb_5chsel.BackColor = System.Drawing.Color.White;
+            this.rb_5chsel.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rb_5chsel.Location = new System.Drawing.Point(64, 24);
+            this.rb_5chsel.Name = "rb_5chsel";
+            this.rb_5chsel.Size = new System.Drawing.Size(49, 16);
+            this.rb_5chsel.TabIndex = 19;
+            this.rb_5chsel.Text = "5ch";
+            this.rb_5chsel.UseVisualStyleBackColor = false;
+            this.rb_5chsel.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // tb_ch2ang
             // 
@@ -430,18 +443,6 @@
             this.rb_360deg.Text = "360 deg";
             this.rb_360deg.UseVisualStyleBackColor = true;
             // 
-            // rb_6chsel
-            // 
-            this.rb_6chsel.AutoSize = true;
-            this.rb_6chsel.Font = new System.Drawing.Font("휴먼둥근헤드라인", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.rb_6chsel.Location = new System.Drawing.Point(64, 24);
-            this.rb_6chsel.Name = "rb_6chsel";
-            this.rb_6chsel.Size = new System.Drawing.Size(49, 16);
-            this.rb_6chsel.TabIndex = 19;
-            this.rb_6chsel.Text = "6ch";
-            this.rb_6chsel.UseVisualStyleBackColor = true;
-            this.rb_6chsel.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
             // Form2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -506,6 +507,6 @@
         private System.Windows.Forms.GroupBox gb_speakerAngle;
         private System.Windows.Forms.RadioButton rb_180deg;
         private System.Windows.Forms.RadioButton rb_360deg;
-        private System.Windows.Forms.RadioButton rb_6chsel;
+        private System.Windows.Forms.RadioButton rb_5chsel;
     }
 }
