@@ -121,7 +121,7 @@ namespace SpeakerSelector
                 form1.serialPort1.PortName = cb_SerialPort.Text;                                   //콤보박스의 선택된 COM포트명을 시리얼포트명으로 지정
                 Properties.Settings.Default.save_cb_SerialPort = cb_SerialPort.Text;
                 Properties.Settings.Default.Save();
-                form1.serialPort1.BaudRate = 9600;                                                     //baudrate 변경이 필요하면 숫자 변경하기
+                form1.serialPort1.BaudRate = 115200;                                                     //baudrate 변경이 필요하면 숫자 변경하기
                 form1.serialPort1.DataBits = 8;
                 form1.serialPort1.StopBits = StopBits.One;
                 form1.serialPort1.Parity = Parity.None;
