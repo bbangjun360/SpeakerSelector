@@ -152,7 +152,6 @@
             this.rb_5chsel.TabIndex = 19;
             this.rb_5chsel.Text = "5ch";
             this.rb_5chsel.UseVisualStyleBackColor = false;
-            this.rb_5chsel.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // tb_ch2ang
             // 

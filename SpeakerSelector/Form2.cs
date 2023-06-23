@@ -366,6 +366,9 @@ namespace SpeakerSelector
                 form1.lb_ch3deg.Text = tb_ch3ang.Text;
                 form1.lb_ch4deg.Text = tb_ch4ang.Text;
                 form1.lb_ch5deg.Text = tb_ch5ang.Text;
+                form1.lb_ch6deg.Text = "";
+                form1.lb_ch7deg.Text = "";
+                form1.lb_ch8deg.Text = "";
 
                 form1.lb_ch1deg.Location = new Point(321, 124);//위치 1
                 form1.lb_ch2deg.Location = new Point(492, 314);//위치 3
@@ -389,7 +392,7 @@ namespace SpeakerSelector
                 tb_ch6ang.Visible = false;
                 tb_ch7ang.Visible = false;
                 tb_ch8ang.Visible = false;
-
+                
                 Properties.Settings.Default.save_rb_8chsel = false;     // 8채널 선택되었는지 저장
                 Properties.Settings.Default.save_rb_5chsel = true;     // 6채널 선택되었는지 저장
             }
@@ -427,11 +430,6 @@ namespace SpeakerSelector
         }
 
         private void cg_4ch_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
