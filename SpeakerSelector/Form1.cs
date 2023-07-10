@@ -103,6 +103,8 @@ namespace SpeakerSelector
                     MessageBox.Show((String)"MASTER 장치와 연결되었습니다");
                 else if (data_temp.Contains("START_DEVELOPER"))
                     MessageBox.Show((String)" 개발자 장치와 연결되었습니다");
+                else if (data_temp.Contains("START_DEMO"))
+                    MessageBox.Show((String)" 데모 장치와 연결되었습니다");
             }
             else if (data_temp.StartsWith("L"))
             {
@@ -960,7 +962,7 @@ namespace SpeakerSelector
                 }
 
                 serialPort1.PortName = Properties.Settings.Default.save_cb_SerialPort;                                   //콤보박스의 선택된 COM포트명을 시리얼포트명으로 지정
-                serialPort1.BaudRate = 115200;                                                     //baudrate 변경이 필요하면 숫자 변경하기
+                serialPort1.BaudRate = 9600;                                                     //baudrate 변경이 필요하면 숫자 변경하기
                 serialPort1.DataBits = 8;
                 serialPort1.StopBits = StopBits.One;
                 serialPort1.Parity = Parity.None;
